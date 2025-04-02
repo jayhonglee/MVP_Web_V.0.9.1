@@ -1,11 +1,7 @@
-import "./App.css";
+import DropInsBrowsePage from "./pages/DropInsBrowsePage";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Welcome to Hangout</h1>
-    </div>
-  );
+  return <DropInsBrowsePage />;
 }
 
 export default App;
