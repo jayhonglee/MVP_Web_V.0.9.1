@@ -1,6 +1,5 @@
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 import appStoreIcon from "../../assets/app-store.svg";
-import playStoreIcon from "../../assets/play-store.svg";
 
 function NavBar() {
   return (
@@ -17,14 +16,14 @@ function NavBar() {
           </a>
         </a>
         <div className="flex items-center mr-[6px]">
-          <div className="mr-[20px] bg-[#F43630] rounded-full px-[15px] py-[5px]">
+          <div className="mr-[20px] bg-[#F43630] rounded-full px-[10px] py-[5px]">
             <p className="text-sm text-white font-medium flex items-center">
               <img
                 src={appStoreIcon}
                 alt="App Store"
                 className="w-5 h-5 mr-1"
               />
-              App Coming Soon
+              Coming Soon
             </p>
           </div>
           <div className="w-[16px] h-[14px] flex flex-col justify-between">
