@@ -106,9 +106,17 @@ function DropInsBrowsePage() {
               {dropInsData[category].map((dropIn) => (
                 <div
                   key={dropIn.id}
-                  className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow"
+                  className="bg-[#fefefe] rounded-[12px] px-[10px] py-[12px]"
                 >
-                  <div className="flex items-center mb-4">
+                  <div className="flex items-center">
+                    <img
+                      src={dropIn.dropInImage}
+                      alt={dropIn.title}
+                      className="w-[98px] h-[98px] rounded-[10px] mr-[10px]"
+                    />
+                    <div className="flex flex-col">sdfdsf</div>
+                  </div>
+                  {/* <div className="flex items-center mb-4">
                     <img
                       src={dropIn.host.avatar}
                       alt={dropIn.host.name}
@@ -132,7 +140,7 @@ function DropInsBrowsePage() {
                         👥 {dropIn.attendees}/{dropIn.maxAttendees}
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               ))}
             </div>

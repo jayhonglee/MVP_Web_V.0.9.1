@@ -13,7 +13,43 @@
       },
       "attendees": 8,
       "maxAttendees": 12,
-      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!"
+      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!",
+      "interestTags": ["coding", "coffee", "tech", "programming", "networking"],
+      "dropInImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Alex Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=13"
+        },
+        {
+          "name": "Maria Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=14"
+        },
+        {
+          "name": "David Kim",
+          "avatar": "https://i.pravatar.cc/150?img=15"
+        },
+        {
+          "name": "Emily Brown",
+          "avatar": "https://i.pravatar.cc/150?img=16"
+        },
+        {
+          "name": "James Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=17"
+        },
+        {
+          "name": "Sophia Lee",
+          "avatar": "https://i.pravatar.cc/150?img=18"
+        },
+        {
+          "name": "Michael Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=19"
+        },
+        {
+          "name": "Olivia Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=20"
+        }
+      ]
     },
     {
       "id": 2,
@@ -28,7 +64,71 @@
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided."
+      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided.",
+      "interestTags": ["art", "painting", "creativity", "workshop", "weekend"],
+      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Emma Davis",
+          "avatar": "https://i.pravatar.cc/150?img=21"
+        },
+        {
+          "name": "Noah Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=22"
+        },
+        {
+          "name": "Ava Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=23"
+        },
+        {
+          "name": "Liam Thompson",
+          "avatar": "https://i.pravatar.cc/150?img=24"
+        },
+        {
+          "name": "Sophia Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=25"
+        },
+        {
+          "name": "Mason Anderson",
+          "avatar": "https://i.pravatar.cc/150?img=26"
+        },
+        {
+          "name": "Isabella Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=27"
+        },
+        {
+          "name": "Ethan Brown",
+          "avatar": "https://i.pravatar.cc/150?img=28"
+        },
+        {
+          "name": "Mia Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=29"
+        },
+        {
+          "name": "Lucas White",
+          "avatar": "https://i.pravatar.cc/150?img=30"
+        },
+        {
+          "name": "Charlotte Lee",
+          "avatar": "https://i.pravatar.cc/150?img=31"
+        },
+        {
+          "name": "Benjamin Clark",
+          "avatar": "https://i.pravatar.cc/150?img=32"
+        },
+        {
+          "name": "Amelia Hall",
+          "avatar": "https://i.pravatar.cc/150?img=33"
+        },
+        {
+          "name": "Henry Young",
+          "avatar": "https://i.pravatar.cc/150?img=34"
+        },
+        {
+          "name": "Harper King",
+          "avatar": "https://i.pravatar.cc/150?img=35"
+        }
+      ]
     }
   ],
   "🎨 Culture·Arts": [
@@ -45,7 +145,71 @@
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided."
+      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided.",
+      "interestTags": ["art", "painting", "creativity", "workshop", "weekend"],
+      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Emma Davis",
+          "avatar": "https://i.pravatar.cc/150?img=21"
+        },
+        {
+          "name": "Noah Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=22"
+        },
+        {
+          "name": "Ava Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=23"
+        },
+        {
+          "name": "Liam Thompson",
+          "avatar": "https://i.pravatar.cc/150?img=24"
+        },
+        {
+          "name": "Sophia Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=25"
+        },
+        {
+          "name": "Mason Anderson",
+          "avatar": "https://i.pravatar.cc/150?img=26"
+        },
+        {
+          "name": "Isabella Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=27"
+        },
+        {
+          "name": "Ethan Brown",
+          "avatar": "https://i.pravatar.cc/150?img=28"
+        },
+        {
+          "name": "Mia Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=29"
+        },
+        {
+          "name": "Lucas White",
+          "avatar": "https://i.pravatar.cc/150?img=30"
+        },
+        {
+          "name": "Charlotte Lee",
+          "avatar": "https://i.pravatar.cc/150?img=31"
+        },
+        {
+          "name": "Benjamin Clark",
+          "avatar": "https://i.pravatar.cc/150?img=32"
+        },
+        {
+          "name": "Amelia Hall",
+          "avatar": "https://i.pravatar.cc/150?img=33"
+        },
+        {
+          "name": "Henry Young",
+          "avatar": "https://i.pravatar.cc/150?img=34"
+        },
+        {
+          "name": "Harper King",
+          "avatar": "https://i.pravatar.cc/150?img=35"
+        }
+      ]
     },
     {
       "id": 3,
@@ -60,7 +224,65 @@
       },
       "attendees": 12,
       "maxAttendees": 30,
-      "description": "Share your favorite poems or your own work in this supportive environment."
+      "description": "Share your favorite poems or your own work in this supportive environment.",
+      "interestTags": [
+        "poetry",
+        "reading",
+        "literature",
+        "performance",
+        "arts"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "William Turner",
+          "avatar": "https://i.pravatar.cc/150?img=36"
+        },
+        {
+          "name": "Elizabeth Parker",
+          "avatar": "https://i.pravatar.cc/150?img=37"
+        },
+        {
+          "name": "Daniel Wright",
+          "avatar": "https://i.pravatar.cc/150?img=38"
+        },
+        {
+          "name": "Victoria Moore",
+          "avatar": "https://i.pravatar.cc/150?img=39"
+        },
+        {
+          "name": "Christopher Lee",
+          "avatar": "https://i.pravatar.cc/150?img=40"
+        },
+        {
+          "name": "Jennifer Davis",
+          "avatar": "https://i.pravatar.cc/150?img=41"
+        },
+        {
+          "name": "Matthew Harris",
+          "avatar": "https://i.pravatar.cc/150?img=42"
+        },
+        {
+          "name": "Patricia Clark",
+          "avatar": "https://i.pravatar.cc/150?img=43"
+        },
+        {
+          "name": "Robert Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=44"
+        },
+        {
+          "name": "Nancy Thompson",
+          "avatar": "https://i.pravatar.cc/150?img=45"
+        },
+        {
+          "name": "Thomas Anderson",
+          "avatar": "https://i.pravatar.cc/150?img=46"
+        },
+        {
+          "name": "Susan White",
+          "avatar": "https://i.pravatar.cc/150?img=47"
+        }
+      ]
     }
   ],
   "🏃‍♂️ Activities": [
@@ -77,7 +299,51 @@
       },
       "attendees": 10,
       "maxAttendees": 15,
-      "description": "Start your day with energizing yoga. All levels welcome, bring your own mat."
+      "description": "Start your day with energizing yoga. All levels welcome, bring your own mat.",
+      "interestTags": ["yoga", "fitness", "wellness", "morning", "outdoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Rachel Green",
+          "avatar": "https://i.pravatar.cc/150?img=48"
+        },
+        {
+          "name": "Kevin Smith",
+          "avatar": "https://i.pravatar.cc/150?img=49"
+        },
+        {
+          "name": "Michelle Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=50"
+        },
+        {
+          "name": "Steven Brown",
+          "avatar": "https://i.pravatar.cc/150?img=51"
+        },
+        {
+          "name": "Amanda Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=52"
+        },
+        {
+          "name": "Jason Davis",
+          "avatar": "https://i.pravatar.cc/150?img=53"
+        },
+        {
+          "name": "Melissa Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=54"
+        },
+        {
+          "name": "Andrew Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=55"
+        },
+        {
+          "name": "Jessica Lee",
+          "avatar": "https://i.pravatar.cc/150?img=56"
+        },
+        {
+          "name": "Brian Clark",
+          "avatar": "https://i.pravatar.cc/150?img=57"
+        }
+      ]
     },
     {
       "id": 5,
@@ -92,7 +358,43 @@
       },
       "attendees": 8,
       "maxAttendees": 10,
-      "description": "Casual pickup game, all skill levels welcome. Bring your own water!"
+      "description": "Casual pickup game, all skill levels welcome. Bring your own water!",
+      "interestTags": ["basketball", "sports", "fitness", "team", "evening"],
+      "dropInImage": "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Michael Jordan",
+          "avatar": "https://i.pravatar.cc/150?img=58"
+        },
+        {
+          "name": "LeBron James",
+          "avatar": "https://i.pravatar.cc/150?img=59"
+        },
+        {
+          "name": "Stephen Curry",
+          "avatar": "https://i.pravatar.cc/150?img=60"
+        },
+        {
+          "name": "Kevin Durant",
+          "avatar": "https://i.pravatar.cc/150?img=61"
+        },
+        {
+          "name": "Giannis Antetokounmpo",
+          "avatar": "https://i.pravatar.cc/150?img=62"
+        },
+        {
+          "name": "Luka Doncic",
+          "avatar": "https://i.pravatar.cc/150?img=63"
+        },
+        {
+          "name": "Joel Embiid",
+          "avatar": "https://i.pravatar.cc/150?img=64"
+        },
+        {
+          "name": "Jayson Tatum",
+          "avatar": "https://i.pravatar.cc/150?img=65"
+        }
+      ]
     }
   ],
   "🍴 Food·Drink": [
@@ -109,7 +411,78 @@
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Sample wines from around the world with expert guidance. Light snacks provided."
+      "description": "Sample wines from around the world with expert guidance. Light snacks provided.",
+      "interestTags": [
+        "wine",
+        "tasting",
+        "food",
+        "drinks",
+        "evening",
+        "social"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Robert Parker",
+          "avatar": "https://i.pravatar.cc/150?img=66"
+        },
+        {
+          "name": "Julia Child",
+          "avatar": "https://i.pravatar.cc/150?img=67"
+        },
+        {
+          "name": "Gordon Ramsay",
+          "avatar": "https://i.pravatar.cc/150?img=68"
+        },
+        {
+          "name": "Jamie Oliver",
+          "avatar": "https://i.pravatar.cc/150?img=69"
+        },
+        {
+          "name": "Anthony Bourdain",
+          "avatar": "https://i.pravatar.cc/150?img=70"
+        },
+        {
+          "name": "Martha Stewart",
+          "avatar": "https://i.pravatar.cc/150?img=71"
+        },
+        {
+          "name": "Wolfgang Puck",
+          "avatar": "https://i.pravatar.cc/150?img=72"
+        },
+        {
+          "name": "Bobby Flay",
+          "avatar": "https://i.pravatar.cc/150?img=73"
+        },
+        {
+          "name": "Giada De Laurentiis",
+          "avatar": "https://i.pravatar.cc/150?img=74"
+        },
+        {
+          "name": "Guy Fieri",
+          "avatar": "https://i.pravatar.cc/150?img=75"
+        },
+        {
+          "name": "Ina Garten",
+          "avatar": "https://i.pravatar.cc/150?img=76"
+        },
+        {
+          "name": "Thomas Keller",
+          "avatar": "https://i.pravatar.cc/150?img=77"
+        },
+        {
+          "name": "Emeril Lagasse",
+          "avatar": "https://i.pravatar.cc/150?img=78"
+        },
+        {
+          "name": "Paula Deen",
+          "avatar": "https://i.pravatar.cc/150?img=79"
+        },
+        {
+          "name": "Alton Brown",
+          "avatar": "https://i.pravatar.cc/150?img=80"
+        }
+      ]
     },
     {
       "id": 7,
@@ -124,7 +497,66 @@
       },
       "attendees": 12,
       "maxAttendees": 15,
-      "description": "Learn to make authentic Italian pasta from scratch. All ingredients provided."
+      "description": "Learn to make authentic Italian pasta from scratch. All ingredients provided.",
+      "interestTags": [
+        "cooking",
+        "italian",
+        "pasta",
+        "food",
+        "class",
+        "culinary"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Giuseppe Verdi",
+          "avatar": "https://i.pravatar.cc/150?img=81"
+        },
+        {
+          "name": "Sofia Loren",
+          "avatar": "https://i.pravatar.cc/150?img=82"
+        },
+        {
+          "name": "Marco Polo",
+          "avatar": "https://i.pravatar.cc/150?img=83"
+        },
+        {
+          "name": "Valentina Rossi",
+          "avatar": "https://i.pravatar.cc/150?img=84"
+        },
+        {
+          "name": "Antonio Vivaldi",
+          "avatar": "https://i.pravatar.cc/150?img=85"
+        },
+        {
+          "name": "Isabella Ferrari",
+          "avatar": "https://i.pravatar.cc/150?img=86"
+        },
+        {
+          "name": "Leonardo da Vinci",
+          "avatar": "https://i.pravatar.cc/150?img=87"
+        },
+        {
+          "name": "Raphael Sanzio",
+          "avatar": "https://i.pravatar.cc/150?img=88"
+        },
+        {
+          "name": "Michelangelo Buonarroti",
+          "avatar": "https://i.pravatar.cc/150?img=89"
+        },
+        {
+          "name": "Donatello",
+          "avatar": "https://i.pravatar.cc/150?img=90"
+        },
+        {
+          "name": "Galileo Galilei",
+          "avatar": "https://i.pravatar.cc/150?img=91"
+        },
+        {
+          "name": "Dante Alighieri",
+          "avatar": "https://i.pravatar.cc/150?img=92"
+        }
+      ]
     }
   ],
   "⭐ Hobbies": [
@@ -141,7 +573,41 @@
       },
       "attendees": 6,
       "maxAttendees": 10,
-      "description": "Explore the historic district with your camera. All photography levels welcome."
+      "description": "Explore the historic district with your camera. All photography levels welcome.",
+      "interestTags": [
+        "photography",
+        "walking",
+        "outdoor",
+        "art",
+        "exploration"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Ansel Adams",
+          "avatar": "https://i.pravatar.cc/150?img=93"
+        },
+        {
+          "name": "Dorothea Lange",
+          "avatar": "https://i.pravatar.cc/150?img=94"
+        },
+        {
+          "name": "Henri Cartier-Bresson",
+          "avatar": "https://i.pravatar.cc/150?img=95"
+        },
+        {
+          "name": "Diane Arbus",
+          "avatar": "https://i.pravatar.cc/150?img=96"
+        },
+        {
+          "name": "Robert Capa",
+          "avatar": "https://i.pravatar.cc/150?img=97"
+        },
+        {
+          "name": "Annie Leibovitz",
+          "avatar": "https://i.pravatar.cc/150?img=98"
+        }
+      ]
     },
     {
       "id": 9,
@@ -156,7 +622,43 @@
       },
       "attendees": 8,
       "maxAttendees": 12,
-      "description": "Join us for an evening of board games. We'll have various games available."
+      "description": "Join us for an evening of board games. We'll have various games available.",
+      "interestTags": ["board games", "games", "social", "evening", "fun"],
+      "dropInImage": "https://images.unsplash.com/photo-1611996575749-79a3a250f948?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Monopoly Man",
+          "avatar": "https://i.pravatar.cc/150?img=99"
+        },
+        {
+          "name": "Chess Master",
+          "avatar": "https://i.pravatar.cc/150?img=100"
+        },
+        {
+          "name": "Scrabble Queen",
+          "avatar": "https://i.pravatar.cc/150?img=101"
+        },
+        {
+          "name": "Risk Taker",
+          "avatar": "https://i.pravatar.cc/150?img=102"
+        },
+        {
+          "name": "Catan Settler",
+          "avatar": "https://i.pravatar.cc/150?img=103"
+        },
+        {
+          "name": "Pandemic Fighter",
+          "avatar": "https://i.pravatar.cc/150?img=104"
+        },
+        {
+          "name": "Ticket to Ride",
+          "avatar": "https://i.pravatar.cc/150?img=105"
+        },
+        {
+          "name": "Codenames Spy",
+          "avatar": "https://i.pravatar.cc/150?img=106"
+        }
+      ]
     }
   ],
   "🚗 Travel·Companion": [
@@ -173,7 +675,38 @@
       },
       "attendees": 5,
       "maxAttendees": 8,
-      "description": "Moderate difficulty hike with beautiful views. Bring water and snacks."
+      "description": "Moderate difficulty hike with beautiful views. Bring water and snacks.",
+      "interestTags": [
+        "hiking",
+        "outdoor",
+        "nature",
+        "travel",
+        "weekend",
+        "adventure"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "John Muir",
+          "avatar": "https://i.pravatar.cc/150?img=107"
+        },
+        {
+          "name": "Bear Grylls",
+          "avatar": "https://i.pravatar.cc/150?img=108"
+        },
+        {
+          "name": "Edmund Hillary",
+          "avatar": "https://i.pravatar.cc/150?img=109"
+        },
+        {
+          "name": "Tenzing Norgay",
+          "avatar": "https://i.pravatar.cc/150?img=110"
+        },
+        {
+          "name": "Reinhold Messner",
+          "avatar": "https://i.pravatar.cc/150?img=111"
+        }
+      ]
     }
   ],
   "📚 Self-Development": [
@@ -190,7 +723,43 @@
       },
       "attendees": 8,
       "maxAttendees": 12,
-      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!"
+      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!",
+      "interestTags": ["coding", "coffee", "tech", "programming", "networking"],
+      "dropInImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Alex Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=13"
+        },
+        {
+          "name": "Maria Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=14"
+        },
+        {
+          "name": "David Kim",
+          "avatar": "https://i.pravatar.cc/150?img=15"
+        },
+        {
+          "name": "Emily Brown",
+          "avatar": "https://i.pravatar.cc/150?img=16"
+        },
+        {
+          "name": "James Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=17"
+        },
+        {
+          "name": "Sophia Lee",
+          "avatar": "https://i.pravatar.cc/150?img=18"
+        },
+        {
+          "name": "Michael Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=19"
+        },
+        {
+          "name": "Olivia Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=20"
+        }
+      ]
     },
     {
       "id": 11,
@@ -205,7 +774,41 @@
       },
       "attendees": 6,
       "maxAttendees": 10,
-      "description": "Practice public speaking in a supportive environment. All levels welcome."
+      "description": "Practice public speaking in a supportive environment. All levels welcome.",
+      "interestTags": [
+        "public speaking",
+        "communication",
+        "confidence",
+        "presentation",
+        "skills"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Martin Luther King Jr.",
+          "avatar": "https://i.pravatar.cc/150?img=112"
+        },
+        {
+          "name": "Winston Churchill",
+          "avatar": "https://i.pravatar.cc/150?img=113"
+        },
+        {
+          "name": "Barack Obama",
+          "avatar": "https://i.pravatar.cc/150?img=114"
+        },
+        {
+          "name": "Malala Yousafzai",
+          "avatar": "https://i.pravatar.cc/150?img=115"
+        },
+        {
+          "name": "Nelson Mandela",
+          "avatar": "https://i.pravatar.cc/150?img=116"
+        },
+        {
+          "name": "Emma Watson",
+          "avatar": "https://i.pravatar.cc/150?img=117"
+        }
+      ]
     }
   ],
   "🙌 Local·Neighborhood": [
@@ -222,7 +825,77 @@
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Help maintain our community garden. Tools provided, bring gloves if you have them."
+      "description": "Help maintain our community garden. Tools provided, bring gloves if you have them.",
+      "interestTags": [
+        "gardening",
+        "community",
+        "outdoor",
+        "volunteer",
+        "local"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1590650046871-92c887180603?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "John Smith",
+          "avatar": "https://i.pravatar.cc/150?img=118"
+        },
+        {
+          "name": "Mary Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=119"
+        },
+        {
+          "name": "Robert Williams",
+          "avatar": "https://i.pravatar.cc/150?img=120"
+        },
+        {
+          "name": "Jennifer Brown",
+          "avatar": "https://i.pravatar.cc/150?img=121"
+        },
+        {
+          "name": "Michael Davis",
+          "avatar": "https://i.pravatar.cc/150?img=122"
+        },
+        {
+          "name": "Linda Miller",
+          "avatar": "https://i.pravatar.cc/150?img=123"
+        },
+        {
+          "name": "David Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=124"
+        },
+        {
+          "name": "Susan Moore",
+          "avatar": "https://i.pravatar.cc/150?img=125"
+        },
+        {
+          "name": "James Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=126"
+        },
+        {
+          "name": "Barbara Anderson",
+          "avatar": "https://i.pravatar.cc/150?img=127"
+        },
+        {
+          "name": "Thomas Jackson",
+          "avatar": "https://i.pravatar.cc/150?img=128"
+        },
+        {
+          "name": "Margaret White",
+          "avatar": "https://i.pravatar.cc/150?img=129"
+        },
+        {
+          "name": "Charles Harris",
+          "avatar": "https://i.pravatar.cc/150?img=130"
+        },
+        {
+          "name": "Nancy Martin",
+          "avatar": "https://i.pravatar.cc/150?img=131"
+        },
+        {
+          "name": "Joseph Thompson",
+          "avatar": "https://i.pravatar.cc/150?img=132"
+        }
+      ]
     }
   ]
 }
