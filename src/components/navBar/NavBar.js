@@ -8,7 +8,7 @@ function NavBar() {
       <div className="w-full h-[4rem] mobile:h-[79px] bg-transparent mobile:flex" />
 
       {/* Mobile Navbar */}
-      <div className="fixed top-0 left-0 right-0 w-full h-[4rem] px-[14px] py-[17px] flex justify-between shadow-sm mobile:hidden items-center">
+      <div className="bg-white fixed top-0 left-0 right-0 w-full h-[4rem] px-[14px] py-[17px] flex justify-between shadow-sm mobile:hidden items-center">
         <a href="/">
           {/* <img src={logo} alt="logo" className="h-full w-auto" /> */}
           <a href="/" className="text-lg font-medium tracking-wider">

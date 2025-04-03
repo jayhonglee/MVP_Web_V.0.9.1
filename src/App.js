@@ -1,4 +1,4 @@
-import DropInsBrowsePage from "./pages/DropInsBrowsePage";
+import DropInsBrowsePage from "./pages/dropInsBrowsePage/DropInsBrowsePage";
 
 function App() {
   return <DropInsBrowsePage />;

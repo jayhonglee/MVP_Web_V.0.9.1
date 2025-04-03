@@ -1,0 +1,228 @@
+{
+  "All": [
+    {
+      "id": 1,
+      "title": "Coffee & Code Morning",
+      "category": "Self-Development",
+      "date": "2024-04-15",
+      "time": "09:00",
+      "location": "Starbucks Downtown",
+      "host": {
+        "name": "Sarah Chen",
+        "avatar": "https://i.pravatar.cc/150?img=1"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!"
+    },
+    {
+      "id": 2,
+      "title": "Weekend Art Workshop",
+      "category": "Culture·Arts",
+      "date": "2024-04-20",
+      "time": "14:00",
+      "location": "Creative Arts Center",
+      "host": {
+        "name": "Mike Johnson",
+        "avatar": "https://i.pravatar.cc/150?img=2"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided."
+    }
+  ],
+  "🎨 Culture·Arts": [
+    {
+      "id": 2,
+      "title": "Weekend Art Workshop",
+      "category": "Culture·Arts",
+      "date": "2024-04-20",
+      "time": "14:00",
+      "location": "Creative Arts Center",
+      "host": {
+        "name": "Mike Johnson",
+        "avatar": "https://i.pravatar.cc/150?img=2"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided."
+    },
+    {
+      "id": 3,
+      "title": "Poetry Reading Night",
+      "category": "Culture·Arts",
+      "date": "2024-04-25",
+      "time": "19:00",
+      "location": "City Library",
+      "host": {
+        "name": "Emma Wilson",
+        "avatar": "https://i.pravatar.cc/150?img=3"
+      },
+      "attendees": 12,
+      "maxAttendees": 30,
+      "description": "Share your favorite poems or your own work in this supportive environment."
+    }
+  ],
+  "🏃‍♂️ Activities": [
+    {
+      "id": 4,
+      "title": "Morning Yoga in the Park",
+      "category": "Activities",
+      "date": "2024-04-16",
+      "time": "07:00",
+      "location": "Central Park",
+      "host": {
+        "name": "Lisa Park",
+        "avatar": "https://i.pravatar.cc/150?img=4"
+      },
+      "attendees": 10,
+      "maxAttendees": 15,
+      "description": "Start your day with energizing yoga. All levels welcome, bring your own mat."
+    },
+    {
+      "id": 5,
+      "title": "Basketball Pickup Game",
+      "category": "Activities",
+      "date": "2024-04-18",
+      "time": "18:00",
+      "location": "Community Center Court",
+      "host": {
+        "name": "Tom Brown",
+        "avatar": "https://i.pravatar.cc/150?img=5"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Casual pickup game, all skill levels welcome. Bring your own water!"
+    }
+  ],
+  "🍴 Food·Drink": [
+    {
+      "id": 6,
+      "title": "Wine Tasting Evening",
+      "category": "Food·Drink",
+      "date": "2024-04-21",
+      "time": "19:00",
+      "location": "Vintage Wine Bar",
+      "host": {
+        "name": "David Miller",
+        "avatar": "https://i.pravatar.cc/150?img=6"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Sample wines from around the world with expert guidance. Light snacks provided."
+    },
+    {
+      "id": 7,
+      "title": "Cooking Class: Italian Pasta",
+      "category": "Food·Drink",
+      "date": "2024-04-22",
+      "time": "17:00",
+      "location": "Culinary Institute",
+      "host": {
+        "name": "Maria Rossi",
+        "avatar": "https://i.pravatar.cc/150?img=7"
+      },
+      "attendees": 12,
+      "maxAttendees": 15,
+      "description": "Learn to make authentic Italian pasta from scratch. All ingredients provided."
+    }
+  ],
+  "⭐ Hobbies": [
+    {
+      "id": 8,
+      "title": "Photography Walk",
+      "category": "Hobbies",
+      "date": "2024-04-19",
+      "time": "16:00",
+      "location": "Historic District",
+      "host": {
+        "name": "Alex Wong",
+        "avatar": "https://i.pravatar.cc/150?img=8"
+      },
+      "attendees": 6,
+      "maxAttendees": 10,
+      "description": "Explore the historic district with your camera. All photography levels welcome."
+    },
+    {
+      "id": 9,
+      "title": "Board Game Night",
+      "category": "Hobbies",
+      "date": "2024-04-23",
+      "time": "19:00",
+      "location": "Game Cafe",
+      "host": {
+        "name": "Chris Taylor",
+        "avatar": "https://i.pravatar.cc/150?img=9"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Join us for an evening of board games. We'll have various games available."
+    }
+  ],
+  "🚗 Travel·Companion": [
+    {
+      "id": 10,
+      "title": "Weekend Hiking Trip",
+      "category": "Travel·Companion",
+      "date": "2024-04-27",
+      "time": "08:00",
+      "location": "Mountain Trail",
+      "host": {
+        "name": "Ryan Lee",
+        "avatar": "https://i.pravatar.cc/150?img=10"
+      },
+      "attendees": 5,
+      "maxAttendees": 8,
+      "description": "Moderate difficulty hike with beautiful views. Bring water and snacks."
+    }
+  ],
+  "📚 Self-Development": [
+    {
+      "id": 1,
+      "title": "Coffee & Code Morning",
+      "category": "Self-Development",
+      "date": "2024-04-15",
+      "time": "09:00",
+      "location": "Starbucks Downtown",
+      "host": {
+        "name": "Sarah Chen",
+        "avatar": "https://i.pravatar.cc/150?img=1"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!"
+    },
+    {
+      "id": 11,
+      "title": "Public Speaking Practice",
+      "category": "Self-Development",
+      "date": "2024-04-24",
+      "time": "18:30",
+      "location": "Community Center",
+      "host": {
+        "name": "James Wilson",
+        "avatar": "https://i.pravatar.cc/150?img=11"
+      },
+      "attendees": 6,
+      "maxAttendees": 10,
+      "description": "Practice public speaking in a supportive environment. All levels welcome."
+    }
+  ],
+  "🙌 Local·Neighborhood": [
+    {
+      "id": 12,
+      "title": "Community Garden Cleanup",
+      "category": "Local·Neighborhood",
+      "date": "2024-04-26",
+      "time": "10:00",
+      "location": "Community Garden",
+      "host": {
+        "name": "Patricia Green",
+        "avatar": "https://i.pravatar.cc/150?img=12"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Help maintain our community garden. Tools provided, bring gloves if you have them."
+    }
+  ]
+}
