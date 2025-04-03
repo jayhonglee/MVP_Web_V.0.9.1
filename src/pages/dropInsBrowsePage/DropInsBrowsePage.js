@@ -5,6 +5,25 @@ import Navbar from "../../components/navBar/NavBar";
 import dropInIcon from "../../assets/drop-in.svg";
 import dropInsData from "./mock/dropIns.json";
 
+// Helper functions for date and time formatting
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
+    date.getDay()
+  ];
+  return `${month}.${day}(${dayOfWeek})`;
+};
+
+const formatTime = (timeString) => {
+  const [hours, minutes] = timeString.split(":");
+  const hour = parseInt(hours);
+  const ampm = hour >= 12 ? "PM" : "AM";
+  const hour12 = hour % 12 || 12;
+  return `${ampm} ${hour12}:${minutes}`;
+};
+
 function DropInsBrowsePage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const swiperRef = useRef(null);
@@ -44,7 +63,7 @@ function DropInsBrowsePage() {
   // Initial scroll to selected category
   useEffect(() => {
     scrollCategoryIntoView(selectedCategory);
-  });
+  }, [selectedCategory]);
 
   return (
     <div>
@@ -112,35 +131,57 @@ function DropInsBrowsePage() {
                     <img
                       src={dropIn.dropInImage}
                       alt={dropIn.title}
-                      className="w-[98px] h-[98px] rounded-[10px] mr-[10px]"
+                      className="object-cover rounded-[10px] mr-[10px] relative w-[98px] h-[98px]"
                     />
-                    <div className="flex flex-col">sdfdsf</div>
+                    <div className="flex flex-col w-[215px]">
+                      <div className="flex overflow-x-hidden">
+                        {dropIn.interestTags.map(
+                          (tag, index) =>
+                            index <= 1 && (
+                              <div
+                                key={index}
+                                className="inline-block bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px] mr-1.5 mb-1"
+                              >
+                                {tag}
+                              </div>
+                            )
+                        )}
+                      </div>
+                      <div className="font-semibold text-[15px] leading-[24px] tracking-[-0.4px] text-[rgb(56,53,53)] truncate mb-1 overflow-hidden text-ellipsis whitespace-nowrap">
+                        {dropIn.title}
+                      </div>
+                      <div className="font-normal text-[12px] leading-[14.4px] tracking-[-0.2px] text-[rgb(153,150,150)] flex truncate mb-[10px] overflow-hidden text-ellipsis whitespace-nowrap">
+                        {dropIn.category} 📍 {dropIn.location} ·{" "}
+                        {formatDate(dropIn.date)} · {formatTime(dropIn.time)}
+                      </div>
+                      <div className="flex items-center">
+                        {dropIn.attendingPeople
+                          .slice(0, 6)
+                          .map((person, index) => (
+                            <img
+                              key={index}
+                              src={person.avatar}
+                              alt={person.name}
+                              className="object-cover rounded-full relative flex-shrink-0 w-[22px] h-[22px] -ml-1.5 first:ml-0 border border-white"
+                              style={{ zIndex: index }}
+                            />
+                          ))}
+                        {dropIn.attendingPeople.length > 6 && (
+                          <div
+                            className="flex-shrink-0 w-[22px] h-[22px] rounded-full bg-[#f4f4f4] flex items-center justify-center text-[10px] font-medium text-[#666060] -ml-1.5 border border-white"
+                            style={{ zIndex: 6 }}
+                          >
+                            +{dropIn.attendingPeople.length - 6}
+                          </div>
+                        )}
+
+                        <span className="ml-[4.7px] flex justify-center items-center font-normal text-[10px] leading-[12px] tracking-[-0.4px] text-[rgb(153,150,150)]">
+                          👥 {dropIn.attendees}/{dropIn.maxAttendees}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center"></div>
                   </div>
-                  {/* <div className="flex items-center mb-4">
-                    <img
-                      src={dropIn.host.avatar}
-                      alt={dropIn.host.name}
-                      className="w-10 h-10 rounded-full mr-3"
-                    />
-                    <div>
-                      <h3 className="font-semibold">{dropIn.host.name}</h3>
-                      <p className="text-sm text-gray-500">{dropIn.category}</p>
-                    </div>
-                  </div>
-                  <h2 className="text-xl font-bold mb-2">{dropIn.title}</h2>
-                  <p className="text-gray-600 mb-4">{dropIn.description}</p>
-                  <div className="flex justify-between text-sm text-gray-500">
-                    <div>
-                      <p>📅 {dropIn.date}</p>
-                      <p>⏰ {dropIn.time}</p>
-                    </div>
-                    <div>
-                      <p>📍 {dropIn.location}</p>
-                      <p>
-                        👥 {dropIn.attendees}/{dropIn.maxAttendees}
-                      </p>
-                    </div>
-                  </div> */}
                 </div>
               ))}
             </div>

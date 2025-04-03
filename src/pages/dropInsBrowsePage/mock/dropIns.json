@@ -495,7 +495,7 @@
         "name": "Maria Rossi",
         "avatar": "https://i.pravatar.cc/150?img=7"
       },
-      "attendees": 12,
+      "attendees": 1,
       "maxAttendees": 15,
       "description": "Learn to make authentic Italian pasta from scratch. All ingredients provided.",
       "interestTags": [
@@ -510,51 +510,7 @@
       "attendingPeople": [
         {
           "name": "Giuseppe Verdi",
-          "avatar": "https://i.pravatar.cc/150?img=81"
-        },
-        {
-          "name": "Sofia Loren",
-          "avatar": "https://i.pravatar.cc/150?img=82"
-        },
-        {
-          "name": "Marco Polo",
-          "avatar": "https://i.pravatar.cc/150?img=83"
-        },
-        {
-          "name": "Valentina Rossi",
-          "avatar": "https://i.pravatar.cc/150?img=84"
-        },
-        {
-          "name": "Antonio Vivaldi",
-          "avatar": "https://i.pravatar.cc/150?img=85"
-        },
-        {
-          "name": "Isabella Ferrari",
-          "avatar": "https://i.pravatar.cc/150?img=86"
-        },
-        {
-          "name": "Leonardo da Vinci",
-          "avatar": "https://i.pravatar.cc/150?img=87"
-        },
-        {
-          "name": "Raphael Sanzio",
-          "avatar": "https://i.pravatar.cc/150?img=88"
-        },
-        {
-          "name": "Michelangelo Buonarroti",
-          "avatar": "https://i.pravatar.cc/150?img=89"
-        },
-        {
-          "name": "Donatello",
-          "avatar": "https://i.pravatar.cc/150?img=90"
-        },
-        {
-          "name": "Galileo Galilei",
-          "avatar": "https://i.pravatar.cc/150?img=91"
-        },
-        {
-          "name": "Dante Alighieri",
-          "avatar": "https://i.pravatar.cc/150?img=92"
+          "avatar": "https://i.pravatar.cc/150?img=66"
         }
       ]
     }
