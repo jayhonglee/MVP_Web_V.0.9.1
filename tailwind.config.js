@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       screens: {
@@ -9,7 +9,8 @@ module.exports = {
     },
   },
   plugins: [
-    require("tailwind-scrollbar")({ nocompatible: true }),
+    // @ts-ignore
+    require("tailwind-scrollbar"),
     function ({ addUtilities }) {
       addUtilities({
         ".no-scrollbar": {
@@ -25,4 +26,4 @@ module.exports = {
       });
     },
   ],
-};
+}; 

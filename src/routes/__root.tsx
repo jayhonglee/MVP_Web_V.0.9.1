@@ -1,12 +1,40 @@
-import "swiper/css";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Navbar from "../../components/navBar/NavBar";
-import dropInIcon from "../../assets/drop-in.svg";
-import dropInsData from "./mock/dropIns.json";
+import type { Swiper as SwiperType } from "swiper";
+// @ts-expect-error Missing type definitions for CSS import
+import "swiper/css";
+import dropInsData from "../data/dropIns.json";
+import { createRootRoute } from "@tanstack/react-router";
+import NavBar from "../components/NavBar";
+
+// Types for the dropIns data
+interface Person {
+  name: string;
+  avatar: string;
+}
+
+interface DropIn {
+  id: number;
+  title: string;
+  category: string;
+  date: string;
+  time: string;
+  location: string;
+  host: Person;
+  attendees: number;
+  maxAttendees: number;
+  description: string;
+  interestTags: string[];
+  dropInImage: string;
+  attendingPeople: Person[];
+}
+
+interface DropInsData {
+  [category: string]: DropIn[];
+}
 
 // Helper functions for date and time formatting
-const formatDate = (dateString) => {
+const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
   const day = date.getDate();
   const month = date.getMonth() + 1;
@@ -16,7 +44,7 @@ const formatDate = (dateString) => {
   return `${month}.${day}(${dayOfWeek})`;
 };
 
-const formatTime = (timeString) => {
+const formatTime = (timeString: string): string => {
   const [hours, minutes] = timeString.split(":");
   const hour = parseInt(hours);
   const ampm = hour >= 12 ? "PM" : "AM";
@@ -24,13 +52,13 @@ const formatTime = (timeString) => {
   return `${ampm} ${hour12}:${minutes}`;
 };
 
-function DropInsBrowsePage() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const swiperRef = useRef(null);
-  const categoryListRef = useRef(null);
-  const categories = Object.keys(dropInsData);
+const HomePage: React.FC = () => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const swiperRef = useRef<{ swiper: SwiperType } | null>(null);
+  const categoryListRef = useRef<HTMLUListElement | null>(null);
+  const categories = Object.keys(dropInsData as DropInsData);
 
-  const scrollCategoryIntoView = (category) => {
+  const scrollCategoryIntoView = (category: string): void => {
     if (categoryListRef.current) {
       const categoryElement = categoryListRef.current.querySelector(
         `[data-category="${category}"]`
@@ -45,13 +73,13 @@ function DropInsBrowsePage() {
     }
   };
 
-  const handleSlideChange = (swiper) => {
+  const handleSlideChange = (swiper: SwiperType): void => {
     const newCategory = categories[swiper.activeIndex];
     setSelectedCategory(newCategory);
     scrollCategoryIntoView(newCategory);
   };
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: string): void => {
     const index = categories.indexOf(category);
     setSelectedCategory(category);
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -68,13 +96,13 @@ function DropInsBrowsePage() {
   return (
     <div>
       {/* Navbar */}
-      <Navbar />
+      <NavBar />
 
       {/* Hero Section */}
       <div className="w-full h-[325px] flex flex-col items-center justify-center mobile:h-[496px]">
         <h1 className="text-[18px] font-bold flex items-center mb-[20px] text-[#f43630] tracking-tight leading-[28px] mobile:font-[700] mobile:text-[24px] mobile:leading-[30px]">
           <img
-            src={dropInIcon}
+            src="/drop-in.svg"
             alt="Drop-In Icon"
             className="w-[13.5px] h-[13.5px] mr-[7px] mobile:w-[24px] mobile:h-[24px] mobile:mr-[7px]"
           />
@@ -122,7 +150,7 @@ function DropInsBrowsePage() {
         {categories.map((category) => (
           <SwiperSlide key={category}>
             <div className="px-[14px] grid grid-cols-1 mobile:grid-cols-2 gap-4 py-4">
-              {dropInsData[category].map((dropIn) => (
+              {(dropInsData as DropInsData)[category].map((dropIn) => (
                 <div
                   key={dropIn.id}
                   className="bg-[#fefefe] rounded-[12px] px-[10px] py-[12px]"
@@ -190,6 +218,8 @@ function DropInsBrowsePage() {
       </Swiper>
     </div>
   );
-}
+};
 
-export default DropInsBrowsePage;
+export const Route = createRootRoute({
+  component: HomePage,
+});

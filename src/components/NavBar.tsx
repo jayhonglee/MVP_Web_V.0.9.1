@@ -1,7 +1,6 @@
-// import logo from "../../assets/logo.png";
-import appStoreIcon from "../../assets/app-store.svg";
+import React from 'react';
 
-function NavBar() {
+const NavBar: React.FC = () => {
   return (
     <div className="relative">
       {/* Default Navbar Placeholder*/}
@@ -10,7 +9,7 @@ function NavBar() {
       {/* Mobile Navbar */}
       <div className="bg-white fixed top-0 left-0 right-0 w-full h-[4rem] px-[14px] py-[17px] flex justify-between shadow-sm mobile:hidden items-center">
         <a href="/">
-          {/* <img src={logo} alt="logo" className="h-full w-auto" /> */}
+          <img src="/logo.png" alt="logo" className="h-full w-auto" />
           <a href="/" className="text-lg font-medium tracking-wider">
             HANGOUT
           </a>
@@ -19,7 +18,7 @@ function NavBar() {
           <div className="mr-[20px] bg-[#F43630] rounded-full px-[10px] py-[5px]">
             <p className="text-sm text-white font-medium flex items-center">
               <img
-                src={appStoreIcon}
+                src="/app-store.svg"
                 alt="App Store"
                 className="w-5 h-5 mr-1"
               />
@@ -59,7 +58,7 @@ function NavBar() {
               <div className="bg-[#F43630] rounded-full px-[15px] py-[5px]">
                 <p className="text-sm text-white font-medium flex items-center">
                   <img
-                    src={appStoreIcon}
+                    src="/app-store.svg"
                     alt="App Store"
                     className="w-5 h-5 mr-1"
                   />
@@ -72,6 +71,6 @@ function NavBar() {
       </div>
     </div>
   );
-}
+};
 
-export default NavBar;
+export default NavBar; 

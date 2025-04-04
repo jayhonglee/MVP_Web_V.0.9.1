@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+## References
+Tanstack Router https://tanstack.com/router/v1/docs/framework/react/routing/file-based-routing  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Dashboard Links
 
-## Available Scripts
+- [Supabase Dashboard](https://supabase.com/dashboard/project/tkkievrjkmaucvjntagb)
+- [Mapbox Dashboard](https://console.mapbox.com/)
 
-In the project directory, you can run:
+## Development setup
 
-### `npm start`
+1. Install dependencies
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Install Supabase CLI  
+```bash
+# For macOS
+brew install supabase/tap/supabase
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. Login to Supabase
+```bash
+supabase login
+```
 
-### `npm test`
+4. Start local development
+```bash
+# If there are new migrations (either created by you or committed by others)
+supabase db reset
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Otherwise, just start Supabase
+supabase start
+# if above doesn't work for your environment,
+supabase start --ignore-health-check
 
-### `npm run build`
+# Start the application
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Fill your .env based on local supabase setup guide.  
+```
+Studio URL: http://127.0.0.1:54323
+API URL: http://127.0.0.1:54321
+GraphQL URL: http://127.0.0.1:54321/graphql/v1
+S3 Storage URL: http://127.0.0.1:54321/storage/v1/s3
+DB URL: postgresql://postgres:postgres@127.0.0.1:54322/postgres
+Inbucket URL: http://127.0.0.1:54324
+JWT secret: 
+anon key: 
+service_role key: 
+S3 Access Key: 
+S3 Secret Key: 
+S3 Region: local
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Create a Migration
+There are two ways to make schema changes:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Manual Migration
+```bash
+# Creating a new migration
+supabase migration new your_migration_name
 
-### `npm run eject`
+# This creates a new file: supabase/migrations/<timestamp>_your_migration_name.sql
+# Edit this file with your SQL statements, for example:
+# create table public.employees (
+#   id integer primary key generated always as identity,
+#   name text
+# );
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Auto Schema Diff
+You can make changes through the Studio UI (localhost:54323) and auto-generate a migration:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Make your schema changes in the Studio UI
+2. Generate a migration file:
+```bash
+# Generate migration from schema changes
+supabase db diff -f your_migration_name
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Alternatively, for more concise output:
+supabase db diff --use-migra -f your_migration_name
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Applying Migrations
+After creating migrations (either manually or auto-generated), apply them to your local database:
+```bash
+supabase db reset
+```
 
-## Learn More
+[Learn more about creating migrations →](https://supabase.com/docs/guides/deployment/managing-environments#create-a-new-migration)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Stopping local supabase instance  
+```bash
+# To halt Supabase instance (without resetting data)
+supabase stop
+```
 
-### Code Splitting
+## FAQ
+### Container name is already in use
+If you encounter an error like "The container name is already in use", follow these steps:
+```bash
+# First, stop the Supabase instance
+supabase stop
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Then start it again
+supabase start
+# or if needed
+supabase start --ignore-health-check
+```

@@ -1,0 +1,272 @@
+{
+  "All": [
+    {
+      "id": 1,
+      "title": "Coffee & Code Morning",
+      "category": "Self-Development",
+      "date": "2024-04-15",
+      "time": "09:00",
+      "location": "Starbucks Downtown",
+      "host": {
+        "name": "Sarah Chen",
+        "avatar": "https://i.pravatar.cc/150?img=1"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!",
+      "interestTags": ["coding", "coffee", "tech", "programming", "networking"],
+      "dropInImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Alex Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=13"
+        },
+        {
+          "name": "Maria Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=14"
+        },
+        {
+          "name": "David Kim",
+          "avatar": "https://i.pravatar.cc/150?img=15"
+        },
+        {
+          "name": "Emily Brown",
+          "avatar": "https://i.pravatar.cc/150?img=16"
+        },
+        {
+          "name": "James Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=17"
+        },
+        {
+          "name": "Sophia Lee",
+          "avatar": "https://i.pravatar.cc/150?img=18"
+        },
+        {
+          "name": "Michael Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=19"
+        },
+        {
+          "name": "Olivia Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=20"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Weekend Art Workshop",
+      "category": "Culture·Arts",
+      "date": "2024-04-20",
+      "time": "14:00",
+      "location": "Creative Arts Center",
+      "host": {
+        "name": "Mike Johnson",
+        "avatar": "https://i.pravatar.cc/150?img=2"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided.",
+      "interestTags": ["art", "painting", "creativity", "workshop", "weekend"],
+      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Emma Davis",
+          "avatar": "https://i.pravatar.cc/150?img=21"
+        },
+        {
+          "name": "Noah Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=22"
+        },
+        {
+          "name": "Ava Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=23"
+        },
+        {
+          "name": "Liam Thompson",
+          "avatar": "https://i.pravatar.cc/150?img=24"
+        },
+        {
+          "name": "Sophia Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=25"
+        },
+        {
+          "name": "Mason Anderson",
+          "avatar": "https://i.pravatar.cc/150?img=26"
+        },
+        {
+          "name": "Isabella Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=27"
+        },
+        {
+          "name": "Ethan Brown",
+          "avatar": "https://i.pravatar.cc/150?img=28"
+        },
+        {
+          "name": "Mia Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=29"
+        },
+        {
+          "name": "Lucas White",
+          "avatar": "https://i.pravatar.cc/150?img=30"
+        },
+        {
+          "name": "Charlotte Lee",
+          "avatar": "https://i.pravatar.cc/150?img=31"
+        },
+        {
+          "name": "Benjamin Clark",
+          "avatar": "https://i.pravatar.cc/150?img=32"
+        },
+        {
+          "name": "Amelia Hall",
+          "avatar": "https://i.pravatar.cc/150?img=33"
+        },
+        {
+          "name": "Henry Young",
+          "avatar": "https://i.pravatar.cc/150?img=34"
+        },
+        {
+          "name": "Harper King",
+          "avatar": "https://i.pravatar.cc/150?img=35"
+        }
+      ]
+    }
+  ],
+  "🎨 Culture·Arts": [
+    {
+      "id": 2,
+      "title": "Weekend Art Workshop",
+      "category": "Culture·Arts",
+      "date": "2024-04-20",
+      "time": "14:00",
+      "location": "Creative Arts Center",
+      "host": {
+        "name": "Mike Johnson",
+        "avatar": "https://i.pravatar.cc/150?img=2"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided.",
+      "interestTags": ["art", "painting", "creativity", "workshop", "weekend"],
+      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Emma Davis",
+          "avatar": "https://i.pravatar.cc/150?img=21"
+        },
+        {
+          "name": "Noah Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=22"
+        },
+        {
+          "name": "Ava Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=23"
+        },
+        {
+          "name": "Liam Thompson",
+          "avatar": "https://i.pravatar.cc/150?img=24"
+        },
+        {
+          "name": "Sophia Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=25"
+        },
+        {
+          "name": "Mason Anderson",
+          "avatar": "https://i.pravatar.cc/150?img=26"
+        },
+        {
+          "name": "Isabella Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=27"
+        },
+        {
+          "name": "Ethan Brown",
+          "avatar": "https://i.pravatar.cc/150?img=28"
+        },
+        {
+          "name": "Mia Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=29"
+        },
+        {
+          "name": "Lucas White",
+          "avatar": "https://i.pravatar.cc/150?img=30"
+        },
+        {
+          "name": "Charlotte Lee",
+          "avatar": "https://i.pravatar.cc/150?img=31"
+        },
+        {
+          "name": "Benjamin Clark",
+          "avatar": "https://i.pravatar.cc/150?img=32"
+        },
+        {
+          "name": "Amelia Hall",
+          "avatar": "https://i.pravatar.cc/150?img=33"
+        },
+        {
+          "name": "Henry Young",
+          "avatar": "https://i.pravatar.cc/150?img=34"
+        },
+        {
+          "name": "Harper King",
+          "avatar": "https://i.pravatar.cc/150?img=35"
+        }
+      ]
+    }
+  ],
+  "🏃‍♂️ Activities": [],
+  "🍴 Food·Drink": [],
+  "⭐ Hobbies": [],
+  "🚗 Travel·Companion": [],
+  "📚 Self-Development": [
+    {
+      "id": 1,
+      "title": "Coffee & Code Morning",
+      "category": "Self-Development",
+      "date": "2024-04-15",
+      "time": "09:00",
+      "location": "Starbucks Downtown",
+      "host": {
+        "name": "Sarah Chen",
+        "avatar": "https://i.pravatar.cc/150?img=1"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!",
+      "interestTags": ["coding", "coffee", "tech", "programming", "networking"],
+      "dropInImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "attendingPeople": [
+        {
+          "name": "Alex Johnson",
+          "avatar": "https://i.pravatar.cc/150?img=13"
+        },
+        {
+          "name": "Maria Garcia",
+          "avatar": "https://i.pravatar.cc/150?img=14"
+        },
+        {
+          "name": "David Kim",
+          "avatar": "https://i.pravatar.cc/150?img=15"
+        },
+        {
+          "name": "Emily Brown",
+          "avatar": "https://i.pravatar.cc/150?img=16"
+        },
+        {
+          "name": "James Wilson",
+          "avatar": "https://i.pravatar.cc/150?img=17"
+        },
+        {
+          "name": "Sophia Lee",
+          "avatar": "https://i.pravatar.cc/150?img=18"
+        },
+        {
+          "name": "Michael Taylor",
+          "avatar": "https://i.pravatar.cc/150?img=19"
+        },
+        {
+          "name": "Olivia Martinez",
+          "avatar": "https://i.pravatar.cc/150?img=20"
+        }
+      ]
+    }
+  ]
+} 
