@@ -2,7 +2,8 @@ const hangoutCategories = [
   {
     id: "food-drinks",
     name: "Food•Drinks",
-    icon: new URL("@assets/images/interest_food_drink.png", import.meta.url).href,
+    icon: new URL("@assets/images/interest_food_drink.png", import.meta.url)
+      .href,
     description: "Touring trendy food places, or drinks with new friends",
   },
   {

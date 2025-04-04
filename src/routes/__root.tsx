@@ -168,7 +168,7 @@ const HomePage: React.FC = () => {
                             index <= 1 && (
                               <div
                                 key={index}
-                                className="inline-block bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px] mr-1.5 mb-1"
+                                className="bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px] mr-1.5 mb-1"
                               >
                                 {tag}
                               </div>

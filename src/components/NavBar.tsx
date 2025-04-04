@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const NavBar: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const NavBar: React.FC = () => {
       {/* Mobile Navbar */}
       <div className="bg-white fixed top-0 left-0 right-0 w-full h-[4rem] px-[14px] py-[17px] flex justify-between shadow-sm mobile:hidden items-center">
         <a href="/">
-          <img src="/logo.png" alt="logo" className="h-full w-auto" />
+          {/* <img src="/logo.png" alt="logo" className="h-full w-auto" /> */}
           <a href="/" className="text-lg font-medium tracking-wider">
             HANGOUT
           </a>
@@ -73,4 +73,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar; 
+export default NavBar;

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       screens: {
@@ -8,22 +8,5 @@ export default {
       },
     },
   },
-  plugins: [
-    // @ts-ignore
-    require("tailwind-scrollbar"),
-    function ({ addUtilities }) {
-      addUtilities({
-        ".no-scrollbar": {
-          /* IE and Edge */
-          "-ms-overflow-style": "none",
-          /* Firefox */
-          "scrollbar-width": "none",
-          /* Safari and Chrome */
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-        },
-      });
-    },
-  ],
-}; 
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
+};
