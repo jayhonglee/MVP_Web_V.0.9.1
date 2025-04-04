@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import supabase from "@/lib/supabase";
 import type { CreateHangoutDto } from "./types";
-import { prepareAddressForDb } from "@/hooks/map/address";
+import { convertAddressToPostGIS } from "@/hooks/map/_helper";
 
 export default function useCreateHangout() {
   const queryClient = useQueryClient();
@@ -25,14 +25,14 @@ export default function useCreateHangout() {
     }
 
     // Create address record
-    const { data: locationData, error: locationError } = await supabase
+    const { data: addressData, error: addressError } = await supabase
       .from("addresses")
-      .insert(prepareAddressForDb(data.location))
+      .insert(convertAddressToPostGIS(data.address))
       .select()
       .single();
 
-    if (locationError || !locationData) {
-      throw new Error("Failed to create location");
+    if (addressError || !addressData) {
+      throw new Error("Failed to create address");
     }
 
     // Create hangout
@@ -45,7 +45,7 @@ export default function useCreateHangout() {
         description: data.description,
         cover_image_url: coverImageUrl || null,
         scheduled_when: data.scheduled_when.toISOString(),
-        location_id: locationData.id,
+        location_id: addressData.id,
         navigation_instruction: data.navigationInstruction || null,
         group_size: data.groupSize,
       })
@@ -65,7 +65,7 @@ export default function useCreateHangout() {
     const transformedHangout = {
       ...hangout,
       scheduled_when: new Date(hangout.scheduled_when),
-      location: hangout.addresses,
+      address: hangout.addresses,
       created_at: new Date(hangout.created_at),
       updated_at: new Date(hangout.updated_at),
     };

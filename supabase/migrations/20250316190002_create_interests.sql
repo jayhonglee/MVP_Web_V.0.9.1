@@ -6,36 +6,36 @@ ALTER TABLE public.user_profiles
 -- Drop the interests column from user_profiles
 ALTER TABLE public.user_profiles DROP COLUMN IF EXISTS interests;
 
--- Create hangout_categories table
-CREATE TABLE public.hangout_categories (
+-- Create interests table
+CREATE TABLE public.interests (
     id text PRIMARY KEY,
     created_at timestamptz DEFAULT now() NOT NULL
 );
 
--- Create junction table for user_profiles and hangout_categories
-CREATE TABLE public.user_profile_categories (
+-- Create junction table for user_profiles and interests
+CREATE TABLE public.user_profile_interests (
     user_profile_id uuid REFERENCES public.user_profiles(id) ON DELETE CASCADE,
-    category_id text REFERENCES public.hangout_categories(id) ON DELETE CASCADE,
+    interest_id text REFERENCES public.interests(id) ON DELETE CASCADE,
     created_at timestamptz DEFAULT now() NOT NULL,
-    PRIMARY KEY (user_profile_id, category_id)
+    PRIMARY KEY (user_profile_id, interest_id)
 );
 
 -- Grant access to public
-GRANT ALL ON public.hangout_categories TO postgres, anon, authenticated, service_role;
-GRANT ALL ON public.user_profile_categories TO postgres, anon, authenticated, service_role;
+GRANT ALL ON public.interests TO postgres, anon, authenticated, service_role;
+GRANT ALL ON public.user_profile_interests TO postgres, anon, authenticated, service_role;
 
 -- Enable RLS
-ALTER TABLE public.hangout_categories ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.user_profile_categories ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.interests ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_profile_interests ENABLE ROW LEVEL SECURITY;
 
 -- Create policies
-CREATE POLICY "Hangout categories are viewable by everyone" ON public.hangout_categories
+CREATE POLICY "Interests are viewable by everyone" ON public.interests
     FOR SELECT USING (true);
 
-CREATE POLICY "User profile categories are viewable by everyone" ON public.user_profile_categories
+CREATE POLICY "User profile interests are viewable by everyone" ON public.user_profile_interests
     FOR SELECT USING (true);
 
-CREATE POLICY "Users can manage their own categories" ON public.user_profile_categories
+CREATE POLICY "Users can manage their own interests" ON public.user_profile_interests
     FOR ALL USING (auth.uid() = user_profile_id)
     WITH CHECK (auth.uid() = user_profile_id);
 

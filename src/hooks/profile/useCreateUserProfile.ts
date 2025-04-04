@@ -1,7 +1,7 @@
 import { useState } from "react";
 import supabase from "@/lib/supabase";
 import type { UserProfileDto } from "./types";
-import { prepareAddressForDb } from "@/hooks/map/address";
+import { convertAddressToPostGIS } from "@/hooks/map/_helper";
 
 export default function useCreateUserProfile() {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +24,7 @@ export default function useCreateUserProfile() {
       // First create the address record
       const { data: addressData, error: addressError } = await supabase
         .from("addresses")
-        .insert(prepareAddressForDb(data.address))
+        .insert(convertAddressToPostGIS(data.address))
         .select()
         .single();
 
@@ -41,7 +41,7 @@ export default function useCreateUserProfile() {
             full_name: data.name,
             gender: data.gender,
             date_of_birth: data.dateOfBirth.toISOString(),
-            address_id: addressData.id,
+            location_id: addressData.id,
             avatar_url: avatarUrl || null,
           },
           {

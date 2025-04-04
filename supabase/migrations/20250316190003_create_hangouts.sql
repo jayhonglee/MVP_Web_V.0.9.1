@@ -52,14 +52,25 @@ CREATE POLICY "Users can update addresses"
 CREATE TABLE public.hangouts (
     id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
     host_id uuid REFERENCES public.user_profiles(id) ON DELETE CASCADE,
-    type text REFERENCES public.hangout_categories(id) ON DELETE RESTRICT,
+    type text REFERENCES public.interests(id) ON DELETE RESTRICT,
     title text NOT NULL,
     description text NOT NULL,
     cover_image_url text,
     scheduled_when timestamptz NOT NULL,
-    location_id uuid REFERENCES public.addresses(id) NOT NULL,
+    address_id uuid REFERENCES public.addresses(id) NOT NULL,
     navigation_instruction text,
     group_size int NOT NULL CHECK (group_size BETWEEN 3 AND 6),
+    created_at timestamptz DEFAULT now() NOT NULL,
+    updated_at timestamptz DEFAULT now() NOT NULL
+);
+
+-- Create hangout preferences table
+CREATE TABLE public.hangout_preferences (
+    id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+    hangout_id uuid REFERENCES public.hangouts(id) ON DELETE CASCADE UNIQUE,
+    min_age int,
+    max_age int,
+    preferred_gender text CHECK (preferred_gender IN ('male', 'female', 'other')),
     created_at timestamptz DEFAULT now() NOT NULL,
     updated_at timestamptz DEFAULT now() NOT NULL
 );
@@ -105,8 +116,47 @@ CREATE POLICY "Users can delete their own hangouts"
     ON public.hangouts FOR DELETE
     USING (auth.uid() = host_id);
 
+-- Enable RLS on hangout_preferences table
+ALTER TABLE public.hangout_preferences ENABLE ROW LEVEL SECURITY;
+
+-- Create policies for hangout_preferences
+CREATE POLICY "Hangout preferences are viewable by everyone"
+    ON public.hangout_preferences FOR SELECT
+    USING (true);
+
+CREATE POLICY "Users can create preferences for their own hangouts"
+    ON public.hangout_preferences FOR INSERT
+    WITH CHECK (
+        EXISTS (
+            SELECT 1 FROM public.hangouts
+            WHERE hangouts.id = hangout_preferences.hangout_id
+            AND hangouts.host_id = auth.uid()
+        )
+    );
+
+CREATE POLICY "Users can update preferences for their own hangouts"
+    ON public.hangout_preferences FOR UPDATE
+    USING (
+        EXISTS (
+            SELECT 1 FROM public.hangouts
+            WHERE hangouts.id = hangout_preferences.hangout_id
+            AND hangouts.host_id = auth.uid()
+        )
+    );
+
+CREATE POLICY "Users can delete preferences for their own hangouts"
+    ON public.hangout_preferences FOR DELETE
+    USING (
+        EXISTS (
+            SELECT 1 FROM public.hangouts
+            WHERE hangouts.id = hangout_preferences.hangout_id
+            AND hangouts.host_id = auth.uid()
+        )
+    );
+
 -- Grant access to public
 GRANT ALL ON public.hangouts TO postgres, anon, authenticated, service_role;
+GRANT ALL ON public.hangout_preferences TO postgres, anon, authenticated, service_role;
 
 -- Create function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION public.handle_updated_at()
@@ -120,6 +170,11 @@ $$ LANGUAGE plpgsql;
 -- Create triggers for updated_at
 CREATE TRIGGER set_updated_at
     BEFORE UPDATE ON public.hangouts
+    FOR EACH ROW
+    EXECUTE FUNCTION public.handle_updated_at();
+
+CREATE TRIGGER set_hangout_preferences_updated_at
+    BEFORE UPDATE ON public.hangout_preferences
     FOR EACH ROW
     EXECUTE FUNCTION public.handle_updated_at();
 

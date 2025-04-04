@@ -1,6 +1,6 @@
-import { HangoutCategory } from "@/constants/hangoutCategories";
+import { InterestId } from "@/hooks/interests/types";
 import { FileHolder } from "@/lib/storage";
-import { Address } from "@/hooks/map/address";
+import { Address } from "@/hooks/map/types";
 import { UserProfile } from "@/hooks/profile/types";
 
 export interface HangoutParticipant {
@@ -11,12 +11,12 @@ export interface HangoutParticipant {
 export interface Hangout {
   id: string;
   host: UserProfile;
-  type: HangoutCategory["id"];
+  type: InterestId;
   title: string;
   description: string;
   cover_image_url: string | null;
   scheduled_when: Date;
-  location: Address;
+  address: Address;
   navigation_instruction: string | null;
   group_size: number;
   participants: HangoutParticipant[];
@@ -25,12 +25,12 @@ export interface Hangout {
 }
 
 export interface CreateHangoutDto {
-  type: HangoutCategory["id"];
+  type: InterestId;
   title: string;
   description: string;
   coverImage?: FileHolder;
   scheduled_when: Date;
-  location: Address;
+  address: Address;
   navigationInstruction?: string;
   groupSize: number;
 }

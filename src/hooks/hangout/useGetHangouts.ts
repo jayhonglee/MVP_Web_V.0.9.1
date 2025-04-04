@@ -5,13 +5,13 @@ import {
 } from "@tanstack/react-query";
 import supabase from "@/lib/supabase";
 import { Hangout } from "./types";
-import { HangoutCategory } from "@/constants/hangoutCategories";
-import { transformHangoutData, getHangoutSelectQuery } from "./useGetHangout";
+import { InterestId } from "@/hooks/interests/types";
+import { transformHangoutData, getHangoutSelectQuery } from "./_helper";
 
 const PAGE_SIZE = 10;
 
 export interface HangoutFilters {
-  type?: HangoutCategory["id"];
+  type?: InterestId;
   location?: {
     base: string; // PostGIS point format: 'POINT(longitude latitude)'
     maxRadiusKm: number;
@@ -110,7 +110,6 @@ async function fetchHangouts({
   }
 
   // Transform the data to match our Hangout type
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const hangouts = data.map((item: any) => transformHangoutData(item));
 
   return {
@@ -123,21 +122,19 @@ export default function useGetHangouts({
   filters,
   queryOptions,
 }: GetHangoutsOptions = {}): UseInfiniteQueryResult<
-  PaginatedHangoutsResponse,
+  { pages: PaginatedHangoutsResponse[] },
   PaginatedHangoutsError
 > {
   const queryKey = ["hangouts", filters];
 
   return useInfiniteQuery({
     queryKey,
-    queryFn: (context) => fetchHangouts({ 
-      pageParam: context.pageParam as number, 
-      filters 
-    }),
+    queryFn: ({ pageParam }) =>
+      fetchHangouts({ pageParam: pageParam as number, filters }),
     initialPageParam: 0,
-    getNextPageParam: (lastPage: PaginatedHangoutsResponse) => lastPage.nextCursor,
+    getNextPageParam: (lastPage) => lastPage.nextCursor,
     ...queryOptions,
-  });
+  }) as any;
 }
 
 // Helper hook to get hangouts by a specific host

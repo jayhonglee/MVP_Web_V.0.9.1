@@ -1,15 +1,4 @@
-// Address structure based on our database schema
-export type Address = {
-  place_name?: string;
-  address?: string;
-  city?: string;
-  state?: string;
-  postal_code?: string;
-  country?: string;
-  longitude?: number;
-  latitude?: number;
-  coordinates?: string; // PostGIS geography string
-};
+import { Address } from "./types";
 
 // Helper function to get state/province abbreviation
 export function getStateAbbreviation(
@@ -34,16 +23,6 @@ export function getStateAbbreviation(
   }
 
   return state;
-}
-
-// Helper function to prepare address for database operations
-export function prepareAddressForDb(
-  address: Address,
-): Omit<Address, "coordinates"> & { coordinates: string } {
-  return {
-    ...address,
-    coordinates: `POINT(${address.longitude} ${address.latitude})`,
-  };
 }
 
 // Canadian provinces and territories
@@ -117,3 +96,13 @@ export const usStates = [
   { code: "WY", name: "Wyoming" },
   { code: "DC", name: "District of Columbia" },
 ];
+
+// Helper function to prepare address for database operations
+export function convertAddressToPostGIS(
+  address: Address,
+): Omit<Address, "coordinates"> & { coordinates: string } {
+  return {
+    ...address,
+    coordinates: `POINT(${address.longitude} ${address.latitude})`,
+  };
+}

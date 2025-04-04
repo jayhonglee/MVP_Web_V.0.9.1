@@ -106,7 +106,9 @@ If you encounter an error like "The container name is already in use", follow th
 supabase stop
 
 # Then start it again
-supabase start
-# or if needed
+supabase start  
+
+# or if you encounter "container is not ready: unhealthy" error message
+supabase stop
 supabase start --ignore-health-check
 ```

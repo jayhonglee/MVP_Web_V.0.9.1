@@ -1,6 +1,6 @@
-import { Interest } from "@/constants/interests";
+import { InterestId } from "@/hooks/interests/types";
 import { FileHolder } from "@/lib/storage";
-import { Address } from "@/hooks/map/address";
+import { Address } from "@/hooks/map/types";
 
 export interface UserProfile {
   id: string;
@@ -11,7 +11,7 @@ export interface UserProfile {
   avatar_url: string | null;
   cover_photo_url: string | null;
   introduction: string | null;
-  interests: Interest["id"][];
+  interests: InterestId[];
 }
 
 export interface UserProfileDto {
@@ -21,7 +21,7 @@ export interface UserProfileDto {
   dateOfBirth: Date;
   avatar?: FileHolder;
   address: Address;
-  interests: Interest["id"][];
+  interests: InterestId[];
 }
 
 export type UpdateUserProfileDto = Partial<Omit<UserProfileDto, "userId">> & {

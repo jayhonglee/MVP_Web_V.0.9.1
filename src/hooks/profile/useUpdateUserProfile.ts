@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import supabase from "@/lib/supabase";
 import type { UpdateUserProfileDto, UserProfile } from "./types";
 import { fetchUserProfile } from "./useGetUserProfile";
-import { prepareAddressForDb } from "@/hooks/map/address";
+import { convertAddressToPostGIS } from "@/hooks/map/_helper";
 
 export type UpdateUserProfileError = {
   message: string;
@@ -32,6 +32,7 @@ const updateUserProfile = async (
     }
 
     // Prepare update object with only non-null fields
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateData: Record<string, any> = {};
 
     if (data.name !== undefined) updateData.full_name = data.name;
@@ -45,23 +46,23 @@ const updateUserProfile = async (
 
     // Handle address update if provided
     if (data.address !== undefined) {
-      // Fetch the current address_id if it exists
+      // Fetch the current location_id if it exists
       const { data: userData, error: userError } = await supabase
         .from("user_profiles")
-        .select("address_id")
+        .select("location_id")
         .eq("id", data.id)
         .single();
 
       if (userError) throw new Error("Failed to fetch current user data");
 
-      const addressData = prepareAddressForDb(data.address);
+      const addressData = convertAddressToPostGIS(data.address);
 
       // Update or create address using upsert
       const { data: upsertedAddress, error: addressError } = await supabase
         .from("addresses")
         .upsert(
-          userData?.address_id
-            ? { id: userData.address_id, ...addressData }
+          userData?.location_id
+            ? { id: userData.location_id, ...addressData }
             : addressData,
           { onConflict: "id" },
         )
@@ -72,7 +73,7 @@ const updateUserProfile = async (
         throw new Error("Failed to update address");
       }
 
-      updateData.address_id = upsertedAddress.id;
+      updateData.location_id = upsertedAddress.id;
     }
 
     // Update profile

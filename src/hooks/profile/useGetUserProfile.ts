@@ -5,35 +5,12 @@ import {
 } from "@tanstack/react-query";
 import supabase from "@/lib/supabase";
 import type { UserProfile } from "./types";
+import { transformUserProfileData } from "./_helper";
 
 export type UserProfileError = {
   message: string;
   code?: string;
 };
-
-// Helper function to transform database row to UserProfile type
-export function transformUserProfileData(data: any): UserProfile {
-  if (!data) {
-    throw new Error("Transforming user profile data failed: No data provided");
-  }
-
-  // Transform the nested data structure
-  const transformedData = {
-    ...data,
-    interests:
-      data.user_profile_interests?.map(
-        (i: { interest_id: string }) => i.interest_id,
-      ) || [],
-    address: data.addresses || {},
-  };
-
-  // Remove the nested properties that were flattened
-  delete transformedData.user_profile_interests;
-  delete transformedData.addresses;
-  delete transformedData.address_id;
-
-  return transformedData as UserProfile;
-}
 
 export const fetchUserProfile = async (
   userId: string,
@@ -44,7 +21,7 @@ export const fetchUserProfile = async (
       `
       *,
       user_profile_interests(interest_id),
-      addresses!user_profiles_address_id_fkey(*)
+      addresses!user_profiles_location_id_fkey(*)
     `,
     )
     .eq("id", userId)

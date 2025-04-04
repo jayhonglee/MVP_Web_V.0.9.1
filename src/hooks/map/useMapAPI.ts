@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Address } from "@/hooks/map/address";
+import { Address } from "@/hooks/map/types";
 
 const MAPBOX_API_KEY = process.env.EXPO_PUBLIC_MAPBOX_API_KEY;
 const MAPBOX_ENDPOINT = "https://api.mapbox.com/geocoding/v5/mapbox.places";
