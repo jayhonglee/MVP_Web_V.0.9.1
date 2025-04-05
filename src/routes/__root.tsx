@@ -184,9 +184,14 @@ const HomePage: React.FC = () => {
                   >
                     <div className="flex items-center">
                       <img
-                        src={dropIn.dropInImage}
+                        src={`${dropIn.dropInImage}?auto=compress&q=60&w=196&fit=crop`}
                         alt={dropIn.title}
                         className="object-cover rounded-[10px] mr-[10px] relative w-[98px] h-[98px] flex-shrink-0"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src =
+                            "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='98' height='98' viewBox='0 0 98 98'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='100%25' style='stop-color:%23FF8E53'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='98' height='98' fill='url(%23grad)'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'%3EHANGOUT%3C/text%3E%3C/svg%3E";
+                        }}
                       />
                       <div className="flex flex-col min-w-0 flex-1 h-[98px] justify-between">
                         <div className="flex flex-col">
@@ -210,14 +215,14 @@ const HomePage: React.FC = () => {
                           <div className="font-semibold text-[15px] leading-[20px] tracking-[-0.4px] text-[rgb(56,53,53)] truncate overflow-hidden text-ellipsis whitespace-nowrap mb-[4px]">
                             {dropIn.title}
                           </div>
-                          <div className="font-normal text-[12px] leading-[14.4px] tracking-[-0.2px] text-[rgb(153,150,150)] flex min-w-0 mb-[10px] w-full max-w-[calc(344px-30px)]">
-                            <div className="truncate overflow-hidden text-ellipsis whitespace-nowrap w-full">
+                          <div className="font-normal text-[12px] leading-[14.4px] tracking-[-0.2px] text-[rgb(153,150,150)] flex min-w-0 mb-[10px] w-full max-w-[216px]">
+                            <div className="truncate overflow-hidden text-ellipsis whitespace-nowrap w-full tracking-[-1px]">
                               {dropIn.category}
                               {" · "}
                               <img
                                 src="/info_place_14px.svg"
                                 alt="location"
-                                className="w-[12px] h-[12px] mobile:w-[20px] mobile:h-[20px] mx-[2px] inline-block"
+                                className="w-[12px] h-[12px] mobile:w-[20px] mobile:h-[20px] inline-block"
                               />{" "}
                               {dropIn.location}
                               {" · "}
@@ -233,7 +238,7 @@ const HomePage: React.FC = () => {
                             .map((person, index) => (
                               <img
                                 key={index}
-                                src={person.avatar}
+                                src={`${person.avatar}?auto=compress&q=50&w=44&fit=crop`}
                                 alt={person.name}
                                 className="object-cover rounded-full relative flex-shrink-0 w-[22px] h-[22px] -ml-1.5 first:ml-0 border border-white"
                                 style={{ zIndex: index }}

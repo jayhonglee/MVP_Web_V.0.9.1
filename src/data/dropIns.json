@@ -1,58 +1,7 @@
 {
   "All": [
     {
-      "id": 1,
-      "title": "Coffee & Code Morning",
-      "category": "Self-Development",
-      "date": "2024-04-15",
-      "time": "09:00",
-      "location": "Starbucks Downtown",
-      "host": {
-        "name": "Sarah Chen",
-        "avatar": "https://i.pravatar.cc/150?img=1"
-      },
-      "attendees": 8,
-      "maxAttendees": 12,
-      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!",
-      "interestTags": ["coding", "coffee", "tech", "programming", "networking"],
-      "dropInImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-      "attendingPeople": [
-        {
-          "name": "Alex Johnson",
-          "avatar": "https://i.pravatar.cc/150?img=13"
-        },
-        {
-          "name": "Maria Garcia",
-          "avatar": "https://i.pravatar.cc/150?img=14"
-        },
-        {
-          "name": "David Kim",
-          "avatar": "https://i.pravatar.cc/150?img=15"
-        },
-        {
-          "name": "Emily Brown",
-          "avatar": "https://i.pravatar.cc/150?img=16"
-        },
-        {
-          "name": "James Wilson",
-          "avatar": "https://i.pravatar.cc/150?img=17"
-        },
-        {
-          "name": "Sophia Lee",
-          "avatar": "https://i.pravatar.cc/150?img=18"
-        },
-        {
-          "name": "Michael Taylor",
-          "avatar": "https://i.pravatar.cc/150?img=19"
-        },
-        {
-          "name": "Olivia Martinez",
-          "avatar": "https://i.pravatar.cc/150?img=20"
-        }
-      ]
-    },
-    {
-      "id": 2,
+      "id": 101,
       "title": "Weekend Art Workshop",
       "category": "Culture·Arts",
       "date": "2024-04-20",
@@ -60,80 +9,166 @@
       "location": "Creative Arts Center",
       "host": {
         "name": "Mike Johnson",
-        "avatar": "https://i.pravatar.cc/150?img=2"
+        "avatar": "https://i.pravatar.cc/150?img=21"
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided.",
-      "interestTags": ["art", "painting", "creativity", "workshop", "weekend"],
-      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "description": "Learn basic painting techniques in this hands-on workshop.",
+      "interestTags": ["art", "painting", "creativity", "workshop"],
+      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b",
       "attendingPeople": [
         {
           "name": "Emma Davis",
-          "avatar": "https://i.pravatar.cc/150?img=21"
-        },
-        {
-          "name": "Noah Wilson",
           "avatar": "https://i.pravatar.cc/150?img=22"
         },
         {
-          "name": "Ava Martinez",
+          "name": "Noah Wilson",
           "avatar": "https://i.pravatar.cc/150?img=23"
-        },
+        }
+      ]
+    },
+    {
+      "id": 201,
+      "title": "Morning Yoga in the Park",
+      "category": "Activities",
+      "date": "2024-04-16",
+      "time": "07:00",
+      "location": "Central Park",
+      "host": {
+        "name": "Lisa Park",
+        "avatar": "https://i.pravatar.cc/150?img=31"
+      },
+      "attendees": 10,
+      "maxAttendees": 15,
+      "description": "Start your day with energizing yoga. All levels welcome.",
+      "interestTags": ["yoga", "fitness", "wellness", "morning", "outdoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
+      "attendingPeople": [
         {
-          "name": "Liam Thompson",
-          "avatar": "https://i.pravatar.cc/150?img=24"
-        },
-        {
-          "name": "Sophia Garcia",
-          "avatar": "https://i.pravatar.cc/150?img=25"
-        },
-        {
-          "name": "Mason Anderson",
-          "avatar": "https://i.pravatar.cc/150?img=26"
-        },
-        {
-          "name": "Isabella Taylor",
-          "avatar": "https://i.pravatar.cc/150?img=27"
-        },
-        {
-          "name": "Ethan Brown",
-          "avatar": "https://i.pravatar.cc/150?img=28"
-        },
-        {
-          "name": "Mia Johnson",
-          "avatar": "https://i.pravatar.cc/150?img=29"
-        },
-        {
-          "name": "Lucas White",
-          "avatar": "https://i.pravatar.cc/150?img=30"
-        },
-        {
-          "name": "Charlotte Lee",
-          "avatar": "https://i.pravatar.cc/150?img=31"
-        },
-        {
-          "name": "Benjamin Clark",
+          "name": "Rachel Green",
           "avatar": "https://i.pravatar.cc/150?img=32"
-        },
+        }
+      ]
+    },
+    {
+      "id": 301,
+      "title": "Wine Tasting Evening",
+      "category": "Food·Drink",
+      "date": "2024-04-21",
+      "time": "19:00",
+      "location": "Vintage Wine Bar",
+      "host": {
+        "name": "David Miller",
+        "avatar": "https://i.pravatar.cc/150?img=41"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Sample wines from around the world with expert guidance.",
+      "interestTags": ["wine", "tasting", "social"],
+      "dropInImage": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
+      "attendingPeople": [
         {
-          "name": "Amelia Hall",
-          "avatar": "https://i.pravatar.cc/150?img=33"
-        },
+          "name": "Robert Parker",
+          "avatar": "https://i.pravatar.cc/150?img=42"
+        }
+      ]
+    },
+    {
+      "id": 401,
+      "title": "Photography Walk",
+      "category": "Hobbies",
+      "date": "2024-04-19",
+      "time": "16:00",
+      "location": "Historic District",
+      "host": {
+        "name": "Alex Wong",
+        "avatar": "https://i.pravatar.cc/150?img=51"
+      },
+      "attendees": 6,
+      "maxAttendees": 10,
+      "description": "Explore the historic district with your camera.",
+      "interestTags": ["photography", "walking", "art"],
+      "dropInImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
+      "attendingPeople": [
         {
-          "name": "Henry Young",
-          "avatar": "https://i.pravatar.cc/150?img=34"
-        },
+          "name": "Ansel Adams",
+          "avatar": "https://i.pravatar.cc/150?img=52"
+        }
+      ]
+    },
+    {
+      "id": 501,
+      "title": "Weekend Hiking Trip",
+      "category": "Travel·Companion",
+      "date": "2024-04-27",
+      "time": "08:00",
+      "location": "Mountain Trail",
+      "host": {
+        "name": "Ryan Lee",
+        "avatar": "https://i.pravatar.cc/150?img=61"
+      },
+      "attendees": 5,
+      "maxAttendees": 8,
+      "description": "Moderate difficulty hike with beautiful views.",
+      "interestTags": ["hiking", "outdoor", "nature"],
+      "dropInImage": "https://images.unsplash.com/photo-1551632811-561732d1e306",
+      "attendingPeople": [
         {
-          "name": "Harper King",
-          "avatar": "https://i.pravatar.cc/150?img=35"
+          "name": "John Muir",
+          "avatar": "https://i.pravatar.cc/150?img=62"
+        }
+      ]
+    },
+    {
+      "id": 601,
+      "title": "Public Speaking Workshop",
+      "category": "Self-Development",
+      "date": "2024-04-24",
+      "time": "18:30",
+      "location": "Community Center",
+      "host": {
+        "name": "James Wilson",
+        "avatar": "https://i.pravatar.cc/150?img=71"
+      },
+      "attendees": 6,
+      "maxAttendees": 10,
+      "description": "Practice public speaking in a supportive environment.",
+      "interestTags": ["public speaking", "communication"],
+      "dropInImage": "https://images.unsplash.com/photo-1543269865-cbf427effbad",
+      "attendingPeople": [
+        {
+          "name": "Martin Luther King Jr.",
+          "avatar": "https://i.pravatar.cc/150?img=72"
+        }
+      ]
+    },
+    {
+      "id": 701,
+      "title": "Community Garden Cleanup",
+      "category": "Local·Neighborhood",
+      "date": "2024-04-26",
+      "time": "10:00",
+      "location": "Community Garden",
+      "host": {
+        "name": "Patricia Green",
+        "avatar": "https://i.pravatar.cc/150?img=81"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Help maintain our community garden.",
+      "interestTags": ["gardening", "community", "volunteer"],
+      "dropInImage": "https://images.unsplash.com/photo-1590650046871-92c887180603",
+      "attendingPeople": [
+        {
+          "name": "John Smith",
+          "avatar": "https://i.pravatar.cc/150?img=82"
         }
       ]
     }
   ],
   "🎨 Culture·Arts": [
     {
-      "id": 2,
+      "id": 101,
       "title": "Weekend Art Workshop",
       "category": "Culture·Arts",
       "date": "2024-04-20",
@@ -141,78 +176,26 @@
       "location": "Creative Arts Center",
       "host": {
         "name": "Mike Johnson",
-        "avatar": "https://i.pravatar.cc/150?img=2"
+        "avatar": "https://i.pravatar.cc/150?img=21"
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Learn basic painting techniques in this hands-on workshop. Materials provided.",
-      "interestTags": ["art", "painting", "creativity", "workshop", "weekend"],
-      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "description": "Learn basic painting techniques in this hands-on workshop.",
+      "interestTags": ["art", "painting", "creativity", "workshop"],
+      "dropInImage": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b",
       "attendingPeople": [
         {
           "name": "Emma Davis",
-          "avatar": "https://i.pravatar.cc/150?img=21"
-        },
-        {
-          "name": "Noah Wilson",
           "avatar": "https://i.pravatar.cc/150?img=22"
         },
         {
-          "name": "Ava Martinez",
+          "name": "Noah Wilson",
           "avatar": "https://i.pravatar.cc/150?img=23"
-        },
-        {
-          "name": "Liam Thompson",
-          "avatar": "https://i.pravatar.cc/150?img=24"
-        },
-        {
-          "name": "Sophia Garcia",
-          "avatar": "https://i.pravatar.cc/150?img=25"
-        },
-        {
-          "name": "Mason Anderson",
-          "avatar": "https://i.pravatar.cc/150?img=26"
-        },
-        {
-          "name": "Isabella Taylor",
-          "avatar": "https://i.pravatar.cc/150?img=27"
-        },
-        {
-          "name": "Ethan Brown",
-          "avatar": "https://i.pravatar.cc/150?img=28"
-        },
-        {
-          "name": "Mia Johnson",
-          "avatar": "https://i.pravatar.cc/150?img=29"
-        },
-        {
-          "name": "Lucas White",
-          "avatar": "https://i.pravatar.cc/150?img=30"
-        },
-        {
-          "name": "Charlotte Lee",
-          "avatar": "https://i.pravatar.cc/150?img=31"
-        },
-        {
-          "name": "Benjamin Clark",
-          "avatar": "https://i.pravatar.cc/150?img=32"
-        },
-        {
-          "name": "Amelia Hall",
-          "avatar": "https://i.pravatar.cc/150?img=33"
-        },
-        {
-          "name": "Henry Young",
-          "avatar": "https://i.pravatar.cc/150?img=34"
-        },
-        {
-          "name": "Harper King",
-          "avatar": "https://i.pravatar.cc/150?img=35"
         }
       ]
     },
     {
-      "id": 3,
+      "id": 102,
       "title": "Poetry Reading Night",
       "category": "Culture·Arts",
       "date": "2024-04-25",
@@ -220,7 +203,7 @@
       "location": "City Library",
       "host": {
         "name": "Emma Wilson",
-        "avatar": "https://i.pravatar.cc/150?img=3"
+        "avatar": "https://i.pravatar.cc/150?img=24"
       },
       "attendees": 12,
       "maxAttendees": 30,
@@ -232,62 +215,206 @@
         "performance",
         "arts"
       ],
-      "dropInImage": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "dropInImage": "https://images.unsplash.com/photo-1507842217343-583bb7270b66",
       "attendingPeople": [
         {
           "name": "William Turner",
-          "avatar": "https://i.pravatar.cc/150?img=36"
+          "avatar": "https://i.pravatar.cc/150?img=25"
         },
         {
           "name": "Elizabeth Parker",
-          "avatar": "https://i.pravatar.cc/150?img=37"
-        },
+          "avatar": "https://i.pravatar.cc/150?img=26"
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "title": "Sculpture Workshop",
+      "category": "Culture·Arts",
+      "date": "2024-04-28",
+      "time": "15:00",
+      "location": "Art Studio",
+      "host": {
+        "name": "David Stone",
+        "avatar": "https://i.pravatar.cc/150?img=27"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Learn the basics of clay sculpture.",
+      "interestTags": ["sculpture", "art", "clay", "workshop"],
+      "dropInImage": "https://images.unsplash.com/photo-1515443961218-a51367888e4b",
+      "attendingPeople": [
         {
-          "name": "Daniel Wright",
+          "name": "Michael Clay",
+          "avatar": "https://i.pravatar.cc/150?img=28"
+        }
+      ]
+    },
+    {
+      "id": 104,
+      "title": "Dance Performance Workshop",
+      "category": "Culture·Arts",
+      "date": "2024-05-01",
+      "time": "17:00",
+      "location": "Dance Studio",
+      "host": {
+        "name": "Anna Lee",
+        "avatar": "https://i.pravatar.cc/150?img=29"
+      },
+      "attendees": 10,
+      "maxAttendees": 15,
+      "description": "Contemporary dance workshop for all levels.",
+      "interestTags": ["dance", "performance", "arts", "movement"],
+      "dropInImage": "https://images.unsplash.com/photo-1518834107812-67b0b7c58434",
+      "attendingPeople": [
+        {
+          "name": "Grace Kelly",
+          "avatar": "https://i.pravatar.cc/150?img=30"
+        }
+      ]
+    },
+    {
+      "id": 105,
+      "title": "Photography Exhibition",
+      "category": "Culture·Arts",
+      "date": "2024-05-03",
+      "time": "18:00",
+      "location": "City Gallery",
+      "host": {
+        "name": "Robert Lens",
+        "avatar": "https://i.pravatar.cc/150?img=31"
+      },
+      "attendees": 20,
+      "maxAttendees": 40,
+      "description": "Local photographers showcase their work.",
+      "interestTags": ["photography", "art", "exhibition", "culture"],
+      "dropInImage": "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+      "attendingPeople": [
+        {
+          "name": "John Frame",
+          "avatar": "https://i.pravatar.cc/150?img=32"
+        }
+      ]
+    },
+    {
+      "id": 106,
+      "title": "Theater Improv Night",
+      "category": "Culture·Arts",
+      "date": "2024-05-05",
+      "time": "19:30",
+      "location": "Community Theater",
+      "host": {
+        "name": "Mark Stage",
+        "avatar": "https://i.pravatar.cc/150?img=33"
+      },
+      "attendees": 12,
+      "maxAttendees": 20,
+      "description": "Fun evening of improvisational theater.",
+      "interestTags": ["theater", "improv", "acting", "performance"],
+      "dropInImage": "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf",
+      "attendingPeople": [
+        {
+          "name": "Sarah Actor",
+          "avatar": "https://i.pravatar.cc/150?img=34"
+        }
+      ]
+    },
+    {
+      "id": 107,
+      "title": "Music Jam Session",
+      "category": "Culture·Arts",
+      "date": "2024-05-07",
+      "time": "20:00",
+      "location": "Music Studio",
+      "host": {
+        "name": "Jazz Smith",
+        "avatar": "https://i.pravatar.cc/150?img=35"
+      },
+      "attendees": 6,
+      "maxAttendees": 10,
+      "description": "Bring your instrument for a casual jam session.",
+      "interestTags": ["music", "jam", "performance", "instruments"],
+      "dropInImage": "https://images.unsplash.com/photo-1511735111819-9a3f7709049c",
+      "attendingPeople": [
+        {
+          "name": "Bob Note",
+          "avatar": "https://i.pravatar.cc/150?img=36"
+        }
+      ]
+    },
+    {
+      "id": 108,
+      "title": "Calligraphy Workshop",
+      "category": "Culture·Arts",
+      "date": "2024-05-09",
+      "time": "15:30",
+      "location": "Art Center",
+      "host": {
+        "name": "Linda Write",
+        "avatar": "https://i.pravatar.cc/150?img=37"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Learn the art of beautiful writing.",
+      "interestTags": ["calligraphy", "art", "writing", "craft"],
+      "dropInImage": "https://images.unsplash.com/photo-1595994195268-5e518f34e805",
+      "attendingPeople": [
+        {
+          "name": "Peter Pen",
           "avatar": "https://i.pravatar.cc/150?img=38"
-        },
+        }
+      ]
+    },
+    {
+      "id": 109,
+      "title": "Film Screening & Discussion",
+      "category": "Culture·Arts",
+      "date": "2024-05-11",
+      "time": "18:30",
+      "location": "Independent Cinema",
+      "host": {
+        "name": "Tom Director",
+        "avatar": "https://i.pravatar.cc/150?img=39"
+      },
+      "attendees": 25,
+      "maxAttendees": 50,
+      "description": "Watch and discuss independent films.",
+      "interestTags": ["film", "cinema", "discussion", "arts"],
+      "dropInImage": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba",
+      "attendingPeople": [
         {
-          "name": "Victoria Moore",
-          "avatar": "https://i.pravatar.cc/150?img=39"
-        },
-        {
-          "name": "Christopher Lee",
+          "name": "Cindy Reel",
           "avatar": "https://i.pravatar.cc/150?img=40"
-        },
+        }
+      ]
+    },
+    {
+      "id": 110,
+      "title": "Street Art Tour",
+      "category": "Culture·Arts",
+      "date": "2024-05-13",
+      "time": "14:00",
+      "location": "Downtown Area",
+      "host": {
+        "name": "Urban Artist",
+        "avatar": "https://i.pravatar.cc/150?img=41"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Explore local street art and murals.",
+      "interestTags": ["street art", "urban", "art", "walking"],
+      "dropInImage": "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8",
+      "attendingPeople": [
         {
-          "name": "Jennifer Davis",
-          "avatar": "https://i.pravatar.cc/150?img=41"
-        },
-        {
-          "name": "Matthew Harris",
+          "name": "Spray Paint",
           "avatar": "https://i.pravatar.cc/150?img=42"
-        },
-        {
-          "name": "Patricia Clark",
-          "avatar": "https://i.pravatar.cc/150?img=43"
-        },
-        {
-          "name": "Robert Martinez",
-          "avatar": "https://i.pravatar.cc/150?img=44"
-        },
-        {
-          "name": "Nancy Thompson",
-          "avatar": "https://i.pravatar.cc/150?img=45"
-        },
-        {
-          "name": "Thomas Anderson",
-          "avatar": "https://i.pravatar.cc/150?img=46"
-        },
-        {
-          "name": "Susan White",
-          "avatar": "https://i.pravatar.cc/150?img=47"
         }
       ]
     }
   ],
   "🏃‍♂️ Activities": [
     {
-      "id": 4,
+      "id": 201,
       "title": "Morning Yoga in the Park",
       "category": "Activities",
       "date": "2024-04-16",
@@ -295,17 +422,17 @@
       "location": "Central Park",
       "host": {
         "name": "Lisa Park",
-        "avatar": "https://i.pravatar.cc/150?img=4"
+        "avatar": "https://i.pravatar.cc/150?img=31"
       },
       "attendees": 10,
       "maxAttendees": 15,
       "description": "Start your day with energizing yoga. All levels welcome, bring your own mat.",
       "interestTags": ["yoga", "fitness", "wellness", "morning", "outdoor"],
-      "dropInImage": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "dropInImage": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
       "attendingPeople": [
         {
           "name": "Rachel Green",
-          "avatar": "https://i.pravatar.cc/150?img=48"
+          "avatar": "https://i.pravatar.cc/150?img=32"
         },
         {
           "name": "Kevin Smith",
@@ -395,11 +522,195 @@
           "avatar": "https://i.pravatar.cc/150?img=65"
         }
       ]
+    },
+    {
+      "id": 203,
+      "title": "Rock Climbing Session",
+      "category": "Activities",
+      "date": "2024-05-02",
+      "time": "16:00",
+      "location": "Indoor Climbing Gym",
+      "host": {
+        "name": "Alex Peak",
+        "avatar": "https://i.pravatar.cc/150?img=43"
+      },
+      "attendees": 6,
+      "maxAttendees": 8,
+      "description": "Indoor climbing for all skill levels.",
+      "interestTags": ["climbing", "fitness", "indoor", "sports"],
+      "dropInImage": "https://images.unsplash.com/photo-1522163182402-834f871fd851",
+      "attendingPeople": [
+        {
+          "name": "Chris Rock",
+          "avatar": "https://i.pravatar.cc/150?img=44"
+        }
+      ]
+    },
+    {
+      "id": 204,
+      "title": "Beach Volleyball",
+      "category": "Activities",
+      "date": "2024-05-04",
+      "time": "10:00",
+      "location": "City Beach",
+      "host": {
+        "name": "Sandy Beach",
+        "avatar": "https://i.pravatar.cc/150?img=45"
+      },
+      "attendees": 10,
+      "maxAttendees": 12,
+      "description": "Casual beach volleyball games.",
+      "interestTags": ["volleyball", "beach", "sports", "outdoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1",
+      "attendingPeople": [
+        {
+          "name": "Spike Ball",
+          "avatar": "https://i.pravatar.cc/150?img=46"
+        }
+      ]
+    },
+    {
+      "id": 205,
+      "title": "Tennis Doubles",
+      "category": "Activities",
+      "date": "2024-05-06",
+      "time": "09:00",
+      "location": "Tennis Club",
+      "host": {
+        "name": "Roger Net",
+        "avatar": "https://i.pravatar.cc/150?img=47"
+      },
+      "attendees": 4,
+      "maxAttendees": 4,
+      "description": "Doubles tennis match for intermediate players.",
+      "interestTags": ["tennis", "sports", "doubles", "outdoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1595435934249-5df7ed86e1c0",
+      "attendingPeople": [
+        {
+          "name": "Serena Court",
+          "avatar": "https://i.pravatar.cc/150?img=48"
+        }
+      ]
+    },
+    {
+      "id": 206,
+      "title": "Group Cycling",
+      "category": "Activities",
+      "date": "2024-05-08",
+      "time": "07:30",
+      "location": "Bike Trail",
+      "host": {
+        "name": "Wheel Turner",
+        "avatar": "https://i.pravatar.cc/150?img=49"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Morning group ride on scenic trails.",
+      "interestTags": ["cycling", "biking", "outdoor", "fitness"],
+      "dropInImage": "https://images.unsplash.com/photo-1541625602330-2277a4c46182",
+      "attendingPeople": [
+        {
+          "name": "Pedal Power",
+          "avatar": "https://i.pravatar.cc/150?img=50"
+        }
+      ]
+    },
+    {
+      "id": 207,
+      "title": "Swimming Training",
+      "category": "Activities",
+      "date": "2024-05-10",
+      "time": "06:00",
+      "location": "Community Pool",
+      "host": {
+        "name": "Michael Splash",
+        "avatar": "https://i.pravatar.cc/150?img=51"
+      },
+      "attendees": 5,
+      "maxAttendees": 8,
+      "description": "Lap swimming and technique training.",
+      "interestTags": ["swimming", "fitness", "training", "pool"],
+      "dropInImage": "https://images.unsplash.com/photo-1519315901367-f34ff9154487",
+      "attendingPeople": [
+        {
+          "name": "Aqua Man",
+          "avatar": "https://i.pravatar.cc/150?img=52"
+        }
+      ]
+    },
+    {
+      "id": 208,
+      "title": "Ultimate Frisbee",
+      "category": "Activities",
+      "date": "2024-05-12",
+      "time": "16:30",
+      "location": "City Park",
+      "host": {
+        "name": "Disc Throw",
+        "avatar": "https://i.pravatar.cc/150?img=53"
+      },
+      "attendees": 12,
+      "maxAttendees": 14,
+      "description": "Casual ultimate frisbee game.",
+      "interestTags": ["frisbee", "ultimate", "sports", "outdoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1591337819702-5c21810edd0e",
+      "attendingPeople": [
+        {
+          "name": "Flying Disc",
+          "avatar": "https://i.pravatar.cc/150?img=54"
+        }
+      ]
+    },
+    {
+      "id": 209,
+      "title": "Badminton Club",
+      "category": "Activities",
+      "date": "2024-05-14",
+      "time": "19:00",
+      "location": "Sports Center",
+      "host": {
+        "name": "Shuttle Cock",
+        "avatar": "https://i.pravatar.cc/150?img=55"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Indoor badminton games for all levels.",
+      "interestTags": ["badminton", "sports", "indoor", "games"],
+      "dropInImage": "https://images.unsplash.com/photo-1613918431703-aa50889e3be7",
+      "attendingPeople": [
+        {
+          "name": "Net Master",
+          "avatar": "https://i.pravatar.cc/150?img=56"
+        }
+      ]
+    },
+    {
+      "id": 210,
+      "title": "Table Tennis Tournament",
+      "category": "Activities",
+      "date": "2024-05-16",
+      "time": "18:00",
+      "location": "Ping Pong Club",
+      "host": {
+        "name": "Paddle Pro",
+        "avatar": "https://i.pravatar.cc/150?img=57"
+      },
+      "attendees": 16,
+      "maxAttendees": 16,
+      "description": "Friendly table tennis tournament.",
+      "interestTags": ["table tennis", "ping pong", "tournament", "indoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1534158914592-062992fbe900",
+      "attendingPeople": [
+        {
+          "name": "Spin Master",
+          "avatar": "https://i.pravatar.cc/150?img=58"
+        }
+      ]
     }
   ],
   "🍴 Food·Drink": [
     {
-      "id": 6,
+      "id": 301,
       "title": "Wine Tasting Evening",
       "category": "Food·Drink",
       "date": "2024-04-21",
@@ -407,24 +718,17 @@
       "location": "Vintage Wine Bar",
       "host": {
         "name": "David Miller",
-        "avatar": "https://i.pravatar.cc/150?img=6"
+        "avatar": "https://i.pravatar.cc/150?img=41"
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Sample wines from around the world with expert guidance. Light snacks provided.",
-      "interestTags": [
-        "wine",
-        "tasting",
-        "food",
-        "drinks",
-        "evening",
-        "social"
-      ],
-      "dropInImage": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "description": "Sample wines from around the world with expert guidance.",
+      "interestTags": ["wine", "tasting", "social"],
+      "dropInImage": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3",
       "attendingPeople": [
         {
           "name": "Robert Parker",
-          "avatar": "https://i.pravatar.cc/150?img=66"
+          "avatar": "https://i.pravatar.cc/150?img=42"
         },
         {
           "name": "Julia Child",
@@ -513,11 +817,195 @@
           "avatar": "https://i.pravatar.cc/150?img=66"
         }
       ]
+    },
+    {
+      "id": 303,
+      "title": "Sushi Making Class",
+      "category": "Food·Drink",
+      "date": "2024-05-03",
+      "time": "18:30",
+      "location": "Asian Culinary Center",
+      "host": {
+        "name": "Chef Tanaka",
+        "avatar": "https://i.pravatar.cc/150?img=59"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Learn to make various sushi rolls.",
+      "interestTags": ["sushi", "cooking", "japanese", "culinary"],
+      "dropInImage": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
+      "attendingPeople": [
+        {
+          "name": "Rice Master",
+          "avatar": "https://i.pravatar.cc/150?img=60"
+        }
+      ]
+    },
+    {
+      "id": 304,
+      "title": "Craft Beer Tasting",
+      "category": "Food·Drink",
+      "date": "2024-05-05",
+      "time": "19:00",
+      "location": "Local Brewery",
+      "host": {
+        "name": "Hop Master",
+        "avatar": "https://i.pravatar.cc/150?img=61"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Sample local craft beers with expert guidance.",
+      "interestTags": ["beer", "craft", "tasting", "drinks"],
+      "dropInImage": "https://images.unsplash.com/photo-1559818454-1b46997bfe30",
+      "attendingPeople": [
+        {
+          "name": "Brew Expert",
+          "avatar": "https://i.pravatar.cc/150?img=62"
+        }
+      ]
+    },
+    {
+      "id": 305,
+      "title": "Mediterranean Cooking",
+      "category": "Food·Drink",
+      "date": "2024-05-07",
+      "time": "17:30",
+      "location": "Cooking School",
+      "host": {
+        "name": "Chef Maria",
+        "avatar": "https://i.pravatar.cc/150?img=63"
+      },
+      "attendees": 10,
+      "maxAttendees": 12,
+      "description": "Learn to cook Mediterranean dishes.",
+      "interestTags": ["cooking", "mediterranean", "culinary", "food"],
+      "dropInImage": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+      "attendingPeople": [
+        {
+          "name": "Olive Oil",
+          "avatar": "https://i.pravatar.cc/150?img=64"
+        }
+      ]
+    },
+    {
+      "id": 306,
+      "title": "Coffee Cupping",
+      "category": "Food·Drink",
+      "date": "2024-05-09",
+      "time": "10:00",
+      "location": "Artisan Coffee Shop",
+      "host": {
+        "name": "Bean Expert",
+        "avatar": "https://i.pravatar.cc/150?img=65"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Learn coffee tasting techniques.",
+      "interestTags": ["coffee", "tasting", "drinks", "artisan"],
+      "dropInImage": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+      "attendingPeople": [
+        {
+          "name": "Coffee Pro",
+          "avatar": "https://i.pravatar.cc/150?img=66"
+        }
+      ]
+    },
+    {
+      "id": 307,
+      "title": "Cheese & Wine Pairing",
+      "category": "Food·Drink",
+      "date": "2024-05-11",
+      "time": "19:30",
+      "location": "Wine Bar",
+      "host": {
+        "name": "Sommelier Sam",
+        "avatar": "https://i.pravatar.cc/150?img=67"
+      },
+      "attendees": 12,
+      "maxAttendees": 15,
+      "description": "Expert-guided cheese and wine pairing.",
+      "interestTags": ["wine", "cheese", "tasting", "pairing"],
+      "dropInImage": "https://images.unsplash.com/photo-1506917728037-b6af81ffa024",
+      "attendingPeople": [
+        {
+          "name": "Wine Expert",
+          "avatar": "https://i.pravatar.cc/150?img=68"
+        }
+      ]
+    },
+    {
+      "id": 308,
+      "title": "Cocktail Mixing",
+      "category": "Food·Drink",
+      "date": "2024-05-13",
+      "time": "20:00",
+      "location": "Cocktail Bar",
+      "host": {
+        "name": "Mix Master",
+        "avatar": "https://i.pravatar.cc/150?img=69"
+      },
+      "attendees": 10,
+      "maxAttendees": 12,
+      "description": "Learn to mix classic cocktails.",
+      "interestTags": ["cocktails", "drinks", "mixing", "bartending"],
+      "dropInImage": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b",
+      "attendingPeople": [
+        {
+          "name": "Shake Pro",
+          "avatar": "https://i.pravatar.cc/150?img=70"
+        }
+      ]
+    },
+    {
+      "id": 309,
+      "title": "Vegan Desserts",
+      "category": "Food·Drink",
+      "date": "2024-05-15",
+      "time": "15:00",
+      "location": "Vegan Bakery",
+      "host": {
+        "name": "Sweet Tooth",
+        "avatar": "https://i.pravatar.cc/150?img=71"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Make delicious vegan desserts.",
+      "interestTags": ["vegan", "desserts", "baking", "food"],
+      "dropInImage": "https://images.unsplash.com/photo-1551404973-761c8c1f901d",
+      "attendingPeople": [
+        {
+          "name": "Plant Baker",
+          "avatar": "https://i.pravatar.cc/150?img=72"
+        }
+      ]
+    },
+    {
+      "id": 310,
+      "title": "BBQ Masterclass",
+      "category": "Food·Drink",
+      "date": "2024-05-17",
+      "time": "16:00",
+      "location": "Outdoor Kitchen",
+      "host": {
+        "name": "Grill Master",
+        "avatar": "https://i.pravatar.cc/150?img=73"
+      },
+      "attendees": 12,
+      "maxAttendees": 15,
+      "description": "Learn BBQ techniques and recipes.",
+      "interestTags": ["bbq", "grilling", "cooking", "outdoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd",
+      "attendingPeople": [
+        {
+          "name": "Smoke King",
+          "avatar": "https://i.pravatar.cc/150?img=74"
+        }
+      ]
     }
   ],
   "⭐ Hobbies": [
     {
-      "id": 8,
+      "id": 401,
       "title": "Photography Walk",
       "category": "Hobbies",
       "date": "2024-04-19",
@@ -525,23 +1013,17 @@
       "location": "Historic District",
       "host": {
         "name": "Alex Wong",
-        "avatar": "https://i.pravatar.cc/150?img=8"
+        "avatar": "https://i.pravatar.cc/150?img=51"
       },
       "attendees": 6,
       "maxAttendees": 10,
-      "description": "Explore the historic district with your camera. All photography levels welcome.",
-      "interestTags": [
-        "photography",
-        "walking",
-        "outdoor",
-        "art",
-        "exploration"
-      ],
-      "dropInImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "description": "Explore the historic district with your camera.",
+      "interestTags": ["photography", "walking", "art"],
+      "dropInImage": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32",
       "attendingPeople": [
         {
           "name": "Ansel Adams",
-          "avatar": "https://i.pravatar.cc/150?img=93"
+          "avatar": "https://i.pravatar.cc/150?img=52"
         },
         {
           "name": "Dorothea Lange",
@@ -615,11 +1097,195 @@
           "avatar": "https://i.pravatar.cc/150?img=106"
         }
       ]
+    },
+    {
+      "id": 403,
+      "title": "Knitting Circle",
+      "category": "Hobbies",
+      "date": "2024-05-04",
+      "time": "14:00",
+      "location": "Yarn Shop",
+      "host": {
+        "name": "Wool Master",
+        "avatar": "https://i.pravatar.cc/150?img=75"
+      },
+      "attendees": 6,
+      "maxAttendees": 8,
+      "description": "Join our knitting circle for all skill levels.",
+      "interestTags": ["knitting", "crafts", "yarn", "social"],
+      "dropInImage": "https://images.unsplash.com/photo-1566838318909-fbc1886c1288",
+      "attendingPeople": [
+        {
+          "name": "Yarn Pro",
+          "avatar": "https://i.pravatar.cc/150?img=76"
+        }
+      ]
+    },
+    {
+      "id": 404,
+      "title": "Model Building",
+      "category": "Hobbies",
+      "date": "2024-05-06",
+      "time": "18:00",
+      "location": "Hobby Shop",
+      "host": {
+        "name": "Kit Builder",
+        "avatar": "https://i.pravatar.cc/150?img=77"
+      },
+      "attendees": 5,
+      "maxAttendees": 8,
+      "description": "Build scale model vehicles together.",
+      "interestTags": ["models", "crafts", "building", "hobby"],
+      "dropInImage": "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f",
+      "attendingPeople": [
+        {
+          "name": "Scale Master",
+          "avatar": "https://i.pravatar.cc/150?img=78"
+        }
+      ]
+    },
+    {
+      "id": 405,
+      "title": "Gardening Workshop",
+      "category": "Hobbies",
+      "date": "2024-05-08",
+      "time": "10:00",
+      "location": "Community Garden",
+      "host": {
+        "name": "Green Thumb",
+        "avatar": "https://i.pravatar.cc/150?img=79"
+      },
+      "attendees": 12,
+      "maxAttendees": 15,
+      "description": "Learn basic gardening techniques.",
+      "interestTags": ["gardening", "plants", "outdoor", "nature"],
+      "dropInImage": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b",
+      "attendingPeople": [
+        {
+          "name": "Plant Pro",
+          "avatar": "https://i.pravatar.cc/150?img=80"
+        }
+      ]
+    },
+    {
+      "id": 406,
+      "title": "Chess Tournament",
+      "category": "Hobbies",
+      "date": "2024-05-10",
+      "time": "13:00",
+      "location": "Chess Club",
+      "host": {
+        "name": "Chess Master",
+        "avatar": "https://i.pravatar.cc/150?img=81"
+      },
+      "attendees": 16,
+      "maxAttendees": 16,
+      "description": "Friendly chess tournament for all levels.",
+      "interestTags": ["chess", "games", "tournament", "strategy"],
+      "dropInImage": "https://images.unsplash.com/photo-1529699211952-734e80c4d42b",
+      "attendingPeople": [
+        {
+          "name": "Pawn Star",
+          "avatar": "https://i.pravatar.cc/150?img=82"
+        }
+      ]
+    },
+    {
+      "id": 407,
+      "title": "Origami Workshop",
+      "category": "Hobbies",
+      "date": "2024-05-12",
+      "time": "15:00",
+      "location": "Paper Arts Studio",
+      "host": {
+        "name": "Paper Master",
+        "avatar": "https://i.pravatar.cc/150?img=83"
+      },
+      "attendees": 10,
+      "maxAttendees": 12,
+      "description": "Learn the art of paper folding.",
+      "interestTags": ["origami", "paper", "crafts", "art"],
+      "dropInImage": "https://images.unsplash.com/photo-1574158622682-e40e69881006",
+      "attendingPeople": [
+        {
+          "name": "Fold Expert",
+          "avatar": "https://i.pravatar.cc/150?img=84"
+        }
+      ]
+    },
+    {
+      "id": 408,
+      "title": "Stamp Collecting",
+      "category": "Hobbies",
+      "date": "2024-05-14",
+      "time": "16:00",
+      "location": "Collectors Club",
+      "host": {
+        "name": "Stamp Pro",
+        "avatar": "https://i.pravatar.cc/150?img=85"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Share and trade stamps with fellow collectors.",
+      "interestTags": ["stamps", "collecting", "hobby", "trading"],
+      "dropInImage": "https://images.unsplash.com/photo-1530968033775-2c92736b131e",
+      "attendingPeople": [
+        {
+          "name": "Collection King",
+          "avatar": "https://i.pravatar.cc/150?img=86"
+        }
+      ]
+    },
+    {
+      "id": 409,
+      "title": "RC Car Racing",
+      "category": "Hobbies",
+      "date": "2024-05-16",
+      "time": "14:00",
+      "location": "RC Track",
+      "host": {
+        "name": "Speed Demon",
+        "avatar": "https://i.pravatar.cc/150?img=87"
+      },
+      "attendees": 12,
+      "maxAttendees": 15,
+      "description": "Race remote control cars on our track.",
+      "interestTags": ["rc cars", "racing", "hobby", "competition"],
+      "dropInImage": "https://images.unsplash.com/photo-1594787318286-3d835c1d207f",
+      "attendingPeople": [
+        {
+          "name": "Race Pro",
+          "avatar": "https://i.pravatar.cc/150?img=88"
+        }
+      ]
+    },
+    {
+      "id": 410,
+      "title": "Puzzle Night",
+      "category": "Hobbies",
+      "date": "2024-05-18",
+      "time": "19:00",
+      "location": "Game Room",
+      "host": {
+        "name": "Puzzle Master",
+        "avatar": "https://i.pravatar.cc/150?img=89"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Work on challenging puzzles together.",
+      "interestTags": ["puzzles", "games", "social", "strategy"],
+      "dropInImage": "https://images.unsplash.com/photo-1586163771068-c2d0e0ea7c90",
+      "attendingPeople": [
+        {
+          "name": "Piece Finder",
+          "avatar": "https://i.pravatar.cc/150?img=90"
+        }
+      ]
     }
   ],
   "🚗 Travel·Companion": [
     {
-      "id": 10,
+      "id": 501,
       "title": "Weekend Hiking Trip",
       "category": "Travel·Companion",
       "date": "2024-04-27",
@@ -627,24 +1293,17 @@
       "location": "Mountain Trail",
       "host": {
         "name": "Ryan Lee",
-        "avatar": "https://i.pravatar.cc/150?img=10"
+        "avatar": "https://i.pravatar.cc/150?img=61"
       },
       "attendees": 5,
       "maxAttendees": 8,
-      "description": "Moderate difficulty hike with beautiful views. Bring water and snacks.",
-      "interestTags": [
-        "hiking",
-        "outdoor",
-        "nature",
-        "travel",
-        "weekend",
-        "adventure"
-      ],
-      "dropInImage": "https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "description": "Moderate difficulty hike with beautiful views.",
+      "interestTags": ["hiking", "outdoor", "nature"],
+      "dropInImage": "https://images.unsplash.com/photo-1551632811-561732d1e306",
       "attendingPeople": [
         {
           "name": "John Muir",
-          "avatar": "https://i.pravatar.cc/150?img=107"
+          "avatar": "https://i.pravatar.cc/150?img=62"
         },
         {
           "name": "Bear Grylls",
@@ -663,86 +1322,236 @@
           "avatar": "https://i.pravatar.cc/150?img=111"
         }
       ]
-    }
-  ],
-  "📚 Self-Development": [
+    },
     {
-      "id": 1,
-      "title": "Coffee & Code Morning",
-      "category": "Self-Development",
-      "date": "2024-04-15",
-      "time": "09:00",
-      "location": "Starbucks Downtown",
+      "id": 502,
+      "title": "City Photography Walk",
+      "category": "Travel·Companion",
+      "date": "2024-05-01",
+      "time": "15:00",
+      "location": "City Center",
       "host": {
-        "name": "Sarah Chen",
-        "avatar": "https://i.pravatar.cc/150?img=1"
+        "name": "Photo Walker",
+        "avatar": "https://i.pravatar.cc/150?img=91"
       },
       "attendees": 8,
-      "maxAttendees": 12,
-      "description": "Join fellow developers for a morning of coding and coffee. All skill levels welcome!",
-      "interestTags": ["coding", "coffee", "tech", "programming", "networking"],
-      "dropInImage": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "maxAttendees": 10,
+      "description": "Explore and photograph city landmarks.",
+      "interestTags": ["photography", "walking", "city", "travel"],
+      "dropInImage": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b",
       "attendingPeople": [
         {
-          "name": "Alex Johnson",
-          "avatar": "https://i.pravatar.cc/150?img=13"
-        },
-        {
-          "name": "Maria Garcia",
-          "avatar": "https://i.pravatar.cc/150?img=14"
-        },
-        {
-          "name": "David Kim",
-          "avatar": "https://i.pravatar.cc/150?img=15"
-        },
-        {
-          "name": "Emily Brown",
-          "avatar": "https://i.pravatar.cc/150?img=16"
-        },
-        {
-          "name": "James Wilson",
-          "avatar": "https://i.pravatar.cc/150?img=17"
-        },
-        {
-          "name": "Sophia Lee",
-          "avatar": "https://i.pravatar.cc/150?img=18"
-        },
-        {
-          "name": "Michael Taylor",
-          "avatar": "https://i.pravatar.cc/150?img=19"
-        },
-        {
-          "name": "Olivia Martinez",
-          "avatar": "https://i.pravatar.cc/150?img=20"
+          "name": "Lens Pro",
+          "avatar": "https://i.pravatar.cc/150?img=92"
         }
       ]
     },
     {
-      "id": 11,
-      "title": "Public Speaking Practice",
+      "id": 503,
+      "title": "Bike Tour",
+      "category": "Travel·Companion",
+      "date": "2024-05-03",
+      "time": "09:00",
+      "location": "Bike Rental Shop",
+      "host": {
+        "name": "Cycle Guide",
+        "avatar": "https://i.pravatar.cc/150?img=93"
+      },
+      "attendees": 10,
+      "maxAttendees": 12,
+      "description": "Guided bike tour of city highlights.",
+      "interestTags": ["cycling", "tour", "sightseeing", "active"],
+      "dropInImage": "https://images.unsplash.com/photo-1527585065152-46e490731c63",
+      "attendingPeople": [
+        {
+          "name": "Bike Pro",
+          "avatar": "https://i.pravatar.cc/150?img=94"
+        }
+      ]
+    },
+    {
+      "id": 504,
+      "title": "Local Food Tour",
+      "category": "Travel·Companion",
+      "date": "2024-05-05",
+      "time": "12:00",
+      "location": "Food Market",
+      "host": {
+        "name": "Food Guide",
+        "avatar": "https://i.pravatar.cc/150?img=95"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Taste local specialties and street food.",
+      "interestTags": ["food", "tour", "local", "culinary"],
+      "dropInImage": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+      "attendingPeople": [
+        {
+          "name": "Foodie Pro",
+          "avatar": "https://i.pravatar.cc/150?img=96"
+        }
+      ]
+    },
+    {
+      "id": 505,
+      "title": "Museum Exploration",
+      "category": "Travel·Companion",
+      "date": "2024-05-07",
+      "time": "14:00",
+      "location": "City Museum",
+      "host": {
+        "name": "Art Guide",
+        "avatar": "https://i.pravatar.cc/150?img=97"
+      },
+      "attendees": 6,
+      "maxAttendees": 8,
+      "description": "Guided tour of museum highlights.",
+      "interestTags": ["museum", "art", "history", "culture"],
+      "dropInImage": "https://images.unsplash.com/photo-1544939514-aa98d908b214",
+      "attendingPeople": [
+        {
+          "name": "Culture Pro",
+          "avatar": "https://i.pravatar.cc/150?img=98"
+        }
+      ]
+    },
+    {
+      "id": 506,
+      "title": "Street Art Tour",
+      "category": "Travel·Companion",
+      "date": "2024-05-09",
+      "time": "16:00",
+      "location": "Arts District",
+      "host": {
+        "name": "Street Artist",
+        "avatar": "https://i.pravatar.cc/150?img=99"
+      },
+      "attendees": 12,
+      "maxAttendees": 15,
+      "description": "Explore local street art and murals.",
+      "interestTags": ["art", "street art", "walking", "urban"],
+      "dropInImage": "https://images.unsplash.com/photo-1511385348-a52b4a160dc2",
+      "attendingPeople": [
+        {
+          "name": "Art Explorer",
+          "avatar": "https://i.pravatar.cc/150?img=100"
+        }
+      ]
+    },
+    {
+      "id": 507,
+      "title": "Night Market Visit",
+      "category": "Travel·Companion",
+      "date": "2024-05-11",
+      "time": "19:00",
+      "location": "Night Market",
+      "host": {
+        "name": "Market Guide",
+        "avatar": "https://i.pravatar.cc/150?img=101"
+      },
+      "attendees": 10,
+      "maxAttendees": 12,
+      "description": "Experience local night market culture.",
+      "interestTags": ["market", "food", "shopping", "night"],
+      "dropInImage": "https://images.unsplash.com/photo-1545622783-b3e021430fee",
+      "attendingPeople": [
+        {
+          "name": "Night Owl",
+          "avatar": "https://i.pravatar.cc/150?img=102"
+        }
+      ]
+    },
+    {
+      "id": 508,
+      "title": "Historical Walking Tour",
+      "category": "Travel·Companion",
+      "date": "2024-05-13",
+      "time": "10:00",
+      "location": "Old Town",
+      "host": {
+        "name": "History Buff",
+        "avatar": "https://i.pravatar.cc/150?img=103"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Discover local history and architecture.",
+      "interestTags": ["history", "walking", "architecture", "tour"],
+      "dropInImage": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b",
+      "attendingPeople": [
+        {
+          "name": "Time Traveler",
+          "avatar": "https://i.pravatar.cc/150?img=104"
+        }
+      ]
+    },
+    {
+      "id": 509,
+      "title": "Nature Trail Hike",
+      "category": "Travel·Companion",
+      "date": "2024-05-15",
+      "time": "08:00",
+      "location": "Nature Reserve",
+      "host": {
+        "name": "Trail Guide",
+        "avatar": "https://i.pravatar.cc/150?img=105"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Easy nature hike with wildlife viewing.",
+      "interestTags": ["hiking", "nature", "wildlife", "outdoor"],
+      "dropInImage": "https://images.unsplash.com/photo-1551632811-561732d1e306",
+      "attendingPeople": [
+        {
+          "name": "Nature Pro",
+          "avatar": "https://i.pravatar.cc/150?img=106"
+        }
+      ]
+    },
+    {
+      "id": 510,
+      "title": "Local Craft Workshop",
+      "category": "Travel·Companion",
+      "date": "2024-05-17",
+      "time": "13:00",
+      "location": "Artisan Village",
+      "host": {
+        "name": "Craft Master",
+        "avatar": "https://i.pravatar.cc/150?img=107"
+      },
+      "attendees": 6,
+      "maxAttendees": 8,
+      "description": "Learn traditional local crafts.",
+      "interestTags": ["crafts", "culture", "workshop", "local"],
+      "dropInImage": "https://images.unsplash.com/photo-1452860606245-0877df9cc836",
+      "attendingPeople": [
+        {
+          "name": "Artisan Pro",
+          "avatar": "https://i.pravatar.cc/150?img=108"
+        }
+      ]
+    }
+  ],
+  "📚 Self-Development": [
+    {
+      "id": 601,
+      "title": "Public Speaking Workshop",
       "category": "Self-Development",
       "date": "2024-04-24",
       "time": "18:30",
       "location": "Community Center",
       "host": {
         "name": "James Wilson",
-        "avatar": "https://i.pravatar.cc/150?img=11"
+        "avatar": "https://i.pravatar.cc/150?img=71"
       },
       "attendees": 6,
       "maxAttendees": 10,
-      "description": "Practice public speaking in a supportive environment. All levels welcome.",
-      "interestTags": [
-        "public speaking",
-        "communication",
-        "confidence",
-        "presentation",
-        "skills"
-      ],
-      "dropInImage": "https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "description": "Practice public speaking in a supportive environment.",
+      "interestTags": ["public speaking", "communication"],
+      "dropInImage": "https://images.unsplash.com/photo-1543269865-cbf427effbad",
       "attendingPeople": [
         {
           "name": "Martin Luther King Jr.",
-          "avatar": "https://i.pravatar.cc/150?img=112"
+          "avatar": "https://i.pravatar.cc/150?img=72"
         },
         {
           "name": "Winston Churchill",
@@ -765,11 +1574,223 @@
           "avatar": "https://i.pravatar.cc/150?img=117"
         }
       ]
+    },
+    {
+      "id": 602,
+      "title": "Meditation Workshop",
+      "category": "Self-Development",
+      "date": "2024-05-02",
+      "time": "08:00",
+      "location": "Wellness Center",
+      "host": {
+        "name": "Zen Master",
+        "avatar": "https://i.pravatar.cc/150?img=109"
+      },
+      "attendees": 10,
+      "maxAttendees": 15,
+      "description": "Learn meditation techniques for daily life.",
+      "interestTags": ["meditation", "mindfulness", "wellness", "self-care"],
+      "dropInImage": "https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7",
+      "attendingPeople": [
+        {
+          "name": "Peace Seeker",
+          "avatar": "https://i.pravatar.cc/150?img=110"
+        }
+      ]
+    },
+    {
+      "id": 603,
+      "title": "Financial Planning 101",
+      "category": "Self-Development",
+      "date": "2024-05-04",
+      "time": "14:00",
+      "location": "Business Center",
+      "host": {
+        "name": "Money Pro",
+        "avatar": "https://i.pravatar.cc/150?img=111"
+      },
+      "attendees": 12,
+      "maxAttendees": 20,
+      "description": "Basic financial planning and investment strategies.",
+      "interestTags": ["finance", "planning", "investment", "education"],
+      "dropInImage": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e",
+      "attendingPeople": [
+        {
+          "name": "Wealth Builder",
+          "avatar": "https://i.pravatar.cc/150?img=112"
+        }
+      ]
+    },
+    {
+      "id": 604,
+      "title": "Time Management Skills",
+      "category": "Self-Development",
+      "date": "2024-05-06",
+      "time": "17:00",
+      "location": "Learning Center",
+      "host": {
+        "name": "Time Master",
+        "avatar": "https://i.pravatar.cc/150?img=113"
+      },
+      "attendees": 15,
+      "maxAttendees": 25,
+      "description": "Improve productivity and time management.",
+      "interestTags": [
+        "productivity",
+        "time management",
+        "organization",
+        "skills"
+      ],
+      "dropInImage": "https://images.unsplash.com/photo-1506784983877-45594efa4cbe",
+      "attendingPeople": [
+        {
+          "name": "Productivity Pro",
+          "avatar": "https://i.pravatar.cc/150?img=114"
+        }
+      ]
+    },
+    {
+      "id": 605,
+      "title": "Creative Writing Workshop",
+      "category": "Self-Development",
+      "date": "2024-05-08",
+      "time": "18:30",
+      "location": "Writers Studio",
+      "host": {
+        "name": "Word Smith",
+        "avatar": "https://i.pravatar.cc/150?img=115"
+      },
+      "attendees": 8,
+      "maxAttendees": 12,
+      "description": "Develop your creative writing skills.",
+      "interestTags": ["writing", "creativity", "storytelling", "arts"],
+      "dropInImage": "https://images.unsplash.com/photo-1455390582262-044cdead277a",
+      "attendingPeople": [
+        {
+          "name": "Story Teller",
+          "avatar": "https://i.pravatar.cc/150?img=116"
+        }
+      ]
+    },
+    {
+      "id": 606,
+      "title": "Personal Branding",
+      "category": "Self-Development",
+      "date": "2024-05-10",
+      "time": "15:00",
+      "location": "Digital Hub",
+      "host": {
+        "name": "Brand Expert",
+        "avatar": "https://i.pravatar.cc/150?img=117"
+      },
+      "attendees": 20,
+      "maxAttendees": 30,
+      "description": "Build and maintain your personal brand.",
+      "interestTags": ["branding", "career", "social media", "marketing"],
+      "dropInImage": "https://images.unsplash.com/photo-1557804506-669a67965ba0",
+      "attendingPeople": [
+        {
+          "name": "Social Pro",
+          "avatar": "https://i.pravatar.cc/150?img=118"
+        }
+      ]
+    },
+    {
+      "id": 607,
+      "title": "Goal Setting Workshop",
+      "category": "Self-Development",
+      "date": "2024-05-12",
+      "time": "10:00",
+      "location": "Success Center",
+      "host": {
+        "name": "Goal Coach",
+        "avatar": "https://i.pravatar.cc/150?img=119"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Learn effective goal setting strategies.",
+      "interestTags": ["goals", "planning", "success", "motivation"],
+      "dropInImage": "https://images.unsplash.com/photo-1553034545-32d4cd2168f1",
+      "attendingPeople": [
+        {
+          "name": "Achievement Pro",
+          "avatar": "https://i.pravatar.cc/150?img=120"
+        }
+      ]
+    },
+    {
+      "id": 608,
+      "title": "Public Speaking Skills",
+      "category": "Self-Development",
+      "date": "2024-05-14",
+      "time": "18:00",
+      "location": "Speech Center",
+      "host": {
+        "name": "Speech Pro",
+        "avatar": "https://i.pravatar.cc/150?img=121"
+      },
+      "attendees": 10,
+      "maxAttendees": 15,
+      "description": "Improve your public speaking abilities.",
+      "interestTags": ["speaking", "communication", "confidence", "skills"],
+      "dropInImage": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2",
+      "attendingPeople": [
+        {
+          "name": "Voice Master",
+          "avatar": "https://i.pravatar.cc/150?img=122"
+        }
+      ]
+    },
+    {
+      "id": 609,
+      "title": "Stress Management",
+      "category": "Self-Development",
+      "date": "2024-05-16",
+      "time": "12:00",
+      "location": "Wellness Studio",
+      "host": {
+        "name": "Calm Coach",
+        "avatar": "https://i.pravatar.cc/150?img=123"
+      },
+      "attendees": 12,
+      "maxAttendees": 15,
+      "description": "Learn techniques to manage stress effectively.",
+      "interestTags": ["stress", "wellness", "mental health", "self-care"],
+      "dropInImage": "https://images.unsplash.com/photo-1506126613408-67cf0d13bc1b",
+      "attendingPeople": [
+        {
+          "name": "Peace Guide",
+          "avatar": "https://i.pravatar.cc/150?img=124"
+        }
+      ]
+    },
+    {
+      "id": 610,
+      "title": "Digital Skills Workshop",
+      "category": "Self-Development",
+      "date": "2024-05-18",
+      "time": "16:00",
+      "location": "Tech Hub",
+      "host": {
+        "name": "Tech Guru",
+        "avatar": "https://i.pravatar.cc/150?img=125"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Learn essential digital skills for modern life.",
+      "interestTags": ["technology", "digital", "skills", "education"],
+      "dropInImage": "https://images.unsplash.com/photo-1531297484001-80022131f5a1",
+      "attendingPeople": [
+        {
+          "name": "Digital Pro",
+          "avatar": "https://i.pravatar.cc/150?img=126"
+        }
+      ]
     }
   ],
   "🙌 Local·Neighborhood": [
     {
-      "id": 12,
+      "id": 701,
       "title": "Community Garden Cleanup",
       "category": "Local·Neighborhood",
       "date": "2024-04-26",
@@ -777,23 +1798,17 @@
       "location": "Community Garden",
       "host": {
         "name": "Patricia Green",
-        "avatar": "https://i.pravatar.cc/150?img=12"
+        "avatar": "https://i.pravatar.cc/150?img=81"
       },
       "attendees": 15,
       "maxAttendees": 20,
-      "description": "Help maintain our community garden. Tools provided, bring gloves if you have them.",
-      "interestTags": [
-        "gardening",
-        "community",
-        "outdoor",
-        "volunteer",
-        "local"
-      ],
-      "dropInImage": "https://images.unsplash.com/photo-1590650046871-92c887180603?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      "description": "Help maintain our community garden.",
+      "interestTags": ["gardening", "community", "volunteer"],
+      "dropInImage": "https://images.unsplash.com/photo-1590650046871-92c887180603",
       "attendingPeople": [
         {
           "name": "John Smith",
-          "avatar": "https://i.pravatar.cc/150?img=118"
+          "avatar": "https://i.pravatar.cc/150?img=82"
         },
         {
           "name": "Mary Johnson",
@@ -850,6 +1865,213 @@
         {
           "name": "Joseph Thompson",
           "avatar": "https://i.pravatar.cc/150?img=132"
+        }
+      ]
+    },
+    {
+      "id": 702,
+      "title": "Neighborhood Watch Meeting",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-02",
+      "time": "19:00",
+      "location": "Community Center",
+      "host": {
+        "name": "Safety First",
+        "avatar": "https://i.pravatar.cc/150?img=127"
+      },
+      "attendees": 20,
+      "maxAttendees": 30,
+      "description": "Monthly neighborhood watch meeting.",
+      "interestTags": ["safety", "community", "neighborhood", "meeting"],
+      "dropInImage": "https://images.unsplash.com/photo-1517457373958-b7bdd4587205",
+      "attendingPeople": [
+        {
+          "name": "Watch Captain",
+          "avatar": "https://i.pravatar.cc/150?img=128"
+        }
+      ]
+    },
+    {
+      "id": 703,
+      "title": "Local Art Fair",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-04",
+      "time": "11:00",
+      "location": "Community Park",
+      "host": {
+        "name": "Art Organizer",
+        "avatar": "https://i.pravatar.cc/150?img=129"
+      },
+      "attendees": 50,
+      "maxAttendees": 100,
+      "description": "Showcase of local artists and crafters.",
+      "interestTags": ["art", "local", "fair", "community"],
+      "dropInImage": "https://images.unsplash.com/photo-1559329007-40df8a9345d8",
+      "attendingPeople": [
+        {
+          "name": "Art Lover",
+          "avatar": "https://i.pravatar.cc/150?img=130"
+        }
+      ]
+    },
+    {
+      "id": 704,
+      "title": "Block Party Planning",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-06",
+      "time": "18:00",
+      "location": "Neighborhood Center",
+      "host": {
+        "name": "Party Planner",
+        "avatar": "https://i.pravatar.cc/150?img=131"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Help plan the summer block party.",
+      "interestTags": ["party", "planning", "community", "event"],
+      "dropInImage": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d",
+      "attendingPeople": [
+        {
+          "name": "Event Pro",
+          "avatar": "https://i.pravatar.cc/150?img=132"
+        }
+      ]
+    },
+    {
+      "id": 705,
+      "title": "Local History Talk",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-08",
+      "time": "17:00",
+      "location": "Library",
+      "host": {
+        "name": "History Buff",
+        "avatar": "https://i.pravatar.cc/150?img=133"
+      },
+      "attendees": 25,
+      "maxAttendees": 40,
+      "description": "Learn about our neighborhood's history.",
+      "interestTags": ["history", "local", "education", "community"],
+      "dropInImage": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f",
+      "attendingPeople": [
+        {
+          "name": "Time Traveler",
+          "avatar": "https://i.pravatar.cc/150?img=134"
+        }
+      ]
+    },
+    {
+      "id": 706,
+      "title": "Farmers Market Setup",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-10",
+      "time": "06:00",
+      "location": "Market Square",
+      "host": {
+        "name": "Market Manager",
+        "avatar": "https://i.pravatar.cc/150?img=135"
+      },
+      "attendees": 10,
+      "maxAttendees": 15,
+      "description": "Help set up the weekly farmers market.",
+      "interestTags": ["market", "local", "food", "community"],
+      "dropInImage": "https://images.unsplash.com/photo-1488459716781-31db52582fe9",
+      "attendingPeople": [
+        {
+          "name": "Market Pro",
+          "avatar": "https://i.pravatar.cc/150?img=136"
+        }
+      ]
+    },
+    {
+      "id": 707,
+      "title": "Pet Adoption Day",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-12",
+      "time": "12:00",
+      "location": "Pet Center",
+      "host": {
+        "name": "Pet Lover",
+        "avatar": "https://i.pravatar.cc/150?img=137"
+      },
+      "attendees": 30,
+      "maxAttendees": 50,
+      "description": "Find forever homes for local pets.",
+      "interestTags": ["pets", "adoption", "community", "animals"],
+      "dropInImage": "https://images.unsplash.com/photo-1450778869180-41d0601e046e",
+      "attendingPeople": [
+        {
+          "name": "Animal Friend",
+          "avatar": "https://i.pravatar.cc/150?img=138"
+        }
+      ]
+    },
+    {
+      "id": 708,
+      "title": "Local Business Meetup",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-14",
+      "time": "18:30",
+      "location": "Coffee Shop",
+      "host": {
+        "name": "Business Leader",
+        "avatar": "https://i.pravatar.cc/150?img=139"
+      },
+      "attendees": 15,
+      "maxAttendees": 20,
+      "description": "Network with local business owners.",
+      "interestTags": ["business", "networking", "local", "community"],
+      "dropInImage": "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+      "attendingPeople": [
+        {
+          "name": "Network Pro",
+          "avatar": "https://i.pravatar.cc/150?img=140"
+        }
+      ]
+    },
+    {
+      "id": 709,
+      "title": "Youth Sports Coaching",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-16",
+      "time": "16:00",
+      "location": "Sports Field",
+      "host": {
+        "name": "Coach Pro",
+        "avatar": "https://i.pravatar.cc/150?img=141"
+      },
+      "attendees": 8,
+      "maxAttendees": 10,
+      "description": "Volunteer to coach youth sports.",
+      "interestTags": ["sports", "youth", "coaching", "community"],
+      "dropInImage": "https://images.unsplash.com/photo-1526232761682-d26e03ac148e",
+      "attendingPeople": [
+        {
+          "name": "Sports Leader",
+          "avatar": "https://i.pravatar.cc/150?img=142"
+        }
+      ]
+    },
+    {
+      "id": 710,
+      "title": "Community Book Exchange",
+      "category": "Local·Neighborhood",
+      "date": "2024-05-18",
+      "time": "13:00",
+      "location": "Local Library",
+      "host": {
+        "name": "Book Lover",
+        "avatar": "https://i.pravatar.cc/150?img=143"
+      },
+      "attendees": 20,
+      "maxAttendees": 30,
+      "description": "Bring books to exchange with neighbors.",
+      "interestTags": ["books", "reading", "community", "exchange"],
+      "dropInImage": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570",
+      "attendingPeople": [
+        {
+          "name": "Reading Pro",
+          "avatar": "https://i.pravatar.cc/150?img=144"
         }
       ]
     }
