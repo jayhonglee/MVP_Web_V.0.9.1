@@ -143,18 +143,19 @@ const HomePage: React.FC = () => {
       {/* Drop-Ins List Section */}
       <Swiper
         ref={swiperRef}
-        className="w-full"
+        className="w-full bg-[#f4f4f4]"
         onSlideChange={handleSlideChange}
         initialSlide={categories.indexOf(selectedCategory)}
+        spaceBetween={80}
       >
         {categories.map((category) => (
-          <SwiperSlide key={category} className="bg-[#f4f4f4]">
-            <div className="flex flex-col items-center">
-              <div className="px-[14px] grid grid-cols-1 mobile:grid-cols-2 gap-[16px] py-4">
+          <SwiperSlide key={category}>
+            <div className="flex flex-col items-center w-full px-[14px]">
+              <div className="flex flex-col mobile:grid mobile:grid-cols-2 gap-[16px] py-4">
                 {(dropInsData as DropInsData)[category].map((dropIn) => (
                   <div
                     key={dropIn.id}
-                    className="bg-[#fefefe] rounded-[12px] px-[10px] py-[12px] min-w-[347px] max-w-[400px] w-full"
+                    className="bg-[#fefefe] rounded-[12px] px-[10px] py-[12px] min-w-[344px] max-w-[400px] w-full mx-auto"
                   >
                     <div className="flex items-center">
                       <img
@@ -184,15 +185,21 @@ const HomePage: React.FC = () => {
                           <div className="font-semibold text-[15px] leading-[20px] tracking-[-0.4px] text-[rgb(56,53,53)] truncate overflow-hidden text-ellipsis whitespace-nowrap mb-[4px]">
                             {dropIn.title}
                           </div>
-                          <div className="font-normal text-[12px] leading-[14.4px] tracking-[-0.2px] text-[rgb(153,150,150)] flex truncate overflow-hidden text-ellipsis whitespace-nowrap mb-[10px]">
-                            {dropIn.category} ·{" "}
-                            <img
-                              src="/info_place_14px.svg"
-                              alt="location"
-                              className="w-[12px] h-[12px] mobile:w-[20px] mobile:h-[20px] mx-[2px]"
-                            />{" "}
-                            {dropIn.location} · {formatDate(dropIn.date)} ·{" "}
-                            {formatTime(dropIn.time)}
+                          <div className="font-normal text-[12px] leading-[14.4px] tracking-[-0.2px] text-[rgb(153,150,150)] flex min-w-0 mb-[10px] w-full max-w-[calc(344px-30px)]">
+                            <div className="truncate overflow-hidden text-ellipsis whitespace-nowrap w-full">
+                              {dropIn.category}
+                              {" · "}
+                              <img
+                                src="/info_place_14px.svg"
+                                alt="location"
+                                className="w-[12px] h-[12px] mobile:w-[20px] mobile:h-[20px] mx-[2px] inline-block"
+                              />{" "}
+                              {dropIn.location}
+                              {" · "}
+                              {formatDate(dropIn.date)}
+                              {" · "}
+                              {formatTime(dropIn.time)}
+                            </div>
                           </div>
                         </div>
                         <div className="flex items-center mb-0">
@@ -230,7 +237,6 @@ const HomePage: React.FC = () => {
                           </span>
                         </div>
                       </div>
-                      <div className="flex items-center"></div>
                     </div>
                   </div>
                 ))}
