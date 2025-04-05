@@ -222,7 +222,7 @@ const HomePage: React.FC = () => {
                               <img
                                 src="/info_place_14px.svg"
                                 alt="location"
-                                className="w-[12px] h-[12px] mobile:w-[20px] mobile:h-[20px] inline-block"
+                                className="w-[12px] h-[12px] mobile:w-[20px] mobile:h-[20px] inline-block mx-[-2px]"
                               />{" "}
                               {dropIn.location}
                               {" · "}
