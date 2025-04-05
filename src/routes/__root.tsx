@@ -56,7 +56,29 @@ const HomePage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const swiperRef = useRef<{ swiper: SwiperType } | null>(null);
   const categoryListRef = useRef<HTMLUListElement | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   const categories = Object.keys(dropInsData as DropInsData);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!categoryListRef.current) return;
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX - categoryListRef.current.offsetLeft);
+    setScrollLeft(categoryListRef.current.scrollLeft);
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging || !categoryListRef.current) return;
+    const x = e.touches[0].pageX - categoryListRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    categoryListRef.current.scrollLeft = scrollLeft - walk;
+  };
 
   const scrollCategoryIntoView = (category: string): void => {
     if (categoryListRef.current) {
@@ -123,6 +145,9 @@ const HomePage: React.FC = () => {
       <ul
         ref={categoryListRef}
         className="h-[46px] mobile:h-[78px] w-full flex mobile:justify-center justify-start items-center px-[8px] bg-[#fefefe] whitespace-nowrap overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchMove={handleTouchMove}
       >
         {categories.map((category) => (
           <li
