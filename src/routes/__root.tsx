@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
       {/* Drop-In Categories Section */}
       <ul
         ref={categoryListRef}
-        className="h-[46px] w-full flex items-center px-[8px] bg-[#fefefe] whitespace-nowrap overflow-x-auto no-scrollbar"
+        className="h-[46px] w-full flex mobile:justify-center justify-start items-center px-[8px] bg-[#fefefe] whitespace-nowrap overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         {categories.map((category) => (
           <li
@@ -149,69 +149,73 @@ const HomePage: React.FC = () => {
       >
         {categories.map((category) => (
           <SwiperSlide key={category}>
-            <div className="px-[14px] grid grid-cols-1 mobile:grid-cols-2 gap-4 py-4">
-              {(dropInsData as DropInsData)[category].map((dropIn) => (
-                <div
-                  key={dropIn.id}
-                  className="bg-[#fefefe] rounded-[12px] px-[10px] py-[12px]"
-                >
-                  <div className="flex items-center">
-                    <img
-                      src={dropIn.dropInImage}
-                      alt={dropIn.title}
-                      className="object-cover rounded-[10px] mr-[10px] relative w-[98px] h-[98px]"
-                    />
-                    <div className="flex flex-col w-[215px]">
-                      <div className="flex overflow-x-hidden">
-                        {dropIn.interestTags.map(
-                          (tag, index) =>
-                            index <= 1 && (
-                              <div
-                                key={index}
-                                className="bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px] mr-1.5 mb-1"
-                              >
-                                {tag}
-                              </div>
-                            )
-                        )}
-                      </div>
-                      <div className="font-semibold text-[15px] leading-[24px] tracking-[-0.4px] text-[rgb(56,53,53)] truncate mb-1 overflow-hidden text-ellipsis whitespace-nowrap">
-                        {dropIn.title}
-                      </div>
-                      <div className="font-normal text-[12px] leading-[14.4px] tracking-[-0.2px] text-[rgb(153,150,150)] flex truncate mb-[10px] overflow-hidden text-ellipsis whitespace-nowrap">
-                        {dropIn.category} 📍 {dropIn.location} ·{" "}
-                        {formatDate(dropIn.date)} · {formatTime(dropIn.time)}
-                      </div>
-                      <div className="flex items-center">
-                        {dropIn.attendingPeople
-                          .slice(0, 6)
-                          .map((person, index) => (
-                            <img
+            <div className="flex flex-col items-center">
+              <div className="px-[14px] grid grid-cols-1 mobile:grid-cols-2 gap-[16px] py-4">
+                {(dropInsData as DropInsData)[category].map((dropIn) => (
+                  <div
+                    key={dropIn.id}
+                    className="bg-[#fefefe] rounded-[12px] px-[10px] py-[12px] min-w-[347px] max-w-[400px] w-full"
+                  >
+                    <div className="flex items-center">
+                      <img
+                        src={dropIn.dropInImage}
+                        alt={dropIn.title}
+                        className="object-cover rounded-[10px] mr-[10px] relative w-[98px] h-[98px] flex-shrink-0"
+                      />
+                      <div className="flex flex-col min-w-0 flex-1">
+                        <div className="flex overflow-x-hidden">
+                          {dropIn.interestTags.slice(0, 2).map((tag, index) => (
+                            <div
                               key={index}
-                              src={person.avatar}
-                              alt={person.name}
-                              className="object-cover rounded-full relative flex-shrink-0 w-[22px] h-[22px] -ml-1.5 first:ml-0 border border-white"
-                              style={{ zIndex: index }}
-                            />
+                              className="bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px] mr-1.5 mb-1"
+                            >
+                              {tag}
+                            </div>
                           ))}
-                        {dropIn.attendingPeople.length > 6 && (
-                          <div
-                            className="flex-shrink-0 w-[22px] h-[22px] rounded-full bg-[#f4f4f4] flex items-center justify-center text-[10px] font-medium text-[#666060] -ml-1.5 border border-white"
-                            style={{ zIndex: 6 }}
-                          >
-                            +{dropIn.attendingPeople.length - 6}
-                          </div>
-                        )}
+                          {dropIn.interestTags.length > 2 && (
+                            <div className="bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px] mr-1.5 mb-1">
+                              +{dropIn.interestTags.length - 2}
+                            </div>
+                          )}
+                        </div>
+                        <div className="font-semibold text-[15px] leading-[24px] tracking-[-0.4px] text-[rgb(56,53,53)] truncate mb-1 overflow-hidden text-ellipsis whitespace-nowrap">
+                          {dropIn.title}
+                        </div>
+                        <div className="font-normal text-[12px] leading-[14.4px] tracking-[-0.2px] text-[rgb(153,150,150)] flex truncate mb-[10px] overflow-hidden text-ellipsis whitespace-nowrap">
+                          {dropIn.category} 📍 {dropIn.location} ·{" "}
+                          {formatDate(dropIn.date)} · {formatTime(dropIn.time)}
+                        </div>
+                        <div className="flex items-center">
+                          {dropIn.attendingPeople
+                            .slice(0, 6)
+                            .map((person, index) => (
+                              <img
+                                key={index}
+                                src={person.avatar}
+                                alt={person.name}
+                                className="object-cover rounded-full relative flex-shrink-0 w-[22px] h-[22px] -ml-1.5 first:ml-0 border border-white"
+                                style={{ zIndex: index }}
+                              />
+                            ))}
+                          {dropIn.attendingPeople.length > 6 && (
+                            <div
+                              className="flex-shrink-0 w-[22px] h-[22px] rounded-full bg-[#f4f4f4] flex items-center justify-center text-[10px] font-medium text-[#666060] -ml-1.5 border border-white"
+                              style={{ zIndex: 6 }}
+                            >
+                              +{dropIn.attendingPeople.length - 6}
+                            </div>
+                          )}
 
-                        <span className="ml-[4.7px] flex justify-center items-center font-normal text-[10px] leading-[12px] tracking-[-0.4px] text-[rgb(153,150,150)]">
-                          👥 {dropIn.attendees}/{dropIn.maxAttendees}
-                        </span>
+                          <span className="ml-[4.7px] flex justify-center items-center font-normal text-[10px] leading-[12px] tracking-[-0.4px] text-[rgb(153,150,150)]">
+                            👥 {dropIn.attendees}/{dropIn.maxAttendees}
+                          </span>
+                        </div>
                       </div>
+                      <div className="flex items-center"></div>
                     </div>
-                    <div className="flex items-center"></div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </SwiperSlide>
         ))}
