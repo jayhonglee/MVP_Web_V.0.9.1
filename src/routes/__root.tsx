@@ -59,6 +59,13 @@ const HomePage: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const categories = Object.keys(dropInsData as DropInsData);
 
@@ -175,8 +182,16 @@ const HomePage: React.FC = () => {
       >
         {categories.map((category) => (
           <SwiperSlide key={category}>
-            <div className="flex flex-col items-center w-full px-[14px]">
-              <div className="flex flex-col mobile:grid mobile:grid-cols-2 gap-[16px] py-4">
+            <div className="flex flex-col items-center w-full px-[14px] mobile:px-0">
+              <div
+                className="flex flex-col mobile:grid mobile:grid-cols-2 gap-[16px] mobile:gap-[24px] py-4 mobile:py-[40px] mobile:w-[1166px] w-full"
+                style={{
+                  transform:
+                    windowWidth < 372
+                      ? `translateX(-${(372 - windowWidth) / 2}px)`
+                      : "none",
+                }}
+              >
                 {(dropInsData as DropInsData)[category].map((dropIn) => (
                   <div
                     key={dropIn.id}
@@ -207,7 +222,7 @@ const HomePage: React.FC = () => {
                                 </div>
                               ))}
                             {dropIn.interestTags.length > 2 && (
-                              <div className="bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px]">
+                              <div className="bg-[#f4f4f4] text-[#666060] flex justify-center items-center font-semibold text-[11px] leading-[11px] text-center px-2 py-1 tracking-[-0.2px] rounded-[10px] mobile:rounded-[16px]">
                                 +{dropIn.interestTags.length - 2}
                               </div>
                             )}
