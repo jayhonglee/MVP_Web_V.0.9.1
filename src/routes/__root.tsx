@@ -230,7 +230,7 @@ const HomePage: React.FC = () => {
                           <div className="font-semibold text-[15px] mobile:text-[24px] leading-[24px] tracking-[-0.4px] text-[rgb(56,53,53)] truncate overflow-hidden text-ellipsis whitespace-nowrap mb-[4px] mobile:leading-[40px]">
                             {dropIn.title}
                           </div>
-                          <div className="font-normal text-[12px] mobile:text-[20px] leading-[14px] tracking-[-0.2px] text-[rgb(153,150,150)] flex min-w-0 mb-[8px] mobile:mb-[12px] w-full max-w-[216px] mobile:leading-[24px] ">
+                          <div className="font-normal text-[12px] mobile:text-[20px] leading-[14px] tracking-[-0.2px] text-[rgb(153,150,150)] flex min-w-0 mb-[8px] mobile:mb-[12px] w-full max-w-[216px] mobile:max-w-[363px] mobile:leading-[24px] ">
                             <div className="truncate overflow-hidden text-ellipsis whitespace-nowrap w-full tracking-[-1px]">
                               {dropIn.category}
                               {" · "}
