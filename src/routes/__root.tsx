@@ -144,7 +144,7 @@ const HomePage: React.FC = () => {
       {/* Drop-In Categories Section */}
       <ul
         ref={categoryListRef}
-        className="h-[46px] mobile:h-[78px] w-full flex mobile:justify-center justify-start items-center px-[8px] bg-[#fefefe] whitespace-nowrap overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="h-[46px] mobile:h-[82px] w-full flex mobile:justify-center justify-start items-center px-[8px] bg-[#fefefe] whitespace-nowrap overflow-x-auto no-scrollbar [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] sticky top-[64px] mobile:top-[80px] z-50"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
         onTouchMove={handleTouchMove}

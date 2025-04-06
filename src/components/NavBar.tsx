@@ -4,10 +4,10 @@ const NavBar: React.FC = () => {
   return (
     <div className="relative">
       {/* Default Navbar Placeholder*/}
-      <div className="w-full h-[4rem] mobile:h-[79px] bg-transparent mobile:flex" />
+      <div className="w-full h-[4rem] mobile:h-[80px] bg-transparent mobile:flex" />
 
       {/* Mobile Navbar */}
-      <div className="bg-white fixed z-50 top-0 left-0 right-0 w-full h-[4rem] px-[14px] py-[17px] flex justify-between shadow-sm mobile:hidden items-center">
+      <div className="bg-[#fefefe] fixed z-50 top-0 left-0 right-0 w-full h-[4rem] px-[14px] py-[17px] flex justify-between mobile:hidden items-center">
         <a href="/">
           {/* <img src="/logo.png" alt="logo" className="h-full w-auto" /> */}
           <a href="/" className="text-lg font-medium tracking-wider">
@@ -34,7 +34,7 @@ const NavBar: React.FC = () => {
       </div>
 
       {/* Desktop Navbar */}
-      <div className="fixed z-50 top-0 left-0 right-0 w-full h-[79px] bg-[#e6e1e1] hidden mobile:flex shadow-sm">
+      <div className="fixed z-50 top-0 left-0 right-0 w-full h-[80px] bg-[#e6e1e1] hidden mobile:flex">
         <div className="w-[1253px] h-[74.4px] mx-auto pt-[28.4px] px-[14px] pb-[17px] flex justify-center items-center">
           <a href="/" className="text-2xl font-medium tracking-wider">
             HANGOUT
