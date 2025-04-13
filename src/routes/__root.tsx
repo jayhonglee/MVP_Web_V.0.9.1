@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperType } from "swiper";
-// @ts-expect-error Missing type definitions for CSS import
-import "swiper/css";
-import dropInsData from "../data/dropIns.json";
 import { createRootRoute } from "@tanstack/react-router";
 import NavBar from "../components/NavBar";
+import dropInsData from "../data/dropIns.json";
+
+// @ts-expect-error Missing type definitions for CSS import
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 
 // Types for the dropIns data
 interface Person {
