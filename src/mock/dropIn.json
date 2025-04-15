@@ -1,0 +1,59 @@
+{
+  "id": 201,
+  "title": "Morning Yoga in the Park",
+  "category": "🏃‍♂️ Activities",
+  "date": "2024-04-16",
+  "time": "07:00",
+  "location": "Central Park",
+  "host": {
+    "name": "Lisa Park",
+    "avatar": "https://i.pravatar.cc/150?img=31"
+  },
+  "attendees": 10,
+  "maxAttendees": 15,
+  "description": "Start your day with energizing yoga. All levels welcome, bring your own mat.",
+  "interestTags": ["yoga", "fitness", "wellness", "morning", "outdoor"],
+  "dropInImage": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
+  "attendingPeople": [
+    {
+      "name": "Rachel Green",
+      "avatar": "https://i.pravatar.cc/150?img=32"
+    },
+    {
+      "name": "Kevin Smith",
+      "avatar": "https://i.pravatar.cc/150?img=49"
+    },
+    {
+      "name": "Michelle Johnson",
+      "avatar": "https://i.pravatar.cc/150?img=50"
+    },
+    {
+      "name": "Steven Brown",
+      "avatar": "https://i.pravatar.cc/150?img=51"
+    },
+    {
+      "name": "Amanda Wilson",
+      "avatar": "https://i.pravatar.cc/150?img=52"
+    },
+    {
+      "name": "Jason Davis",
+      "avatar": "https://i.pravatar.cc/150?img=53"
+    },
+    {
+      "name": "Melissa Taylor",
+      "avatar": "https://i.pravatar.cc/150?img=54"
+    },
+    {
+      "name": "Andrew Martinez",
+      "avatar": "https://i.pravatar.cc/150?img=55"
+    },
+    {
+      "name": "Jessica Lee",
+      "avatar": "https://i.pravatar.cc/150?img=56"
+    },
+    {
+      "name": "Brian Clark",
+      "avatar": "https://i.pravatar.cc/150?img=57"
+    }
+  ]
+}

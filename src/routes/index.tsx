@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import NavBar from "../components/NavBar";
-import dropInsData from "../data/dropIns.json";
+import dropInsData from "../mock/dropIns.json";
+import { formatDate, formatTime } from "../utils/dateUtils";
 
 // @ts-expect-error Missing type definitions for CSS import
 import "swiper/css";
@@ -33,25 +34,6 @@ interface DropIn {
 interface DropInsData {
   [category: string]: DropIn[];
 }
-
-// Helper functions for date and time formatting
-const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][
-    date.getDay()
-  ];
-  return `${month}.${day}(${dayOfWeek})`;
-};
-
-const formatTime = (timeString: string): string => {
-  const [hours, minutes] = timeString.split(":");
-  const hour = parseInt(hours);
-  const ampm = hour >= 12 ? "PM" : "AM";
-  const hour12 = hour % 12 || 12;
-  return `${ampm} ${hour12}:${minutes}`;
-};
 
 const Index: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
