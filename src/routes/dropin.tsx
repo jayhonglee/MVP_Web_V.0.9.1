@@ -24,7 +24,7 @@ function RouteComponent() {
         </div>
 
         {/* Info */}
-        <div className="h-[191px] px-[14px] py-[24px] flex flex-col justify-between">
+        <div className="h-[191px] px-[14px] min-[600px]:px-[28px] py-[24px] flex flex-col justify-between">
           <div className="max-h-[26.5px] overflow-hidden">
             {dropInData.interestTags.map((tag, index) => (
               <span
@@ -65,10 +65,14 @@ function RouteComponent() {
             </p>
 
             <p className="m-0 text-[18px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-              $2
+              ${dropInData.entryFee}
             </p>
           </div>
         </div>
+
+        {/* Divider */}
+        <div className="h-[6px] bg-[#f4f4f4]"></div>
+
         <div>Drop-in ID: {id}</div>
       </div>
     </div>
