@@ -2,9 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import HeaderWithBackBtn from "../components/HeaderWithBackBtn";
 import dropInData from "../mock/dropIn.json";
 import { formatDate, formatTime } from "../utils/dateUtils";
+import { useAuth } from "../context/auth/useAuth";
 
 function RouteComponent() {
   const { id } = Route.useSearch();
+  const { isAuthenticated } = useAuth();
+  console.log(isAuthenticated);
   return (
     <div className="bg-[#f4f4f4] w-[100vw]">
       <div className="bg-[#fff] max-w-[900px] min-h-[100vh] mx-auto">

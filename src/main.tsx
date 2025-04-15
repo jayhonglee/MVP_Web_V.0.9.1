@@ -1,7 +1,8 @@
-import { StrictMode } from "react";
-import ReactDOM from "react-dom/client";
-import { RouterProvider, createRouter } from "@tanstack/react-router";
 import "./index.css";
+import ReactDOM from "react-dom/client";
+import { StrictMode } from "react";
+import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { AuthProvider } from "./context/auth/AuthContext";
 
 // Import the generated route tree
 import { routeTree } from "./routeTree.gen";
@@ -22,7 +23,9 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </StrictMode>
   );
 }
