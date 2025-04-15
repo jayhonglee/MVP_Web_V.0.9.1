@@ -11,7 +11,7 @@ function RouteComponent() {
 
   return (
     <div className="bg-[#f4f4f4] w-[100vw]">
-      <div className="bg-[#fff] max-w-[900px] min-h-[100vh] mx-auto">
+      <div className="bg-[#fff] max-w-[900px] min-h-[100vh] mx-auto relative">
         <HeaderWithBackBtn />
 
         {/* Image */}
@@ -132,7 +132,14 @@ function RouteComponent() {
         </div>
 
         {/* Bottom Margin */}
-        <div className="w-full h-[172px]"></div>
+        <div className="w-full h-[86px]"></div>
+
+        {/* Join Button */}
+        <div className="flex justify-center items-center h-[86px] w-full bg-[#fff] shadow-[0_0_7px_0_rgba(0,0,0,0.11)] p-[14px] sticky bottom-0">
+          <div className="flex justify-center items-center bg-[rgb(244,54,48)] hover:cursor-pointer vertical-center-text font-[500] text-[16px] leading-[24px] tracking-[-0.25px] uppercase w-full text-white rounded-[999px] p-[12px] h-[50px] min-[600px]:h-[58px]">
+            <p>Join</p>
+          </div>
+        </div>
       </div>
     </div>
   );
