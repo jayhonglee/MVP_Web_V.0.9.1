@@ -73,7 +73,20 @@ function RouteComponent() {
         {/* Divider */}
         <div className="h-[6px] bg-[#f4f4f4]"></div>
 
-        <div>Drop-in ID: {id}</div>
+        {/* Description */}
+        <div className="px-[14px] min-[600px]:px-[28px] py-[24px]">
+          Drop-in ID: {id}
+        </div>
+
+        {/* Details */}
+        <div className="px-[14px] min-[600px]:px-[28px] py-[24px]">
+          <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(244,54,48)]">
+            Details
+          </p>
+          <p className="m-0 text-[18px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+            Here are the details
+          </p>
+        </div>
       </div>
     </div>
   );
