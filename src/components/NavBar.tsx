@@ -54,8 +54,11 @@ const NavBar: React.FC = () => {
               <Link to="/" className="font-[500] text-[18px] ms-[40px]">
                 Profile
               </Link>
-              <Link to="/" className="font-[500] text-[18px] ms-[40px]">
-                Create / Edit Drop-In
+              <Link
+                to="/createDropin"
+                className="font-[500] text-[18px] ms-[40px]"
+              >
+                Create Drop-In
               </Link>
             </div>
             <div className="flex items-center">
