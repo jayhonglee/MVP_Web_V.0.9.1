@@ -4,7 +4,7 @@ import { Link } from "@tanstack/react-router";
 const NavBar: React.FC = () => {
   return (
     <div className="relative">
-      {/* Default Navbar Placeholder*/}
+      {/* Default Navbar Placeholder */}
       <div className="w-full h-[4rem] mobile:h-[80px] bg-transparent mobile:flex" />
 
       {/* Mobile Navbar */}
