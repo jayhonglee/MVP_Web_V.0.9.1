@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SimpleEditor } from "../components/tiptap-templates/simple/simple-editor";
 import HeaderWithBackBtn from "../components/HeaderWithBackBtn";
 // import { useAuth } from "../context/auth/useAuth";
 
@@ -13,7 +14,8 @@ function RouteComponent() {
 
         {/* Description */}
         <div className="px-[14px] min-[600px]:px-[28px] py-[24px]">
-          {/* Drop-in ID: {id} */}
+          {/*Put the editor here */}
+          <SimpleEditor />
         </div>
 
         {/* Bottom Margin */}
