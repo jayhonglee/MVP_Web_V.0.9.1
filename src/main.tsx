@@ -10,10 +10,14 @@ import { routeTree } from "./routeTree.gen";
 // Create a new router instance
 const router = createRouter({ routeTree });
 
-// Register the router instance for type safety
+// Add type definition for search params
 declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router;
+    router: {
+      search: {
+        id: string;
+      };
+    };
   }
 }
 

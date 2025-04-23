@@ -154,3 +154,14 @@ export const Route = createFileRoute("/dropin")({
   },
   component: RouteComponent,
 });
+
+// Add type definition for search params
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: {
+      search: {
+        id: string;
+      };
+    };
+  }
+}
