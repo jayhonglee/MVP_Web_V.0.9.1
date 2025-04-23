@@ -279,6 +279,6 @@ const Index: React.FC = () => {
   );
 };
 
-export const Route: any = createFileRoute("/")({
+export const Route = createFileRoute("/")({
   component: Index,
 });
