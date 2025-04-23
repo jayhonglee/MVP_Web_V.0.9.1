@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
 
-const NavBar: React.FC = () => {
+const NavBar: React.FC<{ currentPage?: string }> = ({ currentPage = "" }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -91,19 +91,51 @@ const NavBar: React.FC = () => {
           <div className="w-[1055px] h-full flex justify-between items-center">
             <div className="flex items-center">
               <Link to="/" className="font-[500] text-[18px] ms-[40px]">
-                Drop-In
+                <p
+                  className={
+                    currentPage === "Drop-In"
+                      ? "text-[rgb(56,53,53)]"
+                      : "text-[rgb(185,182,182)]"
+                  }
+                >
+                  Drop-In
+                </p>
               </Link>
               <Link to="/" className="font-[500] text-[18px] ms-[40px]">
-                Group Chat
+                <p
+                  className={
+                    currentPage === "Group Chat"
+                      ? "text-[rgb(56,53,53)]"
+                      : "text-[rgb(185,182,182)]"
+                  }
+                >
+                  Group Chat
+                </p>
               </Link>
               <Link to="/" className="font-[500] text-[18px] ms-[40px]">
-                Profile
+                <p
+                  className={
+                    currentPage === "Profile"
+                      ? "text-[rgb(56,53,53)]"
+                      : "text-[rgb(185,182,182)]"
+                  }
+                >
+                  Profile
+                </p>
               </Link>
               <Link
                 to="/createDropin"
                 className="font-[500] text-[18px] ms-[40px]"
               >
-                Create Drop-In
+                <p
+                  className={
+                    currentPage === "Create Drop-In"
+                      ? "text-[rgb(56,53,53)]"
+                      : "text-[rgb(185,182,182)]"
+                  }
+                >
+                  Create Drop-In
+                </p>
               </Link>
             </div>
             <div className="flex items-center">

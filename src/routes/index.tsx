@@ -108,7 +108,7 @@ const Index: React.FC = () => {
   return (
     <div>
       {/* Navbar */}
-      <NavBar />
+      <NavBar currentPage="Drop-In" />
 
       {/* Hero Section */}
       <div className="w-full h-[325px] flex flex-col items-center justify-center mobile:h-[496px]">
