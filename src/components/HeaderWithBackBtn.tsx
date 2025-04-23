@@ -4,7 +4,7 @@ const HeaderWithBackBtn: React.FC = () => {
   return (
     <div className="relative w-full">
       {/* Header */}
-      <div className="bg-[#fefefe] w-full h-[56px] min-[600px]:h-[4rem] px-[14px] py-[17px] flex justify-between items-center sticky top-0">
+      <div className="bg-[#fefefe] w-full h-[56px] min-[600px]:h-[4rem] px-[14px] min-[600px]:px-[28px] py-[17px] flex justify-between items-center sticky top-0">
         <Link to="/" className="text-lg font-medium tracking-wider">
           <svg
             width="24"

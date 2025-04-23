@@ -63,7 +63,7 @@ import { useMobile } from "@/hooks/use-mobile";
 import { useWindowSize } from "@/hooks/use-window-size";
 
 // --- Components ---
-import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle";
+// import { ThemeToggle } from "@/components/tiptap-templates/simple/theme-toggle";
 
 // --- Lib ---
 import { handleImageUpload, MAX_FILE_SIZE } from "@/lib/tiptap-utils";
@@ -142,9 +142,7 @@ const MainToolbarContent = ({
 
       {isMobile && <ToolbarSeparator />}
 
-      <ToolbarGroup>
-        <ThemeToggle />
-      </ToolbarGroup>
+      <ToolbarGroup>{/* <ThemeToggle /> */}</ToolbarGroup>
     </>
   );
 };
@@ -290,7 +288,7 @@ export function SimpleEditor() {
         style={
           isMobile
             ? {
-                bottom: `calc(100% - ${windowSize.height - rect.y}px)`,
+                // bottom: `calc(100% - ${windowSize.height - rect.y}px)`,
               }
             : {}
         }
