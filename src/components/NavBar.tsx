@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
 
 const NavBar: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="relative">
       {/* Default Navbar Placeholder */}
@@ -12,7 +14,7 @@ const NavBar: React.FC = () => {
         <Link to="/" className="text-lg font-medium tracking-wider">
           HANGOUT
         </Link>
-        <div className="flex items-center mr-[6px]">
+        <div className="flex items-center">
           <Link
             to="/login"
             className="mr-[20px] bg-[#F43630] rounded-full px-[15px] py-[5px]"
@@ -29,11 +31,54 @@ const NavBar: React.FC = () => {
               Login
             </p>
           </Link>
-          <div className="w-[16px] h-[14px] flex flex-col justify-between">
+          <div
+            className="w-[16px] h-[14px] flex flex-col justify-between hover:cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
             <span className="w-full h-[2px] bg-[#383535]"></span>
             <span className="w-full h-[2px] bg-[#383535]"></span>
             <span className="w-full h-[2px] bg-[#383535]"></span>
           </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu Pop Up */}
+      <div
+        className={`fixed z-[999] top-0 left-0 right-0 w-[100vw] h-[100vh] bg-[#fff] flex flex-col items-center ${!isMobileMenuOpen ? "hidden" : ""} px-[14px] mobile:hidden`}
+      >
+        <div className="w-full h-[64px] flex justify-center items-center relative">
+          <p className="text-[16px] font-[500] leading-[24px] tracking-[-0.25px] text-[rgb(56,53,53)] uppercase">
+            Menu
+          </p>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 384 512"
+            className="w-[24px] h-[24px] absolute right-0 hover:cursor-pointer"
+            fill="currentColor"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+          </svg>
+        </div>
+        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
+          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+            Drop-In
+          </p>
+        </div>
+        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
+          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+            Group Chat
+          </p>
+        </div>
+        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
+          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+            Profile
+          </p>
+        </div>
+        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
+          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+            Create Drop-In
+          </p>
         </div>
       </div>
 
