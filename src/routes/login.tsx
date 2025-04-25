@@ -80,4 +80,5 @@ function RouteComponent() {
 
 export const Route = createFileRoute("/login")({
   component: RouteComponent,
+  validateSearch: () => ({}),
 });

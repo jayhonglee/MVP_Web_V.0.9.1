@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { AuthProvider } from "./context/auth/AuthContext";
 
-// Import the generated route tree
+// Import the route tree from the root file
 import { routeTree } from "./routeTree.gen";
 
 // Create a new router instance

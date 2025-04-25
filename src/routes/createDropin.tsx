@@ -22,4 +22,5 @@ function RouteComponent() {
 
 export const Route = createFileRoute("/createDropin")({
   component: RouteComponent,
+  validateSearch: () => ({}),
 });

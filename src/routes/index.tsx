@@ -281,7 +281,5 @@ const Index: React.FC = () => {
 
 export const Route = createFileRoute("/")({
   component: Index,
-  validateSearch: () => {
-    return {};
-  },
+  validateSearch: () => ({}),
 });

@@ -147,12 +147,10 @@ function RouteComponent() {
 }
 
 export const Route = createFileRoute("/dropin")({
-  validateSearch: (search: Record<string, unknown>) => {
-    return {
-      id: search.id as string,
-    };
-  },
   component: RouteComponent,
+  validateSearch: (search: Record<string, unknown>) => ({
+    id: search.id as string,
+  }),
 });
 
 // Add type definition for search params
