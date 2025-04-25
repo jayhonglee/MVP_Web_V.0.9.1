@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
 
-const NavBar: React.FC<{ currentPage?: string }> = ({ currentPage = "" }) => {
+const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
+  currentPage = "",
+  noPlaceholder = false,
+}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className="relative">
       {/* Default Navbar Placeholder */}
-      <div className="w-full h-[4rem] mobile:h-[80px] bg-transparent mobile:flex" />
+      {!noPlaceholder && (
+        <div className="w-full h-[4rem] mobile:h-[80px] bg-transparent mobile:flex" />
+      )}
 
       {/* Mobile Navbar */}
       <div className="bg-[#fefefe] fixed z-50 top-0 left-0 right-0 w-full h-[4rem] px-[14px] py-[17px] flex justify-between mobile:hidden items-center">

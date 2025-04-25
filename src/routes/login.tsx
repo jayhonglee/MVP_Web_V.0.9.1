@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import NavBar from "../components/NavBar";
 
 function RouteComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="w-full h-[731px] p-[100px_14px_0] min-[600px]:h-[747px] mobile:h-[859px] mobile:p-[125.6px_0_0_0] flex flex-col justify-start items-center">
@@ -66,7 +67,10 @@ function RouteComponent() {
         <hr className="bg-[#F4F4F4] w-full h-[1px] mb-[24px]" />
 
         {/* Sign Up Button */}
-        <button className="w-full p-[12px] h-[50px] min-[600px]:h-[58px] min-[600px]:p-[16px] bg-transparent border-[1px] border-[#989696] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] text-[#383535] mobile:text-[20px] mobile:leading-[28px] mb-[24px]">
+        <button
+          onClick={() => navigate({ to: "/signup" })}
+          className="w-full p-[12px] h-[50px] min-[600px]:h-[58px] min-[600px]:p-[16px] bg-transparent border-[1px] border-[#989696] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] text-[#383535] mobile:text-[20px] mobile:leading-[28px] mb-[24px]"
+        >
           Sign up
         </button>
 
