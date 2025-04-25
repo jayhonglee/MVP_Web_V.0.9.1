@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-routes": "npx @tanstack/router-cli generate"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.7",
@@ -15,6 +16,7 @@
     "@supabase/supabase-js": "^2.49.4",
     "@tanstack/react-query": "^5.71.5",
     "@tanstack/react-router": "^1.114.34",
+    "@tanstack/router-cli": "^1.117.1",
     "@tiptap/extension-highlight": "^2.11.7",
     "@tiptap/extension-image": "^2.11.7",
     "@tiptap/extension-link": "^2.11.7",
