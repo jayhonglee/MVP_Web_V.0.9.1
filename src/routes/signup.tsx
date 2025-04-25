@@ -7,7 +7,7 @@ export const Route = createFileRoute("/signup")({
 
 function RouteComponent() {
   return (
-    <div className="w-full h-full p-[48px_14px_0] mobile:p-[150px_0_0_0] flex flex-col justify-start items-center">
+    <div className="w-full h-[100vh] p-[48px_14px_0] mobile:p-[150px_0_0_0] flex flex-col justify-start items-center">
       {/* Navbar */}
       <div className="hidden mobile:block">
         <NavBar noPlaceholder />
