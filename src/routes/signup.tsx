@@ -1,11 +1,15 @@
 import NavBar from "@/components/NavBar";
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
 export const Route = createFileRoute("/signup")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
+  const [email, setEmail] = useState("");
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
   return (
     <div className="w-full h-[100vh] p-[48px_14px_0] mobile:p-[150px_0_0_0] flex flex-col justify-start items-center">
       {/* Navbar */}
@@ -28,15 +32,20 @@ function RouteComponent() {
 
         <input
           type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           className="w-full h-[56px] m-0 px-[14px] py-[16.5px] border-[1px] rounded-[8px] border-[#c4c4c4] cursor-text focus-within:border-[#362526] focus-within:outline-none focus-within:border-[2px] focus:placeholder-transparent"
           placeholder="example@hangout.com"
         />
 
         {/* Next Button */}
         <button
-          className={`w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px]  rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] bg-[#DBDBDB] text-[#A2A2A2] cursor-default absolute bottom-[16px]
-          `}
-          //   disabled={!email || !password}
+          className={`w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] absolute bottom-[16px] ${
+            isValidEmail
+              ? "bg-[#F43630] text-white cursor-pointer"
+              : "bg-[#DBDBDB] text-[#A2A2A2] cursor-default"
+          }`}
+          disabled={!isValidEmail}
         >
           Next
         </button>
