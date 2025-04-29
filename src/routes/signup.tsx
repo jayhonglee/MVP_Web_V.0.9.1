@@ -138,7 +138,7 @@ function PasswordInput({
         <div className="w-full max-w-[615px] absolute bottom-[16px] px-[14px] flex flex-col justify-start items-start">
           {/* Next Button */}
           <button
-            onClick={() => updateSlidePosition(2)}
+            onClick={() => setCurrentIndex(currentIndex + 1)}
             className={`w-full max-w-[615px] p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] ${
               isValidPassword
                 ? "bg-[#F43630] text-white cursor-pointer"
