@@ -98,7 +98,7 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
               <Link to="/" className="font-[500] text-[18px] ms-[40px]">
                 <p
                   className={
-                    currentPage === "Drop-In"
+                    currentPage === "Drop-In" || currentPage === "all"
                       ? "text-[rgb(56,53,53)]"
                       : "text-[rgb(185,182,182)]"
                   }
@@ -109,7 +109,7 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
               <Link to="/" className="font-[500] text-[18px] ms-[40px]">
                 <p
                   className={
-                    currentPage === "Group Chat"
+                    currentPage === "Group Chat" || currentPage === "all"
                       ? "text-[rgb(56,53,53)]"
                       : "text-[rgb(185,182,182)]"
                   }
@@ -120,7 +120,7 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
               <Link to="/" className="font-[500] text-[18px] ms-[40px]">
                 <p
                   className={
-                    currentPage === "Profile"
+                    currentPage === "Profile" || currentPage === "all"
                       ? "text-[rgb(56,53,53)]"
                       : "text-[rgb(185,182,182)]"
                   }
@@ -134,7 +134,7 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
               >
                 <p
                   className={
-                    currentPage === "Create Drop-In"
+                    currentPage === "Create Drop-In" || currentPage === "all"
                       ? "text-[rgb(56,53,53)]"
                       : "text-[rgb(185,182,182)]"
                   }

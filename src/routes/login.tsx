@@ -12,7 +12,7 @@ function RouteComponent() {
       <div className="w-full max-w-[587px]">
         {/* Navbar */}
         <div className="hidden mobile:block">
-          <NavBar />
+          <NavBar currentPage="all" />
         </div>
 
         {/* Title */}

@@ -25,7 +25,7 @@ function RouteComponent() {
     <div className="w-[100vw] h-[100vh] p-[48px_0_0] mobile:p-[150px_0_0_0] flex flex-col justify-start items-center overflow-hidden">
       {/* Navbar */}
       <div className="hidden mobile:block">
-        <NavBar noPlaceholder />
+        <NavBar noPlaceholder currentPage="all" />
       </div>
 
       <div className="w-full h-full py-[24px] flex justify-start items-start mobile:py-[40px] relative carousel-track transition-transform duration-300">
