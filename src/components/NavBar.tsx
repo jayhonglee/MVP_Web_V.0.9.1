@@ -65,26 +65,27 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
             <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
           </svg>
         </div>
-        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
-          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-            Drop-In
-          </p>
-        </div>
-        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
-          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-            Group Chat
-          </p>
-        </div>
-        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
-          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-            Profile
-          </p>
-        </div>
-        <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
-          <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-            Create Drop-In
-          </p>
-        </div>
+        <Link to="/" className="w-full">
+          <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
+            <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+              Drop-In
+            </p>
+          </div>
+        </Link>
+        <Link to="/createDropin" className="w-full">
+          <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
+            <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+              Create Drop-In
+            </p>
+          </div>
+        </Link>
+        <Link to="/profile" className="w-full">
+          <div className="w-full h-[54px] flex justify-start items-center hover:bg-[#f4f4f4] hover:cursor-pointer px-[14px] py-[16px]">
+            <p className="text-[14px] font-[500] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+              My Page
+            </p>
+          </div>
+        </Link>
       </div>
 
       {/* Desktop Navbar */}
@@ -106,28 +107,6 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
                   Drop-In
                 </p>
               </Link>
-              <Link to="/" className="font-[500] text-[18px] ms-[40px]">
-                <p
-                  className={
-                    currentPage === "Group Chat" || currentPage === "all"
-                      ? "text-[rgb(56,53,53)]"
-                      : "text-[rgb(185,182,182)]"
-                  }
-                >
-                  Group Chat
-                </p>
-              </Link>
-              <Link to="/" className="font-[500] text-[18px] ms-[40px]">
-                <p
-                  className={
-                    currentPage === "Profile" || currentPage === "all"
-                      ? "text-[rgb(56,53,53)]"
-                      : "text-[rgb(185,182,182)]"
-                  }
-                >
-                  Profile
-                </p>
-              </Link>
               <Link
                 to="/createDropin"
                 className="font-[500] text-[18px] ms-[40px]"
@@ -140,6 +119,17 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
                   }
                 >
                   Create Drop-In
+                </p>
+              </Link>
+              <Link to="/profile" className="font-[500] text-[18px] ms-[40px]">
+                <p
+                  className={
+                    currentPage === "Profile" || currentPage === "all"
+                      ? "text-[rgb(56,53,53)]"
+                      : "text-[rgb(185,182,182)]"
+                  }
+                >
+                  My Page
                 </p>
               </Link>
             </div>

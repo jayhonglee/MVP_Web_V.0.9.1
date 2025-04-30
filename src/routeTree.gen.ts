@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as SignupImport } from './routes/signup'
+import { Route as ProfileImport } from './routes/profile'
 import { Route as LoginImport } from './routes/login'
 import { Route as DropinImport } from './routes/dropin'
 import { Route as CreateDropinImport } from './routes/createDropin'
@@ -22,6 +23,12 @@ import { Route as IndexImport } from './routes/index'
 const SignupRoute = SignupImport.update({
   id: '/signup',
   path: '/signup',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProfileRoute = ProfileImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -81,6 +88,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
     }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileImport
+      parentRoute: typeof rootRoute
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -98,6 +112,7 @@ export interface FileRoutesByFullPath {
   '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
 }
 
@@ -106,6 +121,7 @@ export interface FileRoutesByTo {
   '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
 }
 
@@ -115,15 +131,29 @@ export interface FileRoutesById {
   '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
+  '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/createDropin' | '/dropin' | '/login' | '/signup'
+  fullPaths:
+    | '/'
+    | '/createDropin'
+    | '/dropin'
+    | '/login'
+    | '/profile'
+    | '/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/createDropin' | '/dropin' | '/login' | '/signup'
-  id: '__root__' | '/' | '/createDropin' | '/dropin' | '/login' | '/signup'
+  to: '/' | '/createDropin' | '/dropin' | '/login' | '/profile' | '/signup'
+  id:
+    | '__root__'
+    | '/'
+    | '/createDropin'
+    | '/dropin'
+    | '/login'
+    | '/profile'
+    | '/signup'
   fileRoutesById: FileRoutesById
 }
 
@@ -132,6 +162,7 @@ export interface RootRouteChildren {
   CreateDropinRoute: typeof CreateDropinRoute
   DropinRoute: typeof DropinRoute
   LoginRoute: typeof LoginRoute
+  ProfileRoute: typeof ProfileRoute
   SignupRoute: typeof SignupRoute
 }
 
@@ -140,6 +171,7 @@ const rootRouteChildren: RootRouteChildren = {
   CreateDropinRoute: CreateDropinRoute,
   DropinRoute: DropinRoute,
   LoginRoute: LoginRoute,
+  ProfileRoute: ProfileRoute,
   SignupRoute: SignupRoute,
 }
 
@@ -157,6 +189,7 @@ export const routeTree = rootRoute
         "/createDropin",
         "/dropin",
         "/login",
+        "/profile",
         "/signup"
       ]
     },
@@ -171,6 +204,9 @@ export const routeTree = rootRoute
     },
     "/login": {
       "filePath": "login.tsx"
+    },
+    "/profile": {
+      "filePath": "profile.tsx"
     },
     "/signup": {
       "filePath": "signup.tsx"
