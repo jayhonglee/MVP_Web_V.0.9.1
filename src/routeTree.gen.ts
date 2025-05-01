@@ -17,6 +17,10 @@ import { Route as LoginImport } from './routes/login'
 import { Route as DropinImport } from './routes/dropin'
 import { Route as CreateDropinImport } from './routes/createDropin'
 import { Route as IndexImport } from './routes/index'
+import { Route as ProfileIndexImport } from './routes/profile/index'
+import { Route as ProfileSettingsImport } from './routes/profile/settings'
+import { Route as ProfileLogoutImport } from './routes/profile/logout'
+import { Route as ProfileGroupChatImport } from './routes/profile/group-chat'
 
 // Create/Update Routes
 
@@ -54,6 +58,30 @@ const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRoute,
+} as any)
+
+const ProfileIndexRoute = ProfileIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProfileRoute,
+} as any)
+
+const ProfileSettingsRoute = ProfileSettingsImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => ProfileRoute,
+} as any)
+
+const ProfileLogoutRoute = ProfileLogoutImport.update({
+  id: '/logout',
+  path: '/logout',
+  getParentRoute: () => ProfileRoute,
+} as any)
+
+const ProfileGroupChatRoute = ProfileGroupChatImport.update({
+  id: '/group-chat',
+  path: '/group-chat',
+  getParentRoute: () => ProfileRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
@@ -102,18 +130,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupImport
       parentRoute: typeof rootRoute
     }
+    '/profile/group-chat': {
+      id: '/profile/group-chat'
+      path: '/group-chat'
+      fullPath: '/profile/group-chat'
+      preLoaderRoute: typeof ProfileGroupChatImport
+      parentRoute: typeof ProfileImport
+    }
+    '/profile/logout': {
+      id: '/profile/logout'
+      path: '/logout'
+      fullPath: '/profile/logout'
+      preLoaderRoute: typeof ProfileLogoutImport
+      parentRoute: typeof ProfileImport
+    }
+    '/profile/settings': {
+      id: '/profile/settings'
+      path: '/settings'
+      fullPath: '/profile/settings'
+      preLoaderRoute: typeof ProfileSettingsImport
+      parentRoute: typeof ProfileImport
+    }
+    '/profile/': {
+      id: '/profile/'
+      path: '/'
+      fullPath: '/profile/'
+      preLoaderRoute: typeof ProfileIndexImport
+      parentRoute: typeof ProfileImport
+    }
   }
 }
 
 // Create and export the route tree
+
+interface ProfileRouteChildren {
+  ProfileGroupChatRoute: typeof ProfileGroupChatRoute
+  ProfileLogoutRoute: typeof ProfileLogoutRoute
+  ProfileSettingsRoute: typeof ProfileSettingsRoute
+  ProfileIndexRoute: typeof ProfileIndexRoute
+}
+
+const ProfileRouteChildren: ProfileRouteChildren = {
+  ProfileGroupChatRoute: ProfileGroupChatRoute,
+  ProfileLogoutRoute: ProfileLogoutRoute,
+  ProfileSettingsRoute: ProfileSettingsRoute,
+  ProfileIndexRoute: ProfileIndexRoute,
+}
+
+const ProfileRouteWithChildren =
+  ProfileRoute._addFileChildren(ProfileRouteChildren)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
-  '/profile': typeof ProfileRoute
+  '/profile': typeof ProfileRouteWithChildren
   '/signup': typeof SignupRoute
+  '/profile/group-chat': typeof ProfileGroupChatRoute
+  '/profile/logout': typeof ProfileLogoutRoute
+  '/profile/settings': typeof ProfileSettingsRoute
+  '/profile/': typeof ProfileIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -121,8 +198,11 @@ export interface FileRoutesByTo {
   '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
-  '/profile': typeof ProfileRoute
   '/signup': typeof SignupRoute
+  '/profile/group-chat': typeof ProfileGroupChatRoute
+  '/profile/logout': typeof ProfileLogoutRoute
+  '/profile/settings': typeof ProfileSettingsRoute
+  '/profile': typeof ProfileIndexRoute
 }
 
 export interface FileRoutesById {
@@ -131,8 +211,12 @@ export interface FileRoutesById {
   '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
-  '/profile': typeof ProfileRoute
+  '/profile': typeof ProfileRouteWithChildren
   '/signup': typeof SignupRoute
+  '/profile/group-chat': typeof ProfileGroupChatRoute
+  '/profile/logout': typeof ProfileLogoutRoute
+  '/profile/settings': typeof ProfileSettingsRoute
+  '/profile/': typeof ProfileIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -144,8 +228,21 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/signup'
+    | '/profile/group-chat'
+    | '/profile/logout'
+    | '/profile/settings'
+    | '/profile/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/createDropin' | '/dropin' | '/login' | '/profile' | '/signup'
+  to:
+    | '/'
+    | '/createDropin'
+    | '/dropin'
+    | '/login'
+    | '/signup'
+    | '/profile/group-chat'
+    | '/profile/logout'
+    | '/profile/settings'
+    | '/profile'
   id:
     | '__root__'
     | '/'
@@ -154,6 +251,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/signup'
+    | '/profile/group-chat'
+    | '/profile/logout'
+    | '/profile/settings'
+    | '/profile/'
   fileRoutesById: FileRoutesById
 }
 
@@ -162,7 +263,7 @@ export interface RootRouteChildren {
   CreateDropinRoute: typeof CreateDropinRoute
   DropinRoute: typeof DropinRoute
   LoginRoute: typeof LoginRoute
-  ProfileRoute: typeof ProfileRoute
+  ProfileRoute: typeof ProfileRouteWithChildren
   SignupRoute: typeof SignupRoute
 }
 
@@ -171,7 +272,7 @@ const rootRouteChildren: RootRouteChildren = {
   CreateDropinRoute: CreateDropinRoute,
   DropinRoute: DropinRoute,
   LoginRoute: LoginRoute,
-  ProfileRoute: ProfileRoute,
+  ProfileRoute: ProfileRouteWithChildren,
   SignupRoute: SignupRoute,
 }
 
@@ -206,10 +307,32 @@ export const routeTree = rootRoute
       "filePath": "login.tsx"
     },
     "/profile": {
-      "filePath": "profile.tsx"
+      "filePath": "profile.tsx",
+      "children": [
+        "/profile/group-chat",
+        "/profile/logout",
+        "/profile/settings",
+        "/profile/"
+      ]
     },
     "/signup": {
       "filePath": "signup.tsx"
+    },
+    "/profile/group-chat": {
+      "filePath": "profile/group-chat.tsx",
+      "parent": "/profile"
+    },
+    "/profile/logout": {
+      "filePath": "profile/logout.tsx",
+      "parent": "/profile"
+    },
+    "/profile/settings": {
+      "filePath": "profile/settings.tsx",
+      "parent": "/profile"
+    },
+    "/profile/": {
+      "filePath": "profile/index.tsx",
+      "parent": "/profile"
     }
   }
 }
