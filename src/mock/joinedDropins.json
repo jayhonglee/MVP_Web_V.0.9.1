@@ -1,0 +1,25 @@
+[
+  {
+    "id": "dropin_002",
+    "host_id": "usr_654321",
+    "title": "Art in the Park",
+    "dropInImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fbdsf",
+    "description": "Bring your sketchbook or paints and join us for a relaxing afternoon of art in Golden Gate Park.",
+    "location": {
+      "place_name": "Golden Gate Park",
+      "address": "501 Stanyan St",
+      "city": "San Francisco",
+      "state": "CA",
+      "country": "United States",
+      "postal_code": "94117",
+      "longitude": -122.4862,
+      "latitude": 37.7694
+    },
+    "start_time": "2024-06-20T14:00:00Z",
+    "end_time": "2024-06-20T16:00:00Z",
+    "interests": ["art-crafting", "outdoors", "local-chat"],
+    "max_attendees": 12,
+    "joined_count": 4,
+    "created_at": "2024-06-05T10:00:00Z"
+  }
+]
