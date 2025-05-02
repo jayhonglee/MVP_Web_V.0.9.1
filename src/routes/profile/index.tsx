@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import mockUserProfile from "../../mock/profile.json";
 
@@ -6,6 +7,10 @@ export const Route = createFileRoute("/profile/")({
 });
 
 function ProfileIndex() {
+  const [selectedTab, setSelectedTab] = useState<"created" | "joined">(
+    "created"
+  );
+
   return (
     <div className="w-full mobile:pl-[14px]">
       {/* Profile */}
@@ -145,17 +150,31 @@ function ProfileIndex() {
         </div>
       </div>
 
-      <div className="w-full h-[0px] mobile:h-[60px] bg-transparent" />
+      <div className="w-full h-[0px] mobile:h-[30px] bg-transparent" />
 
       {/* Created / Joined List */}
       <div className="w-full h-[72px] mobile:h-[104px] flex items-center gap-0">
-        <div className="flex-1 h-[30px] mobile:h-[44px] border-b-[1px] border-[#f4f4f4] flex justify-center items-center">
-          <p className="text-[14px] mobile:text-[18px] font-[500] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] text-[#b9b6b6]">
+        <div
+          className={`flex-1 h-[30px] mobile:h-[44px]  ${selectedTab === "created" ? "border-b-[2px] border-[#383535]" : "border-b-[1px] border-[#f4f4f4]"} flex justify-center items-center cursor-pointer`}
+          onClick={() => setSelectedTab("created")}
+        >
+          <p
+            className={`text-[14px] mobile:text-[18px] font-[500] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] ${
+              selectedTab === "created" ? "text-[#383535]" : "text-[#b9b6b6]"
+            }`}
+          >
             Created
           </p>
         </div>
-        <div className="flex-1 h-[30px] mobile:h-[44px] border-b-[1px] border-[#f4f4f4] flex justify-center items-center">
-          <p className="text-[14px] mobile:text-[18px] font-[500] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] text-[#b9b6b6]">
+        <div
+          className={`flex-1 h-[30px] mobile:h-[44px]  ${selectedTab === "joined" ? "border-b-[2px] border-[#383535]" : "border-b-[1px] border-[#f4f4f4]"} flex justify-center items-center cursor-pointer`}
+          onClick={() => setSelectedTab("joined")}
+        >
+          <p
+            className={`text-[14px] mobile:text-[18px] font-[500] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] ${
+              selectedTab === "joined" ? "text-[#383535]" : "text-[#b9b6b6]"
+            }`}
+          >
             Joined
           </p>
         </div>
