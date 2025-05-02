@@ -1,0 +1,22 @@
+{
+  "id": "usr_123456",
+  "full_name": "John Doe",
+  "gender": "male",
+  "date_of_birth": "1990-05-15",
+  "address": {
+    "place_name": "123 Main Street",
+    "address": "123 Main Street",
+    "city": "San Francisco",
+    "state": "CA",
+    "country": "United States",
+    "postal_code": "94105",
+    "longitude": -122.4194,
+    "latitude": 37.7749,
+    "coordinates": "POINT(-122.4194 37.7749)"
+  },
+  "avatar_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  "introduction": "Hi! I'm John, a software engineer passionate about building great products. I love hiking, photography, and trying new restaurants in the city.",
+  "interests": ["food-drinks", "travel-outdoor", "art-crafting", "local-chat"],
+  "created": 1,
+  "joined": 1
+}
