@@ -16,6 +16,7 @@ const tabs = [
 function RouteComponent() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const router = useRouter();
+
   return (
     <div className="w-full h-[731px] p-[64px_14px_0] min-[600px]:h-[747px] mobile:h-[859px] mobile:p-[92px_0_0_0] flex flex-col justify-start items-center">
       <div className="w-full flex justify-center items-center">
