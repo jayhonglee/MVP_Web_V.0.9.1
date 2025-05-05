@@ -9,7 +9,7 @@ export const Route = createFileRoute("/profile")({
 const tabs = [
   { name: "Profile", path: "" },
   { name: "Group Chat", path: "group-chat" },
-  { name: "Settings", path: "settings" },
+  // { name: "Settings", path: "settings" },
   { name: "Logout", path: "logout" },
 ];
 
