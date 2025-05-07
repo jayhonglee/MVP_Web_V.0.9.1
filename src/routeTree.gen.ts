@@ -18,11 +18,9 @@ import { Route as DropinImport } from './routes/dropin'
 import { Route as CreateDropinImport } from './routes/createDropin'
 import { Route as IndexImport } from './routes/index'
 import { Route as ProfileIndexImport } from './routes/profile/index'
-import { Route as CreateDropinIndexImport } from './routes/createDropin/index'
 import { Route as ProfileSettingsImport } from './routes/profile/settings'
 import { Route as ProfileLogoutImport } from './routes/profile/logout'
 import { Route as ProfileGroupChatImport } from './routes/profile/group-chat'
-import { Route as CreateDropinDescriptionEditorImport } from './routes/createDropin/DescriptionEditor'
 
 // Create/Update Routes
 
@@ -68,12 +66,6 @@ const ProfileIndexRoute = ProfileIndexImport.update({
   getParentRoute: () => ProfileRoute,
 } as any)
 
-const CreateDropinIndexRoute = CreateDropinIndexImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => CreateDropinRoute,
-} as any)
-
 const ProfileSettingsRoute = ProfileSettingsImport.update({
   id: '/settings',
   path: '/settings',
@@ -91,13 +83,6 @@ const ProfileGroupChatRoute = ProfileGroupChatImport.update({
   path: '/group-chat',
   getParentRoute: () => ProfileRoute,
 } as any)
-
-const CreateDropinDescriptionEditorRoute =
-  CreateDropinDescriptionEditorImport.update({
-    id: '/DescriptionEditor',
-    path: '/DescriptionEditor',
-    getParentRoute: () => CreateDropinRoute,
-  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -145,13 +130,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignupImport
       parentRoute: typeof rootRoute
     }
-    '/createDropin/DescriptionEditor': {
-      id: '/createDropin/DescriptionEditor'
-      path: '/DescriptionEditor'
-      fullPath: '/createDropin/DescriptionEditor'
-      preLoaderRoute: typeof CreateDropinDescriptionEditorImport
-      parentRoute: typeof CreateDropinImport
-    }
     '/profile/group-chat': {
       id: '/profile/group-chat'
       path: '/group-chat'
@@ -173,13 +151,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileSettingsImport
       parentRoute: typeof ProfileImport
     }
-    '/createDropin/': {
-      id: '/createDropin/'
-      path: '/'
-      fullPath: '/createDropin/'
-      preLoaderRoute: typeof CreateDropinIndexImport
-      parentRoute: typeof CreateDropinImport
-    }
     '/profile/': {
       id: '/profile/'
       path: '/'
@@ -191,20 +162,6 @@ declare module '@tanstack/react-router' {
 }
 
 // Create and export the route tree
-
-interface CreateDropinRouteChildren {
-  CreateDropinDescriptionEditorRoute: typeof CreateDropinDescriptionEditorRoute
-  CreateDropinIndexRoute: typeof CreateDropinIndexRoute
-}
-
-const CreateDropinRouteChildren: CreateDropinRouteChildren = {
-  CreateDropinDescriptionEditorRoute: CreateDropinDescriptionEditorRoute,
-  CreateDropinIndexRoute: CreateDropinIndexRoute,
-}
-
-const CreateDropinRouteWithChildren = CreateDropinRoute._addFileChildren(
-  CreateDropinRouteChildren,
-)
 
 interface ProfileRouteChildren {
   ProfileGroupChatRoute: typeof ProfileGroupChatRoute
@@ -225,45 +182,40 @@ const ProfileRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/createDropin': typeof CreateDropinRouteWithChildren
+  '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRouteWithChildren
   '/signup': typeof SignupRoute
-  '/createDropin/DescriptionEditor': typeof CreateDropinDescriptionEditorRoute
   '/profile/group-chat': typeof ProfileGroupChatRoute
   '/profile/logout': typeof ProfileLogoutRoute
   '/profile/settings': typeof ProfileSettingsRoute
-  '/createDropin/': typeof CreateDropinIndexRoute
   '/profile/': typeof ProfileIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
-  '/createDropin/DescriptionEditor': typeof CreateDropinDescriptionEditorRoute
   '/profile/group-chat': typeof ProfileGroupChatRoute
   '/profile/logout': typeof ProfileLogoutRoute
   '/profile/settings': typeof ProfileSettingsRoute
-  '/createDropin': typeof CreateDropinIndexRoute
   '/profile': typeof ProfileIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/createDropin': typeof CreateDropinRouteWithChildren
+  '/createDropin': typeof CreateDropinRoute
   '/dropin': typeof DropinRoute
   '/login': typeof LoginRoute
   '/profile': typeof ProfileRouteWithChildren
   '/signup': typeof SignupRoute
-  '/createDropin/DescriptionEditor': typeof CreateDropinDescriptionEditorRoute
   '/profile/group-chat': typeof ProfileGroupChatRoute
   '/profile/logout': typeof ProfileLogoutRoute
   '/profile/settings': typeof ProfileSettingsRoute
-  '/createDropin/': typeof CreateDropinIndexRoute
   '/profile/': typeof ProfileIndexRoute
 }
 
@@ -276,23 +228,20 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/signup'
-    | '/createDropin/DescriptionEditor'
     | '/profile/group-chat'
     | '/profile/logout'
     | '/profile/settings'
-    | '/createDropin/'
     | '/profile/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/createDropin'
     | '/dropin'
     | '/login'
     | '/signup'
-    | '/createDropin/DescriptionEditor'
     | '/profile/group-chat'
     | '/profile/logout'
     | '/profile/settings'
-    | '/createDropin'
     | '/profile'
   id:
     | '__root__'
@@ -302,18 +251,16 @@ export interface FileRouteTypes {
     | '/login'
     | '/profile'
     | '/signup'
-    | '/createDropin/DescriptionEditor'
     | '/profile/group-chat'
     | '/profile/logout'
     | '/profile/settings'
-    | '/createDropin/'
     | '/profile/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CreateDropinRoute: typeof CreateDropinRouteWithChildren
+  CreateDropinRoute: typeof CreateDropinRoute
   DropinRoute: typeof DropinRoute
   LoginRoute: typeof LoginRoute
   ProfileRoute: typeof ProfileRouteWithChildren
@@ -322,7 +269,7 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CreateDropinRoute: CreateDropinRouteWithChildren,
+  CreateDropinRoute: CreateDropinRoute,
   DropinRoute: DropinRoute,
   LoginRoute: LoginRoute,
   ProfileRoute: ProfileRouteWithChildren,
@@ -351,11 +298,7 @@ export const routeTree = rootRoute
       "filePath": "index.tsx"
     },
     "/createDropin": {
-      "filePath": "createDropin.tsx",
-      "children": [
-        "/createDropin/DescriptionEditor",
-        "/createDropin/"
-      ]
+      "filePath": "createDropin.tsx"
     },
     "/dropin": {
       "filePath": "dropin.tsx"
@@ -375,10 +318,6 @@ export const routeTree = rootRoute
     "/signup": {
       "filePath": "signup.tsx"
     },
-    "/createDropin/DescriptionEditor": {
-      "filePath": "createDropin/DescriptionEditor.tsx",
-      "parent": "/createDropin"
-    },
     "/profile/group-chat": {
       "filePath": "profile/group-chat.tsx",
       "parent": "/profile"
@@ -390,10 +329,6 @@ export const routeTree = rootRoute
     "/profile/settings": {
       "filePath": "profile/settings.tsx",
       "parent": "/profile"
-    },
-    "/createDropin/": {
-      "filePath": "createDropin/index.tsx",
-      "parent": "/createDropin"
     },
     "/profile/": {
       "filePath": "profile/index.tsx",

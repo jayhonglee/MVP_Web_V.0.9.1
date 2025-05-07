@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
 
 const types = [
   {
@@ -40,7 +39,13 @@ const types = [
   },
 ];
 
-function RouteComponent() {
+export default function TypePage({
+  setCurrentPage,
+  setProgress,
+}: {
+  setCurrentPage: (currentPage: number) => void;
+  setProgress: (progress: number) => void;
+}) {
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
   return (
@@ -94,6 +99,10 @@ function RouteComponent() {
               : "bg-[#DBDBDB] text-[#A2A2A2] cursor-default"
           }`}
           disabled={!selectedType}
+          onClick={() => {
+            setCurrentPage(2);
+            setProgress(50);
+          }}
         >
           Next
         </button>
@@ -103,7 +112,3 @@ function RouteComponent() {
     </>
   );
 }
-
-export const Route = createFileRoute("/createDropin/")({
-  component: RouteComponent,
-});
