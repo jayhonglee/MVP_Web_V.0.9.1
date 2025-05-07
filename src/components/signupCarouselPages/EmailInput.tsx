@@ -44,7 +44,7 @@ export function EmailInput({
                 ? "bg-[#F43630] text-white cursor-pointer"
                 : "bg-[#DBDBDB] text-[#A2A2A2] cursor-default"
             }`}
-            disabled={!isValidEmail}
+            disabled={!email || !isValidEmail}
           >
             Next
           </button>
