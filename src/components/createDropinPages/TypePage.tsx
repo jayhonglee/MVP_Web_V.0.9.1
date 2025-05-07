@@ -40,10 +40,14 @@ const types = [
 ];
 
 export default function TypePage({
+  currentPage,
   setCurrentPage,
+  progress,
   setProgress,
 }: {
+  currentPage: number;
   setCurrentPage: (currentPage: number) => void;
+  progress: number;
   setProgress: (progress: number) => void;
 }) {
   const [selectedType, setSelectedType] = useState<string | null>(null);
@@ -59,7 +63,7 @@ export default function TypePage({
       <div className="w-full h-[8px] mobile:h-[16px] bg-transparent" />
 
       <p className="w-full text-[14px] mobile:text-[18px] font-[400] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] text-[rgb(153,150,150)]">
-        Help people find by choosing a type
+        Help people find this Drop-In by choosing a type.
       </p>
 
       <div className="w-full h-[30px] min-[600px]:h-[60px] bg-transparent" />
@@ -100,8 +104,8 @@ export default function TypePage({
           }`}
           disabled={!selectedType}
           onClick={() => {
-            setCurrentPage(2);
-            setProgress(50);
+            setCurrentPage(currentPage + 1);
+            setProgress(progress + 25);
           }}
         >
           Next

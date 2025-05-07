@@ -3,6 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import CreateDropinHeader from "@/components/CreateDropinHeader";
 import DescriptionEditorPage from "@/components/createDropinPages/DescriptionEditorPage";
 import TypePage from "@/components/createDropinPages/TypePage";
+import NamePage from "@/components/createDropinPages/NamePage";
+import CoverImagePage from "@/components/createDropinPages/CoverImagePage";
 // import { useAuth } from "../context/auth/useAuth";
 
 function RouteComponent() {
@@ -14,9 +16,35 @@ function RouteComponent() {
     switch (currentPage) {
       case 1:
         return (
-          <TypePage setCurrentPage={setCurrentPage} setProgress={setProgress} />
+          <TypePage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            progress={progress}
+            setProgress={setProgress}
+          />
         );
+
       case 2:
+        return (
+          <NamePage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            progress={progress}
+            setProgress={setProgress}
+          />
+        );
+
+      case 3:
+        return (
+          <CoverImagePage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            progress={progress}
+            setProgress={setProgress}
+          />
+        );
+
+      case 4:
         return <DescriptionEditorPage />;
     }
   };
