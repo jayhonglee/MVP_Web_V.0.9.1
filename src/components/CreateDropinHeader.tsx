@@ -1,29 +1,44 @@
 import React from "react";
 import { Link } from "@tanstack/react-router";
-const HeaderWithBackBtn: React.FC = () => {
+
+interface HeaderWithBackBtnProps {
+  progress?: number;
+  showPostBtn?: boolean;
+}
+
+const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
+  progress = 0,
+  showPostBtn = false,
+}) => {
   return (
     <div className="relative w-full">
+      {/* Progress bar */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gray-200 z-[10]">
+        <div
+          className="h-full bg-[#F43630] transition-all duration-300 ease-in-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
       {/* Header */}
-      <div className="bg-[#fefefe] w-full h-[56px] min-[600px]:h-[4rem] px-[14px] py-[17px] flex justify-between items-center sticky top-0 min-[600px]:px-[28px]">
-        <Link to="/" className="text-lg font-medium tracking-wider">
+      <div
+        className={`bg-[#fefefe] w-full h-[56px] min-[600px]:h-[4rem] px-[14px] py-[17px] flex justify-between items-center sticky top-0 min-[600px]:px-[28px] border-t-4`}
+      >
+        <Link to="/">
           <svg
             width="24"
             height="24"
-            viewBox="0 0 24 24"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
             className="text-[#383535]"
+            viewBox="0 0 384 512"
           >
-            <path
-              d="M19 12H5M12 19L5 12L12 5"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+            <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
           </svg>
         </Link>
-        <div className="flex items-center">
+        <div
+          className={`flex items-center ${showPostBtn ? "block" : "hidden"}`}
+        >
           <Link
             to="/"
             className="bg-[#F43630] rounded-full px-[20px] py-[5px] ms-[32px] uppercase"
