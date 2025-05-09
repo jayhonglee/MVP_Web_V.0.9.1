@@ -51,7 +51,7 @@ export default function NamePage({
           disabled={!name}
           onClick={() => {
             setCurrentPage(currentPage + 1);
-            setProgress(progress + 25);
+            setProgress(progress + 15);
           }}
         >
           Next
@@ -63,7 +63,7 @@ export default function NamePage({
         <button
           onClick={() => {
             setCurrentPage(currentPage - 1);
-            setProgress(progress - 25);
+            setProgress(progress - 15);
           }}
           className="w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] bg-transparent border-[1px] border-[#989696]"
         >

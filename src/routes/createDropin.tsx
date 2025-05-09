@@ -6,12 +6,14 @@ import TypePage from "@/components/createDropinPages/TypePage";
 import NamePage from "@/components/createDropinPages/NamePage";
 import CoverImagePage from "@/components/createDropinPages/CoverImagePage";
 import DatePage from "@/components/createDropinPages/DatePage";
+import AddressPage from "@/components/createDropinPages/AddressPage";
+import NavigationPage from "@/components/createDropinPages/navigationPage";
 // import { useAuth } from "../context/auth/useAuth";
 
 function RouteComponent() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [showPostBtn] = useState(false);
-  const [progress, setProgress] = useState(25);
+  const [showPostBtn, setShowPostBtn] = useState(false);
+  const [progress, setProgress] = useState(15);
 
   const renderPage = () => {
     switch (currentPage) {
@@ -47,7 +49,7 @@ function RouteComponent() {
 
       case 4:
         return (
-          <CoverImagePage
+          <AddressPage
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}
@@ -56,7 +58,35 @@ function RouteComponent() {
         );
 
       case 5:
-        return <DescriptionEditorPage />;
+        return (
+          <NavigationPage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            progress={progress}
+            setProgress={setProgress}
+          />
+        );
+
+      case 6:
+        return (
+          <CoverImagePage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            progress={progress}
+            setProgress={setProgress}
+            setShowPostBtn={setShowPostBtn}
+          />
+        );
+
+      case 7:
+        return (
+          <DescriptionEditorPage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            progress={progress}
+            setProgress={setProgress}
+          />
+        );
     }
   };
 

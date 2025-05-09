@@ -3,11 +3,13 @@ export default function CoverImagePage({
   setCurrentPage,
   progress,
   setProgress,
+  setShowPostBtn,
 }: {
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   progress: number;
   setProgress: (progress: number) => void;
+  setShowPostBtn: (showPostBtn: boolean) => void;
 }) {
   return (
     <>
@@ -62,7 +64,8 @@ export default function CoverImagePage({
           className="w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] bg-[#F43630] text-white cursor-pointer"
           onClick={() => {
             setCurrentPage(currentPage + 1);
-            setProgress(progress + 25);
+            setProgress(progress + 10);
+            setShowPostBtn(true);
           }}
         >
           Next
@@ -74,7 +77,7 @@ export default function CoverImagePage({
         <button
           onClick={() => {
             setCurrentPage(currentPage - 1);
-            setProgress(progress - 25);
+            setProgress(progress - 15);
           }}
           className="w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] bg-transparent border-[1px] border-[#989696]"
         >
