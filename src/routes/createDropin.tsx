@@ -5,6 +5,7 @@ import DescriptionEditorPage from "@/components/createDropinPages/DescriptionEdi
 import TypePage from "@/components/createDropinPages/TypePage";
 import NamePage from "@/components/createDropinPages/NamePage";
 import CoverImagePage from "@/components/createDropinPages/CoverImagePage";
+import DatePage from "@/components/createDropinPages/DatePage";
 // import { useAuth } from "../context/auth/useAuth";
 
 function RouteComponent() {
@@ -36,7 +37,7 @@ function RouteComponent() {
 
       case 3:
         return (
-          <CoverImagePage
+          <DatePage
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}
@@ -45,6 +46,16 @@ function RouteComponent() {
         );
 
       case 4:
+        return (
+          <CoverImagePage
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            progress={progress}
+            setProgress={setProgress}
+          />
+        );
+
+      case 5:
         return <DescriptionEditorPage />;
     }
   };

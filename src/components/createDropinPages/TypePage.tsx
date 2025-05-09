@@ -72,7 +72,7 @@ export default function TypePage({
         {types.map((type) => (
           <div
             key={type.id}
-            className={`w-full h-[80px] rounded-[12px] border-[1px] ${
+            className={`w-full h-[70px] min-[600px]:h-[80px] rounded-[12px] border-[1px] ${
               selectedType === type.id
                 ? "border-[#F43630] border-[2px]"
                 : "border-[#b9b6b6]"
