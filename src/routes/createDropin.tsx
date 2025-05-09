@@ -85,6 +85,7 @@ function RouteComponent() {
             setCurrentPage={setCurrentPage}
             progress={progress}
             setProgress={setProgress}
+            setShowPostBtn={setShowPostBtn}
           />
         );
     }
