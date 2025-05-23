@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { useAuth } from "../context/auth/useAuth";
 
 const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
   currentPage = "",
   noPlaceholder = false,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAuthenticated, signIn, signOut } = useAuth();
 
   return (
     <div className="relative">
@@ -20,22 +22,38 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
           HANGOUT
         </Link>
         <div className="flex items-center">
-          <Link
-            to="/login"
-            className="mr-[20px] bg-[#F43630] rounded-full px-[15px] py-[5px]"
+          {!isAuthenticated ? (
+            <Link
+              to="/login"
+              className="mr-[20px] bg-[#F43630] rounded-full px-[15px] py-[5px] uppercase"
+            >
+              <p className="text-sm text-white font-medium flex items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  className="w-3 h-3 mr-1"
+                  fill="currentColor"
+                >
+                  <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                </svg>
+                Login
+              </p>
+            </Link>
+          ) : (
+            <></>
+          )}
+          <div
+            onClick={() => {
+              if (isAuthenticated) {
+                signOut();
+              } else {
+                signIn();
+              }
+            }}
+            className="bg-[#F43630] rounded-full px-[15px] py-[5px]"
           >
-            <p className="text-sm text-white font-medium flex items-center">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"
-                className="w-3 h-3 mr-1"
-                fill="currentColor"
-              >
-                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-              </svg>
-              Login
-            </p>
-          </Link>
+            test button
+          </div>
           <div
             className="w-[16px] h-[14px] flex flex-col justify-between hover:cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -134,22 +152,38 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
               </Link>
             </div>
             <div className="flex items-center">
-              <Link
-                to="/login"
+              {!isAuthenticated ? (
+                <Link
+                  to="/login"
+                  className="bg-[#F43630] rounded-full px-[20px] py-[5px] ms-[32px] uppercase"
+                >
+                  <p className="text-sm text-white font-medium flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 448 512"
+                      className="w-3 h-3 mr-1"
+                      fill="currentColor"
+                    >
+                      <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+                    </svg>
+                    Login
+                  </p>
+                </Link>
+              ) : (
+                <></>
+              )}
+              <div
+                onClick={() => {
+                  if (isAuthenticated) {
+                    signOut();
+                  } else {
+                    signIn();
+                  }
+                }}
                 className="bg-[#F43630] rounded-full px-[20px] py-[5px] ms-[32px] uppercase"
               >
-                <p className="text-sm text-white font-medium flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"
-                    className="w-3 h-3 mr-1"
-                    fill="currentColor"
-                  >
-                    <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
-                  </svg>
-                  Login
-                </p>
-              </Link>
+                test button
+              </div>
             </div>
           </div>
         </div>

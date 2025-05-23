@@ -8,7 +8,7 @@ import CoverImagePage from "@/components/createDropinPages/CoverImagePage";
 import DatePage from "@/components/createDropinPages/DatePage";
 import AddressPage from "@/components/createDropinPages/AddressPage";
 import NavigationPage from "@/components/createDropinPages/NavigationPage";
-// import { useAuth } from "../context/auth/useAuth";
+import ProtectedRoute from "../context/auth/ProtectedRoute";
 
 function RouteComponent() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -92,20 +92,22 @@ function RouteComponent() {
   };
 
   return (
-    <div className="bg-[#f4f4f4] w-[100vw]">
-      <div className="bg-[#fff] max-w-[900px] min-h-[100vh] mx-auto relative">
-        {/* Header */}
-        <CreateDropinHeader showPostBtn={showPostBtn} progress={progress} />
+    <ProtectedRoute>
+      <div className="bg-[#f4f4f4] w-[100vw]">
+        <div className="bg-[#fff] max-w-[900px] min-h-[100vh] mx-auto relative">
+          {/* Header */}
+          <CreateDropinHeader showPostBtn={showPostBtn} progress={progress} />
 
-        {/* Divider */}
-        <hr />
+          {/* Divider */}
+          <hr />
 
-        {/* Editor */}
-        <div className="w-full px-[14px] min-[600px]:px-[28px]">
-          {renderPage()}
+          {/* Editor */}
+          <div className="w-full px-[14px] min-[600px]:px-[28px]">
+            {renderPage()}
+          </div>
         </div>
       </div>
-    </div>
+    </ProtectedRoute>
   );
 }
 
