@@ -7,7 +7,7 @@ import NamePage from "@/components/createDropinPages/NamePage";
 import CoverImagePage from "@/components/createDropinPages/CoverImagePage";
 import DatePage from "@/components/createDropinPages/DatePage";
 import AddressPage from "@/components/createDropinPages/AddressPage";
-import NavigationPage from "@/components/createDropinPages/navigationPage";
+import NavigationPage from "@/components/createDropinPages/NavigationPage";
 // import { useAuth } from "../context/auth/useAuth";
 
 function RouteComponent() {
