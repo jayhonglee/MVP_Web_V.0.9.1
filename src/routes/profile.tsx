@@ -4,10 +4,6 @@ import { useAuth } from "../context/auth/useAuth";
 import ProtectedRoute from "../context/auth/ProtectedRoute";
 import NavBar from "../components/NavBar";
 
-export const Route = createFileRoute("/profile")({
-  component: RouteComponent,
-});
-
 const tabs = [
   { name: "Profile", path: "" },
   { name: "Group Chat", path: "group-chat" },
@@ -16,8 +12,10 @@ const tabs = [
 
 function RouteComponent() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
-  const { signOut } = useAuth();
   const router = useRouter();
+
+  const { signOut } = useAuth();
+
   return (
     <ProtectedRoute>
       <div className="w-full h-[731px] p-[64px_14px_0] min-[600px]:h-[747px] mobile:h-[859px] mobile:p-[92px_0_0_0] flex flex-col justify-start items-center">
@@ -81,3 +79,7 @@ function RouteComponent() {
     </ProtectedRoute>
   );
 }
+
+export const Route = createFileRoute("/profile")({
+  component: RouteComponent,
+});

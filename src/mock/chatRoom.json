@@ -1,0 +1,120 @@
+{
+  "id": "1",
+  "type": "group",
+  "name": "Weekend Drop-ins",
+  "chatImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=256&h=256",
+  "participants": [
+    {
+      "id": "user1",
+      "name": "Alex Kim",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+      "role": "admin",
+      "status": "online",
+      "lastSeen": "2024-03-19T15:30:00Z"
+    },
+    {
+      "id": "user2",
+      "name": "Jamie Lee",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+      "role": "member",
+      "status": "offline",
+      "lastSeen": "2024-03-19T14:45:00Z"
+    },
+    {
+      "id": "user3",
+      "name": "Sam Wilson",
+      "avatar": "https://randomuser.me/api/portraits/men/22.jpg",
+      "role": "member",
+      "status": "online",
+      "lastSeen": "2024-03-19T15:35:00Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": "msg1",
+      "senderId": "user1",
+      "content": "Hey everyone! Who's up for a drop-in session this weekend?",
+      "timestamp": "2024-03-19T14:00:00Z",
+      "type": "text",
+      "status": "read",
+      "reactions": [
+        {
+          "userId": "user2",
+          "type": "👍"
+        },
+        {
+          "userId": "user3",
+          "type": "❤️"
+        }
+      ]
+    },
+    {
+      "id": "msg2",
+      "senderId": "user2",
+      "content": "I'm in! What time are you thinking?",
+      "timestamp": "2024-03-19T14:05:00Z",
+      "type": "text",
+      "status": "read",
+      "reactions": []
+    },
+    {
+      "id": "msg3",
+      "senderId": "user1",
+      "content": "How about Saturday at 2 PM?",
+      "timestamp": "2024-03-19T14:10:00Z",
+      "type": "text",
+      "status": "read",
+      "reactions": []
+    },
+    {
+      "id": "msg4",
+      "senderId": "user3",
+      "content": "Perfect! I'll bring some snacks 🍕",
+      "timestamp": "2024-03-19T14:15:00Z",
+      "type": "text",
+      "status": "read",
+      "reactions": [
+        {
+          "userId": "user1",
+          "type": "🎉"
+        }
+      ]
+    },
+    {
+      "id": "msg5",
+      "senderId": "user1",
+      "content": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+      "timestamp": "2024-03-19T14:20:00Z",
+      "type": "image",
+      "status": "read",
+      "caption": "The venue I'm thinking of",
+      "reactions": []
+    }
+  ],
+  "metadata": {
+    "createdAt": "2024-03-01T10:00:00Z",
+    "lastActivity": "2024-03-19T14:20:00Z",
+    "settings": {
+      "notifications": true,
+      "muteUntil": null,
+      "theme": "light",
+      "language": "en"
+    },
+    "pinnedMessages": ["msg1"],
+    "attachments": [
+      {
+        "id": "att1",
+        "type": "document",
+        "name": "Meeting Notes.pdf",
+        "url": "https://example.com/files/meeting-notes.pdf",
+        "size": "2.5MB",
+        "uploadedBy": "user1",
+        "uploadedAt": "2024-03-18T15:00:00Z"
+      }
+    ]
+  },
+  "typingUsers": ["user2"],
+  "unreadCount": 0,
+  "isMuted": false,
+  "isArchived": false
+}

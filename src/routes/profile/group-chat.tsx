@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import mockChatList from "../../mock/chatList.json";
 
 function timeAgo(dateString: string) {
@@ -14,6 +14,8 @@ function timeAgo(dateString: string) {
 }
 
 function GroupChat() {
+  const navigate = useNavigate();
+
   return (
     <div className="w-full">
       <div className="w-full h-[10px] bg-transparent" />
@@ -39,6 +41,9 @@ function GroupChat() {
           <div
             key={chat.id}
             className="w-full flex justify-start items-center px-[8px] py-[8px] gap-[12px] hover:bg-[#F5F5F5] cursor-pointer"
+            onClick={() => {
+              navigate({ to: "/profile/chat-room" });
+            }}
           >
             <img
               src={chat.chatImage}
@@ -58,6 +63,7 @@ function GroupChat() {
           </div>
         );
       })}
+      {/* <div className="absolute top-0 left-0 z-[60] w-[100vw] h-[100vh] overflow-hidden bg-red-500" /> */}
     </div>
   );
 }
