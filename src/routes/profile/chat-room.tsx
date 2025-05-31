@@ -18,7 +18,7 @@ function ChatRoom() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden z-[60] bg-white">
+    <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden z-[60] bg-white flex flex-col">
       {/* Chat room header */}
       <div className="w-screen h-[77px] p-[16px] border-b-[1px] flex justify-between items-center">
         {/* Left side */}
@@ -50,8 +50,40 @@ function ChatRoom() {
           </div>
         </div>
         {/* Right side */}
-        <div className="flex justify-end items-center gap-[12px] h-[44px]">
+        <div className="flex justify-end items-center gap-[12px] h-[44px] cursor-pointer">
           {getChatRoomIcon("info")}
+        </div>
+      </div>
+
+      {/* Chat room messages */}
+      <div className="w-full flex-1">Chat room messages</div>
+
+      {/* Chat room input */}
+      <div className="w-full h-[78px] flex flex-col justify-center items-center p-[16px]">
+        <div className="w-full h-[46px] border-[1px] border-gray-200 rounded-[23px] flex justify-center items-center pl-[11px] pr-[16px]">
+          <div
+            contentEditable
+            className="w-full h-[20px] outline-none text-[15px] font-[400] leading-[13px] break-words flex items-center"
+            role="textbox"
+            aria-label="Message input"
+            data-placeholder="Message..."
+            onBlur={(e) => {
+              if (!e.currentTarget.textContent) {
+                e.currentTarget.textContent = "Message...";
+                e.currentTarget.classList.add("text-gray-400");
+              }
+            }}
+            onFocus={(e) => {
+              if (e.currentTarget.textContent === "Message...") {
+                e.currentTarget.textContent = "";
+                e.currentTarget.classList.remove("text-gray-400");
+              }
+            }}
+            suppressContentEditableWarning
+          />
+          <p className="text-[14px] leading-[18px] text-[rgb(0,149,246)] font-[600] ml-[5px] cursor-pointer">
+            Send
+          </p>
         </div>
       </div>
     </div>
