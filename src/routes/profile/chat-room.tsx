@@ -1,19 +1,23 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
 import chatRoom from "../../mock/chatRoom.json";
 import { useNavigate } from "@tanstack/react-router";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
 
 function ChatRoom() {
   const navigate = useNavigate();
+  const [message, setMessage] = useState("");
+  const [isMessageEmpty, setIsMessageEmpty] = useState(true);
 
   useEffect(() => {
     // Disable scrolling on mount
     document.body.style.overflow = "hidden";
+    document.body.style.width = "0";
 
     // Re-enable scrolling on unmount
     return () => {
       document.body.style.overflow = "unset";
+      document.body.style.width = "100%";
     };
   }, []);
 
@@ -60,15 +64,30 @@ function ChatRoom() {
 
       {/* Chat room input */}
       <div className="w-full h-[78px] flex flex-col justify-center items-center p-[16px]">
-        <div className="w-full h-[46px] border-[1px] border-gray-200 rounded-[23px] flex justify-center items-center px-[16px]">
+        <div className="w-full h-[46px] border-[1px] border-gray-200 rounded-[23px] flex justify-center items-center px-[20px]">
           <input
             type="text"
             className="w-full h-[20px] outline-none text-[15px] font-[400] leading-[18px] break-words flex items-center"
             placeholder="Message..."
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+              setIsMessageEmpty(e.target.value.length === 0);
+            }}
           />
-          <p className="text-[14px] leading-[18px] text-[rgb(0,149,246)] font-[600] ml-[5px]">
-            Send
-          </p>
+          <span className="w-[24px] h-[24px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              className={`w-full h-full ${
+                isMessageEmpty
+                  ? "fill-gray-400 cursor-default"
+                  : "fill-[rgb(244,54,48)] cursor-pointer"
+              }`}
+            >
+              <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM385 215c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-71-71L280 392c0 13.3-10.7 24-24 24s-24-10.7-24-24l0-214.1-71 71c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 103c9.4-9.4 24.6-9.4 33.9 0L385 215z" />
+            </svg>
+          </span>
         </div>
       </div>
     </div>
