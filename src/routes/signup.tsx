@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { EmailInput } from "@/components/signupCarouselPages/EmailInput";
 import { PasswordInput } from "@/components/signupCarouselPages/PasswordInput";
+import { NameInput } from "@/components/signupCarouselPages/NameInput";
 
 function RouteComponent() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,6 +35,10 @@ function RouteComponent() {
           setCurrentIndex={setCurrentIndex}
         />
         <PasswordInput
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
+        <NameInput
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
         />

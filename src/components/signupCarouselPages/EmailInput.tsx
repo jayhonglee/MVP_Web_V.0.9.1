@@ -20,7 +20,7 @@ export function EmailInput({
         <div className="w-full h-[8px] mobile:h-[16px] bg-transparent" />
 
         <p className="w-full text-[14px] mobile:text-[18px] font-[400] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] text-[rgb(153,150,150)] px-[14px]">
-          This will be used to log in to your account
+          This will be used to log in to your account.
         </p>
 
         <div className="w-full h-[24px] mobile:h-[60px] bg-transparent" />
