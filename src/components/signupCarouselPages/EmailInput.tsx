@@ -1,13 +1,14 @@
-import { useState } from "react";
-
 export function EmailInput({
+  email,
+  setEmail,
   currentIndex,
   setCurrentIndex,
 }: {
+  email: string;
+  setEmail: (email: string) => void;
   currentIndex: number;
   setCurrentIndex: (index: number) => void;
 }) {
-  const [email, setEmail] = useState("");
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   return (
@@ -35,7 +36,9 @@ export function EmailInput({
           />
         </div>
 
-        <div className="w-full max-w-[615px] absolute bottom-[16px] px-[14px]">
+        <div className="w-full h-[60px] mobile:h-[120px] bg-transparent" />
+
+        <div className="w-full max-w-[615px] px-[14px]">
           {/* Next Button */}
           <button
             onClick={() => setCurrentIndex(currentIndex + 1)}
@@ -49,6 +52,8 @@ export function EmailInput({
             Next
           </button>
         </div>
+
+        <div className="w-full h-[60px] mobile:h-[120px] bg-transparent" />
       </div>
     </div>
   );

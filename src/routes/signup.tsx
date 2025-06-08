@@ -7,6 +7,21 @@ import { NameInput } from "@/components/signupCarouselPages/NameInput";
 
 function RouteComponent() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const handleSignup = () => {
+    const user = {
+      email: email,
+      password: password,
+      lastName: lastName,
+      firstName: firstName,
+    };
+    console.log(user);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,7 +38,7 @@ function RouteComponent() {
   }, [currentIndex]);
 
   return (
-    <div className="w-[100vw] h-[100vh] p-[48px_0_0] mobile:p-[150px_0_0_0] flex flex-col justify-start items-center overflow-hidden">
+    <div className="w-[100vw] h-[100vh] p-[48px_0_0] mobile:p-[150px_0_0_0] flex flex-col justify-start items-center overflow-x-hidden">
       {/* Navbar */}
       <div className="hidden mobile:block">
         <NavBar noPlaceholder currentPage="all" />
@@ -31,14 +46,25 @@ function RouteComponent() {
 
       <div className="w-full h-full py-[24px] flex justify-start items-start mobile:py-[40px] relative carousel-track transition-transform duration-300">
         <EmailInput
+          email={email}
+          setEmail={setEmail}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
         />
         <PasswordInput
+          password={password}
+          setPassword={setPassword}
+          confirmPassword={confirmPassword}
+          setConfirmPassword={setConfirmPassword}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
         />
         <NameInput
+          firstName={firstName}
+          setFirstName={setFirstName}
+          lastName={lastName}
+          setLastName={setLastName}
+          handleSignup={handleSignup}
           currentIndex={currentIndex}
           setCurrentIndex={setCurrentIndex}
         />

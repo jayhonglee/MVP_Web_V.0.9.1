@@ -1,15 +1,20 @@
-import { useState } from "react";
-
 export function NameInput({
+  firstName,
+  setFirstName,
+  lastName,
+  setLastName,
+  handleSignup,
   currentIndex,
   setCurrentIndex,
 }: {
+  firstName: string;
+  setFirstName: (firstName: string) => void;
+  lastName: string;
+  setLastName: (lastName: string) => void;
+  handleSignup: () => void;
   currentIndex: number;
   setCurrentIndex: (index: number) => void;
 }) {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
   return (
     <div className="w-full h-full flex flex-col justify-start items-center flex-shrink-0 flex-grow-0">
       <div className="w-full max-w-[615px] flex flex-col justify-start items-start">
@@ -53,10 +58,12 @@ export function NameInput({
           />
         </div>
 
-        <div className="w-full max-w-[615px] absolute bottom-[16px] px-[14px] flex flex-col justify-start items-start">
+        <div className="w-full h-[60px] mobile:h-[120px] bg-transparent" />
+
+        <div className="w-full max-w-[615px] px-[14px] flex flex-col justify-start items-start">
           {/* Next Button */}
           <button
-            onClick={() => setCurrentIndex(currentIndex + 1)}
+            onClick={handleSignup}
             className={`w-full max-w-[615px] p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] ${
               firstName && lastName
                 ? "bg-[#F43630] text-white cursor-pointer"
@@ -67,16 +74,18 @@ export function NameInput({
             Sign Up
           </button>
 
-          {/* <div className="w-full h-[24px] bg-transparent" />
+          <div className="w-full h-[24px] bg-transparent" />
 
           {/* Back Button */}
-          {/* <button
+          <button
             onClick={() => setCurrentIndex(currentIndex - 1)}
             className="w-full max-w-[615px] p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] bg-transparent border-[1px] border-[#989696]"
           >
             Back
-          </button>  */}
+          </button>
         </div>
+
+        <div className="w-full h-[60px] mobile:h-[120px] bg-transparent" />
       </div>
     </div>
   );

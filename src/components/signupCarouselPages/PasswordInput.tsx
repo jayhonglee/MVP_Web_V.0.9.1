@@ -1,14 +1,18 @@
-import { useState } from "react";
-
 export function PasswordInput({
+  password,
+  setPassword,
+  confirmPassword,
+  setConfirmPassword,
   currentIndex,
   setCurrentIndex,
 }: {
+  password: string;
+  setPassword: (password: string) => void;
+  confirmPassword: string;
+  setConfirmPassword: (confirmPassword: string) => void;
   currentIndex: number;
   setCurrentIndex: (index: number) => void;
 }) {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const isValidPassword =
     /^[a-zA-Z0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]{8,20}$/.test(password);
   const isValidConfirmPassword = password === confirmPassword;
@@ -55,8 +59,9 @@ export function PasswordInput({
             placeholder="Confirm your password"
           />
         </div>
+        <div className="w-full h-[60px] mobile:h-[120px] bg-transparent" />
 
-        <div className="w-full max-w-[615px] absolute bottom-[16px] px-[14px] flex flex-col justify-start items-start">
+        <div className="w-full max-w-[615px] px-[14px] flex flex-col justify-start items-start">
           {/* Next Button */}
           <button
             onClick={() => setCurrentIndex(currentIndex + 1)}
@@ -70,16 +75,18 @@ export function PasswordInput({
             Next
           </button>
 
-          {/* <div className="w-full h-[24px] bg-transparent" />
+          <div className="w-full h-[24px] bg-transparent" />
 
           {/* Back Button */}
-          {/* <button
+          <button
             onClick={() => setCurrentIndex(currentIndex - 1)}
             className="w-full max-w-[615px] p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] bg-transparent border-[1px] border-[#989696]"
           >
             Back
-          </button>  */}
+          </button>
         </div>
+
+        <div className="w-full h-[60px] mobile:h-[120px] bg-transparent" />
       </div>
     </div>
   );
