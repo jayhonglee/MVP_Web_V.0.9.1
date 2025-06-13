@@ -1,19 +1,21 @@
 import NavBar from "@/components/NavBar";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { EmailInput } from "@/components/signupCarouselPages/EmailInput";
 import { PasswordInput } from "@/components/signupCarouselPages/PasswordInput";
 import { NameInput } from "@/components/signupCarouselPages/NameInput";
 import { useMutation } from "@tanstack/react-query";
+import { useAuth } from "@/context/auth/useAuth";
 
 function RouteComponent() {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-
+  const { signUp } = useAuth();
   const signupMutation = useMutation({
     mutationFn: async (userData: {
       email: string;
@@ -22,20 +24,11 @@ function RouteComponent() {
       lastName: string;
     }) => {
       try {
-        const response = await fetch(
-          `${import.meta.env.VITE_MONGODB_URL}/users`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userData),
-          }
-        );
-        return response.json();
+        await signUp(userData);
+        navigate({ to: "/" });
       } catch (err) {
-        console.log(err);
-        return err;
+        console.error(err);
+        throw err;
       }
     },
   });
