@@ -1,6 +1,5 @@
 import NavBar from "@/components/NavBar";
 import getSignupErrorMessage from "@/utils/getSignupErrorMessage";
-import ErrorModal from "@/components/errorModal/errorModal";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { EmailInput } from "@/components/signupCarouselPages/EmailInput";
@@ -8,6 +7,7 @@ import { PasswordInput } from "@/components/signupCarouselPages/PasswordInput";
 import { NameInput } from "@/components/signupCarouselPages/NameInput";
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "@/context/auth/useAuth";
+import ErrorModal from "@/components/errorModal/ErrorModal";
 
 function RouteComponent() {
   const navigate = useNavigate();

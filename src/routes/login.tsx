@@ -3,7 +3,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/context/auth/useAuth";
 import { useMutation } from "@tanstack/react-query";
 import NavBar from "../components/NavBar";
-import ErrorModal from "@/components/errorModal/errorModal";
+import ErrorModal from "@/components/errorModal/ErrorModal";
 import getLoginErrorMessage from "@/utils/getLoginErrorMessage";
 
 function RouteComponent() {
