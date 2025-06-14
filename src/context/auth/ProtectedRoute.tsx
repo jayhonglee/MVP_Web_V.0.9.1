@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { useAuth } from "./useAuth";
 
@@ -7,16 +7,18 @@ interface ProtectedRouteProps {
 }
 
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
-  const { isAuthenticated, isLoading } = useAuth();
+  const { isAuthenticated, isLoading, verify } = useAuth();
   const navigate = useNavigate();
 
-  console.log(isAuthenticated);
-
-  React.useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
-      navigate({ to: "/login", replace: true });
+  useEffect(() => {
+    if (!isLoading) {
+      verify().then((isVerified) => {
+        if (!isVerified) {
+          navigate({ to: "/login", replace: true });
+        }
+      });
     }
-  }, [isLoading, isAuthenticated, navigate]);
+  }, [isLoading, isAuthenticated, verify, navigate]);
 
   if (isLoading) {
     return (

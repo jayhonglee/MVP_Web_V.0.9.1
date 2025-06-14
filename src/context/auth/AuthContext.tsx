@@ -73,10 +73,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             const userData = await authService.verify();
             setUser(userData);
             setIsAuthenticated(true);
+            return true;
           } catch (error) {
             setUser(null);
             setIsAuthenticated(false);
             console.error("Auth verification failed:", error);
+            return false;
           } finally {
             setIsLoading(false);
           }
