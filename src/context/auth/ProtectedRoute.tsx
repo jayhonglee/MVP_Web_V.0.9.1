@@ -11,14 +11,15 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoading) {
-      verify().then((isVerified) => {
-        if (!isVerified) {
-          navigate({ to: "/login", replace: true });
-        }
-      });
-    }
-  }, [isLoading, isAuthenticated, verify, navigate]);
+    const checkAuth = async () => {
+      const isVerified = await verify();
+      if (!isVerified) {
+        navigate({ to: "/login", replace: true });
+      }
+    };
+
+    checkAuth();
+  }, [verify, navigate]);
 
   if (isLoading) {
     return (

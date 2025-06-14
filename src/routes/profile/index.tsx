@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { useAuth } from "@/context/auth/useAuth";
 import mockUserProfile from "../../mock/profile.json";
 import mockHostedDropins from "../../mock/hostedDropins.json";
 import mockJoinedDropins from "../../mock/joinedDropins.json";
@@ -8,13 +9,16 @@ function ProfileIndex() {
   const [selectedTab, setSelectedTab] = useState<"created" | "joined">(
     "created"
   );
+  const {
+    user: { user: userData },
+  } = useAuth();
 
   return (
     <div className="w-full mobile:pl-[14px]">
       {/* Profile */}
       <div className="w-full h-[129px] mobile:h-[300px] flex justify-between items-end">
         <img
-          src={mockUserProfile.avatar_url}
+          src={userData?.avatar_url || "/default-profile-image.png"}
           alt="profile cover"
           className="w-[84px] h-[84px] mobile:w-[142px] mobile:h-[142px] mb-[14px] object-cover rounded-full"
           onError={(e) => {
@@ -54,10 +58,10 @@ function ProfileIndex() {
       {/* Name / Gender / ID */}
       <div>
         <p className="text-[18px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgba(56,53,53)] mobile:text-[24px] mobile:leading-[36px]">
-          {mockUserProfile.full_name} ({mockUserProfile.gender})
+          {userData?.firstName} {userData?.lastName} ({userData?.gender})
         </p>
         <p className="text-[13px] font-[500] leading-[21px] tracking-[-0.25px] text-[#536471] mobile:text-[19px] mobile:leading-[31px]">
-          @{mockUserProfile.id}
+          @{userData?.email}
         </p>
       </div>
 
