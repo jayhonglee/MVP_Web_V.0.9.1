@@ -7,7 +7,7 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
   noPlaceholder = false,
 }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isAuthenticated, signIn, signOut } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className="relative">
@@ -42,18 +42,6 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
           ) : (
             <></>
           )}
-          <div
-            onClick={() => {
-              if (isAuthenticated) {
-                signOut();
-              } else {
-                signIn();
-              }
-            }}
-            className="bg-[#F43630] rounded-full px-[15px] py-[5px]"
-          >
-            test button
-          </div>
           <div
             className="w-[16px] h-[14px] flex flex-col justify-between hover:cursor-pointer"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -172,18 +160,6 @@ const NavBar: React.FC<{ currentPage?: string; noPlaceholder?: boolean }> = ({
               ) : (
                 <></>
               )}
-              <div
-                onClick={() => {
-                  if (isAuthenticated) {
-                    signOut();
-                  } else {
-                    signIn();
-                  }
-                }}
-                className="bg-[#F43630] rounded-full px-[20px] py-[5px] ms-[32px] uppercase"
-              >
-                test button
-              </div>
             </div>
           </div>
         </div>
