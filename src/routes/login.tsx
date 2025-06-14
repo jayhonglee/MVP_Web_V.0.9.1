@@ -1,11 +1,33 @@
 import { useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useAuth } from "@/context/auth/useAuth";
+import { useMutation } from "@tanstack/react-query";
 import NavBar from "../components/NavBar";
 
 function RouteComponent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { signIn } = useAuth();
+  const isValidEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const loginMutation = useMutation({
+    mutationFn: async (userData: { email: string; password: string }) => {
+      try {
+        await signIn(userData.email, userData.password);
+        navigate({ to: "/" });
+      } catch (err) {
+        console.error(err);
+        throw err;
+      }
+    },
+  });
+
+  const handleLogin = () => {
+    loginMutation.mutate({ email, password });
+  };
 
   return (
     <div className="w-full h-[731px] p-[100px_14px_0] min-[600px]:h-[747px] mobile:h-[859px] mobile:p-[125.6px_0_0_0] flex flex-col justify-start items-center">
@@ -55,11 +77,12 @@ function RouteComponent() {
         {/* Login Button */}
         <button
           className={`w-full p-[12px] h-[50px] min-[600px]:h-[58px] min-[600px]:p-[16px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] mb-[24px] ${
-            email && password
+            email && password && isValidEmail(email)
               ? "bg-[#F43630] text-white cursor-pointer"
               : "bg-[#DBDBDB] text-[#A2A2A2] cursor-default"
           }`}
-          disabled={!email || !password}
+          disabled={!email || !password || !isValidEmail(email)}
+          onClick={handleLogin}
         >
           Log In
         </button>
