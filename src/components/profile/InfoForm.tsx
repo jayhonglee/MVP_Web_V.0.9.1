@@ -14,7 +14,6 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
     gender: user.gender || "",
     dateOfBirth: user.dateOfBirth ? user.dateOfBirth.split("T")[0] : "",
     introduction: user.introduction || "",
-    interests: user.interests || [],
     address: {
       placeName: user.address?.placeName || "",
       city: user.address?.city || "",

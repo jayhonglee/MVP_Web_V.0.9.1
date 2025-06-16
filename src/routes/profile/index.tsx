@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useAuth } from "@/context/auth/useAuth";
 import { User } from "@/context/auth/auth.types";
+import { useUpdateUserMe } from "@/hooks/users/useUpdateUserMe";
 import mockHostedDropins from "../../mock/hostedDropins.json";
 import mockJoinedDropins from "../../mock/joinedDropins.json";
 import EditInfoModal from "@/components/profile/EditInfoModal";
@@ -13,13 +14,20 @@ function ProfileIndex() {
   const [isEditInfoModalOpen, setIsEditInfoModalOpen] = useState(false);
   const { user } = useAuth();
   const userData = user?.user;
-
+  const { mutate } = useUpdateUserMe();
   const handleEditInfo = () => {
     setIsEditInfoModalOpen(true);
   };
 
   const handleSave = async (updatedUser: Partial<User["user"]>) => {
-    console.log(updatedUser);
+    mutate(updatedUser, {
+      onSuccess: () => {
+        console.log("User updated successfully");
+      },
+      onError: (error) => {
+        console.error("Error updating user:", error);
+      },
+    });
   };
 
   return (
@@ -116,10 +124,15 @@ function ProfileIndex() {
         </svg>
         <p className="text-[13px] font-[500] leading-[21px] tracking-[-0.25px] text-[#536471] mobile:text-[19px] mobile:leading-[31px] line-clamp-1">
           {userData?.address
-            ? `${userData.address.placeName || ""}, ${userData.address.city || ""}, ${userData.address.province || ""}, ${userData.address.country || ""}`.replace(
-                /^,\s*|,\s*$/g,
-                ""
-              )
+            ? [
+                userData.address.placeName,
+                userData.address.city,
+                userData.address.province,
+                userData.address.country,
+                userData.address.postalCode,
+              ]
+                .filter(Boolean)
+                .join(", ")
             : "Enter address"}
         </p>
       </div>
