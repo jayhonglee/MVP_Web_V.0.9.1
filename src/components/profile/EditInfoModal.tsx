@@ -62,7 +62,7 @@ export default function EditInfoModal({
           </svg>
         </span>
 
-        <h1 className="flex-1 text-center text-[18px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)] -ml-[24px]">
+        <h1 className="flex-1 text-center text-[16px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)] -ml-[24px]">
           Edit Info
         </h1>
       </div>
