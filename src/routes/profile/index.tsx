@@ -1,18 +1,37 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useAuth } from "@/context/auth/useAuth";
+import { User } from "@/context/auth/auth.types";
 import mockHostedDropins from "../../mock/hostedDropins.json";
 import mockJoinedDropins from "../../mock/joinedDropins.json";
+import EditInfoModal from "@/components/profile/EditInfoModal";
 
 function ProfileIndex() {
   const [selectedTab, setSelectedTab] = useState<"created" | "joined">(
     "created"
   );
+  const [isEditInfoModalOpen, setIsEditInfoModalOpen] = useState(false);
   const { user } = useAuth();
   const userData = user?.user;
 
+  const handleEditInfo = () => {
+    setIsEditInfoModalOpen(true);
+  };
+
+  const handleSave = async (updatedUser: Partial<User["user"]>) => {
+    console.log(updatedUser);
+  };
+
   return (
     <div className="w-full mobile:pl-[14px]">
+      {/* Edit Info Modal */}
+      <EditInfoModal
+        user={userData || ({} as User["user"])}
+        isOpen={isEditInfoModalOpen}
+        onClose={() => setIsEditInfoModalOpen(false)}
+        onSave={handleSave}
+      />
+
       {/* Profile */}
       <div className="w-full h-[129px] mobile:h-[300px] flex justify-between items-end">
         <img
@@ -132,7 +151,10 @@ function ProfileIndex() {
 
       {/* Edit Info / Edit Interests */}
       <div className="w-full flex justify-between items-center gap-[9px] mobile:gap-[24px]">
-        <div className="flex-1 flex justify-center items-center p-[8px] mobile:p-[16px] rounded-[8px] border-[#dbdbdb] border-[1px] h-[38px] mobile:h-[60px] cursor-pointer">
+        <div
+          className="flex-1 flex justify-center items-center p-[8px] mobile:p-[16px] rounded-[8px] border-[#dbdbdb] border-[1px] h-[38px] mobile:h-[60px] cursor-pointer"
+          onClick={handleEditInfo}
+        >
           <p className="text-[12px] mobile:text-[18px] font-[500] leading-[20px] mobile:leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)]">
             Edit Info
           </p>
@@ -265,3 +287,17 @@ function ProfileIndex() {
 export const Route = createFileRoute("/profile/")({
   component: ProfileIndex,
 });
+
+// _id: string;
+// email: string;
+// firstName: string;
+// lastName: string;
+// gender?: string;
+// dateOfBirth?: string;
+// address?: UserAddress;
+// avatar?: string;
+// introduction?: string;
+// interests?: string[];
+// createdAt: string;
+// updatedAt: string;
+// __v: number;
