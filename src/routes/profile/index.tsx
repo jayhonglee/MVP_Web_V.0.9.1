@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useAuth } from "@/context/auth/useAuth";
-import mockUserProfile from "../../mock/profile.json";
 import mockHostedDropins from "../../mock/hostedDropins.json";
 import mockJoinedDropins from "../../mock/joinedDropins.json";
 
@@ -9,16 +8,15 @@ function ProfileIndex() {
   const [selectedTab, setSelectedTab] = useState<"created" | "joined">(
     "created"
   );
-  const {
-    user: { user: userData },
-  } = useAuth();
+  const { user } = useAuth();
+  const userData = user?.user;
 
   return (
     <div className="w-full mobile:pl-[14px]">
       {/* Profile */}
       <div className="w-full h-[129px] mobile:h-[300px] flex justify-between items-end">
         <img
-          src={userData?.avatar_url || "/default-profile-image.png"}
+          src={userData?.avatar || "/default-profile-image.png"}
           alt="profile cover"
           className="w-[84px] h-[84px] mobile:w-[142px] mobile:h-[142px] mb-[14px] object-cover rounded-full"
           onError={(e) => {
@@ -58,10 +56,11 @@ function ProfileIndex() {
       {/* Name / Gender / ID */}
       <div>
         <p className="text-[18px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgba(56,53,53)] mobile:text-[24px] mobile:leading-[36px]">
-          {userData?.firstName} {userData?.lastName} ({userData?.gender})
+          {userData?.firstName} {userData?.lastName}{" "}
+          {userData?.gender && `(${userData.gender})`}
         </p>
         <p className="text-[13px] font-[500] leading-[21px] tracking-[-0.25px] text-[#536471] mobile:text-[19px] mobile:leading-[31px]">
-          @{userData?.email}
+          {userData?.email}
         </p>
       </div>
 
@@ -80,7 +79,9 @@ function ProfileIndex() {
           </g>
         </svg>
         <p className="text-[13px] font-[500] leading-[21px] tracking-[-0.25px] text-[#536471] mobile:text-[19px] mobile:leading-[31px] line-clamp-1">
-          {mockUserProfile.date_of_birth}
+          {userData?.dateOfBirth
+            ? new Date(userData.dateOfBirth).toLocaleDateString()
+            : "Enter date of birth"}
         </p>
       </div>
 
@@ -95,8 +96,12 @@ function ProfileIndex() {
           <path d="M565.6 36.2C572.1 40.7 576 48.1 576 56l0 336c0 10-6.2 18.9-15.5 22.4l-168 64c-5.2 2-10.9 2.1-16.1 .3L192.5 417.5l-160 61c-7.4 2.8-15.7 1.8-22.2-2.7S0 463.9 0 456L0 120c0-10 6.1-18.9 15.5-22.4l168-64c5.2-2 10.9-2.1 16.1-.3L383.5 94.5l160-61c7.4-2.8 15.7-1.8 22.2 2.7zM48 136.5l0 284.6 120-45.7 0-284.6L48 136.5zM360 422.7l0-285.4-144-48 0 285.4 144 48zm48-1.5l120-45.7 0-284.6L408 136.5l0 284.6z" />
         </svg>
         <p className="text-[13px] font-[500] leading-[21px] tracking-[-0.25px] text-[#536471] mobile:text-[19px] mobile:leading-[31px] line-clamp-1">
-          {mockUserProfile.address.place_name}, {mockUserProfile.address.city},{" "}
-          {mockUserProfile.address.state}, {mockUserProfile.address.country}
+          {userData?.address
+            ? `${userData.address.placeName || ""}, ${userData.address.city || ""}, ${userData.address.province || ""}, ${userData.address.country || ""}`.replace(
+                /^,\s*|,\s*$/g,
+                ""
+              )
+            : "Enter address"}
         </p>
       </div>
 
@@ -104,11 +109,20 @@ function ProfileIndex() {
 
       {/* Interests */}
       <div className="flex flex-wrap gap-[9px]">
-        {mockUserProfile.interests.map((interest) => (
+        {userData?.interests && userData.interests.length > 0 ? (
+          userData.interests.map((interest, index) => (
+            <div
+              key={index}
+              className="h-[30px] text-[#383535] bg-[#f4f4f4] px-[10px] py-[4px] rounded-[100px] text-[14px] font-[400] leading-[22px] tracking-[-0.25px] flex justify-center items-center mobile:text-[16px] mobile:leading-[24px]"
+            >
+              {interest}
+            </div>
+          ))
+        ) : (
           <div className="h-[30px] text-[#383535] bg-[#f4f4f4] px-[10px] py-[4px] rounded-[100px] text-[14px] font-[400] leading-[22px] tracking-[-0.25px] flex justify-center items-center mobile:text-[16px] mobile:leading-[24px]">
-            {interest}
+            Enter interests
           </div>
-        ))}
+        )}
         {/* <div className="h-[30px] text-[#383535] bg-[#f4f4f4] px-[10px] py-[4px] rounded-[100px] text-[14px] font-[500] leading-[22px] tracking-[-0.25px] flex justify-center items-center mobile:text-[16px] mobile:leading-[24px] cursor-pointer shrink-0 whitespace-nowrap">
           + Add Interest
         </div> */}
@@ -139,7 +153,7 @@ function ProfileIndex() {
             Created
           </p>
           <p className="text-[12px] mobile:text-[16px] font-[500] leading-[20px] mobile:leading-[24px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-            {mockUserProfile.created}
+            {mockHostedDropins.length}
           </p>
         </div>
         <div className="flex flex-col items-center gap-[8px]">
@@ -147,7 +161,7 @@ function ProfileIndex() {
             Joined
           </p>
           <p className="text-[12px] mobile:text-[16px] font-[500] leading-[20px] mobile:leading-[24px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-            {mockUserProfile.joined}
+            {mockJoinedDropins.length}
           </p>
         </div>
       </div>
