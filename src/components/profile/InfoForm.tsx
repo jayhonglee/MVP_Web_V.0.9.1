@@ -57,8 +57,9 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
             type="text"
             placeholder="First name"
             value={formData.firstName}
+            maxLength={50}
             onChange={(e) => handleInputChange("firstName", e.target.value)}
-            className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+            className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
             required
           />
         </div>
@@ -70,8 +71,9 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
             type="text"
             placeholder="Last name"
             value={formData.lastName}
+            maxLength={50}
             onChange={(e) => handleInputChange("lastName", e.target.value)}
-            className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+            className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
             required
           />
         </div>
@@ -81,16 +83,32 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
         <label className="block py-[16px] text-[16px] font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
           Gender
         </label>
-        <select
-          value={formData.gender}
-          onChange={(e) => handleInputChange("gender", e.target.value)}
-          className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
-        >
-          <option value="">Select gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
+        <div className="relative">
+          <select
+            value={formData.gender}
+            onChange={(e) => handleInputChange("gender", e.target.value)}
+            className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors appearance-none"
+          >
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          <svg
+            className="absolute right-[16px] top-1/2 transform -translate-y-1/2 pointer-events-none w-[16px] h-[16px]"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7 10L12 15L17 10"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
       </div>
 
       <div>
@@ -101,7 +119,7 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
           type="date"
           value={formData.dateOfBirth}
           onChange={(e) => handleInputChange("dateOfBirth", e.target.value)}
-          className="w-full px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+          className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
         />
       </div>
 
@@ -138,23 +156,26 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
             type="text"
             placeholder="Place name"
             value={formData.address.placeName}
+            maxLength={100}
             onChange={(e) => handleAddressChange("placeName", e.target.value)}
-            className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+            className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
           />
           <div className="grid grid-cols-2 gap-2">
             <input
               type="text"
               placeholder="City"
               value={formData.address.city}
+              maxLength={50}
               onChange={(e) => handleAddressChange("city", e.target.value)}
-              className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+              className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
             />
             <input
               type="text"
               placeholder="Province"
               value={formData.address.province}
+              maxLength={50}
               onChange={(e) => handleAddressChange("province", e.target.value)}
-              className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+              className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
             />
           </div>
           <div className="grid grid-cols-2 gap-2">
@@ -162,17 +183,19 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
               type="text"
               placeholder="Country"
               value={formData.address.country}
+              maxLength={50}
               onChange={(e) => handleAddressChange("country", e.target.value)}
-              className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+              className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
             />
             <input
               type="text"
               placeholder="Postal code"
               value={formData.address.postalCode}
+              maxLength={15}
               onChange={(e) =>
                 handleAddressChange("postalCode", e.target.value)
               }
-              className="w-full h-[42px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+              className="w-full h-[54px] px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
             />
           </div>
         </div>
@@ -182,9 +205,9 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
         <button
           type="submit"
           disabled={isLoading}
-          className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50"
+          className="w-[253px] h-[44px] px-4 py-2 bg-[#f43630] rounded-[8px] hover:bg-[#d63029] disabled:opacity-50 text-[rgb(255,255,255)] font-bold leading-[20px] tracking-[-0.25px]"
         >
-          {isLoading ? "Saving..." : "Save Changes"}
+          {isLoading ? "Saving..." : "Submit"}
         </button>
       </div>
     </form>

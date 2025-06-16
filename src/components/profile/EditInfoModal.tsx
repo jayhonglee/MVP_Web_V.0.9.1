@@ -19,13 +19,16 @@ export default function EditInfoModal({
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.width = "0";
     } else {
       document.body.style.overflow = "unset";
+      document.body.style.width = "100%";
     }
 
     // Cleanup function to restore scroll when component unmounts
     return () => {
       document.body.style.overflow = "unset";
+      document.body.style.width = "100%";
     };
   }, [isOpen]);
 
