@@ -50,7 +50,7 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label className="block py-[16px] text-sm font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
+          <label className="block py-[16px] text-[16px] font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
             First Name
           </label>
           <input
@@ -63,7 +63,7 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
           />
         </div>
         <div>
-          <label className="block py-[16px] text-sm font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
+          <label className="block py-[16px] text-[16px] font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
             Last Name
           </label>
           <input
@@ -78,7 +78,7 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
       </div>
 
       <div>
-        <label className="block py-[16px] text-sm font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
+        <label className="block py-[16px] text-[16px] font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
           Gender
         </label>
         <select
@@ -94,7 +94,7 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
       </div>
 
       <div>
-        <label className="block py-[16px] text-sm font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
+        <label className="block py-[16px] text-[16px] font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
           Date of Birth
         </label>
         <input
@@ -108,23 +108,29 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
       <div>
         <label
           htmlFor="introduction"
-          className="block py-[16px] text-sm font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words"
+          className="block py-[16px] text-[16px] font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words"
         >
           Introduction
         </label>
-        <textarea
-          id="introduction"
-          placeholder="Introduction"
-          value={formData.introduction}
-          style={{ resize: "none", height: "62px" }}
-          onChange={(e) => handleInputChange("introduction", e.target.value)}
-          className="w-full px-[16px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
-          rows={3}
-        />
+        <div className="relative h-[62px]">
+          <textarea
+            id="introduction"
+            placeholder="Introduction"
+            value={formData.introduction}
+            style={{ resize: "none", height: "62px" }}
+            onChange={(e) => handleInputChange("introduction", e.target.value)}
+            className="w-full pl-[16px] pr-[80px] py-[10px] border rounded-[12px] border-[rgb(219,223,228)] focus:outline-none focus:border-[#0C1014] transition-colors"
+            rows={3}
+            maxLength={150}
+          />
+          <div className="absolute bottom-[10px] right-[16px] text-[12px] leading-[16px] font-[400] text-[rgb(115,115,115)]">
+            {formData.introduction.length} / 150
+          </div>
+        </div>
       </div>
 
       <div>
-        <label className="block py-[16px] text-sm font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
+        <label className="block py-[16px] text-[16px] font-[700] leading-[20px] tracking-[-0.25px] text-[rgb(56,53,53)] break-words">
           Address
         </label>
         <div className="space-y-2">
@@ -178,7 +184,7 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
           disabled={isLoading}
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50"
         >
-          {isLoading ? "Saving.." : "Save Changes"}
+          {isLoading ? "Saving..." : "Save Changes"}
         </button>
       </div>
     </form>
