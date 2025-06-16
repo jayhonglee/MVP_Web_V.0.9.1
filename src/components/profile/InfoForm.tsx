@@ -178,7 +178,7 @@ export default function InfoForm({ user, onSubmit, isLoading }: InfoFormProps) {
           disabled={isLoading}
           className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:opacity-50"
         >
-          {isLoading ? "Saving..." : "Save Changes"}
+          {isLoading ? "Saving.." : "Save Changes"}
         </button>
       </div>
     </form>
