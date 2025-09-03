@@ -39,6 +39,7 @@ interface AuthContextType {
     lastName: string;
   }) => Promise<void>;
   verify: () => Promise<boolean>;
+  updateUser: (userData: Partial<User["user"]>) => void;
 }
 
 export const AuthContext = createContext<AuthContextType | null>(null);

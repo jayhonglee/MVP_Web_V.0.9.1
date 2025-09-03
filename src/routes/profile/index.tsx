@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useAuth } from "@/context/auth/useAuth";
 import { User } from "@/context/auth/auth.types";
 import { useUpdateUserMe } from "@/hooks/users/useUpdateUserMe";
+import { useUpdateProfilePictureMe } from "@/hooks/users/useUpdateProfileMe";
 import mockHostedDropins from "../../mock/hostedDropins.json";
 import mockJoinedDropins from "../../mock/joinedDropins.json";
 import EditInfoModal from "@/components/profile/EditInfoModal";
@@ -14,13 +15,14 @@ function ProfileIndex() {
   const [isEditInfoModalOpen, setIsEditInfoModalOpen] = useState(false);
   const { user } = useAuth();
   const userData = user?.user;
-  const { mutate } = useUpdateUserMe();
+  const { mutate: updateUserMe } = useUpdateUserMe();
+  const { mutate: updateProfilePicture } = useUpdateProfilePictureMe();
   const handleEditInfo = () => {
     setIsEditInfoModalOpen(true);
   };
 
   const handleSave = async (updatedUser: Partial<User["user"]>) => {
-    mutate(updatedUser, {
+    updateUserMe(updatedUser, {
       onSuccess: () => {
         console.log("User updated successfully");
       },
@@ -43,7 +45,7 @@ function ProfileIndex() {
       {/* Profile */}
       <div className="w-full h-[129px] mobile:h-[300px] flex justify-between items-end">
         <img
-          src={userData?.avatar || "/default-profile-image.png"}
+          src={userData?.avatar}
           alt="profile cover"
           className="w-[84px] h-[84px] mobile:w-[142px] mobile:h-[142px] mb-[14px] object-cover rounded-full"
           onError={(e) => {
@@ -51,30 +53,49 @@ function ProfileIndex() {
           }}
         />
 
-        <div className="h-[30px] text-[rgb(119,228,90)] bg-[rgb(119,228,90)] bg-opacity-[0.15] px-[10px] py-[4px] rounded-[100px] cursor-pointer text-[14px] font-[500] leading-[22px] tracking-[-0.25px] flex justify-center items-center gap-[2px] mobile:text-[16px] mobile:leading-[24px]">
-          <p>Update Profile</p>
-          <svg
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-            className="mobile:w-[15px] mobile:h-[15px]"
-            width="14"
-            height="14"
-            fill="none"
+        <div className="relative">
+          <input
+            type="file"
+            id="avatar"
+            name="avatar"
+            accept="image/png, image/jpeg, image/jpg"
+            className="absolute inset-0 w-0 h-0 opacity-0"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) {
+                // Handle file upload logic here
+                updateProfilePicture(file);
+              }
+            }}
+          />
+          <label
+            htmlFor="avatar"
+            className="h-[30px] text-[rgb(119,228,90)] bg-[rgb(119,228,90)] bg-opacity-[0.15] px-[10px] py-[4px] rounded-[100px] cursor-pointer text-[14px] font-[500] leading-[22px] tracking-[-0.25px] flex justify-center items-center gap-[2px] mobile:text-[16px] mobile:leading-[24px]"
           >
-            <path
-              fill="#77e45a"
-              fill-rule="evenodd"
-              d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.522 2 12A10 10 0 0 1 12 2"
-              clip-rule="evenodd"
-            ></path>
-            <path
-              stroke="#FEFEFE"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="m11 8.5 2.933 3.215a.64.64 0 0 1 0 .57L11 15.5"
-            ></path>
-          </svg>
+            <p>Update Profile</p>
+            <svg
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              className="mobile:w-[15px] mobile:h-[15px]"
+              width="14"
+              height="14"
+              fill="none"
+            >
+              <path
+                fill="#77e45a"
+                fill-rule="evenodd"
+                d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.522 2 12A10 10 0 0 1 12 2"
+                clip-rule="evenodd"
+              ></path>
+              <path
+                stroke="#FEFEFE"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="m11 8.5 2.933 3.215a.64.64 0 0 1 0 .57L11 15.5"
+              ></path>
+            </svg>
+          </label>
         </div>
       </div>
 

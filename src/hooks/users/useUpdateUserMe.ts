@@ -1,7 +1,11 @@
 import { User } from "@/context/auth/auth.types";
-import { useMutation } from "@tanstack/react-query";
+import { useAuth } from "@/context/auth/useAuth";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useUpdateUserMe = () => {
+  const queryClient = useQueryClient();
+  const { updateUser } = useAuth();
+
   const { mutate, isPending, error } = useMutation({
     mutationFn: async (userData: Partial<User["user"]>) => {
       const response = await fetch(
@@ -22,6 +26,13 @@ export const useUpdateUserMe = () => {
       }
 
       return response.json();
+    },
+    onSuccess: (updatedUserData) => {
+      // Update the auth state with the new data
+      updateUser(updatedUserData.user);
+
+      // Also invalidate queries for consistency
+      queryClient.invalidateQueries({ queryKey: ["auth", "verify"] });
     },
   });
 
