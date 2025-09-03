@@ -19,7 +19,8 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
     };
 
     checkAuth();
-  }, [verify, navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [navigate, isAuthenticated]);
 
   if (isLoading) {
     return (
