@@ -108,7 +108,7 @@ function ProfileIndex() {
 
       {/* Name / Gender / ID */}
       <div>
-        <p className="text-[18px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgba(56,53,53)] mobile:text-[24px] mobile:leading-[36px]">
+        <p className="text-[18px] font-bold leading-[26px] tracking-[-0.25px] text-[rgba(56,53,53)] mobile:text-[24px] mobile:leading-[36px]">
           {userData?.firstName} {userData?.lastName}{" "}
           {userData?.gender && `(${userData.gender})`}
         </p>
@@ -117,7 +117,18 @@ function ProfileIndex() {
         </p>
       </div>
 
-      <div className="w-full h-[12px] bg-transparent" />
+      <div className="w-full h-[18px] bg-transparent" />
+
+      {/* Introduction */}
+      <div className="flex items-center gap-[4px]">
+        <p className="text-[13px] font-[500] italic leading-[21px] tracking-[-0.25px] text-[#383535] mobile:text-[19px] mobile:leading-[31px] line-clamp-3">
+          {userData?.introduction
+            ? [userData.introduction].filter(Boolean).join(", ")
+            : "Enter introduction"}
+        </p>
+      </div>
+
+      <div className="w-full h-[18px] bg-transparent" />
 
       {/* Date of Birth */}
       <div className="flex items-center gap-[4px]">
