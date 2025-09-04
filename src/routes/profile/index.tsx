@@ -13,10 +13,13 @@ function ProfileIndex() {
     "created"
   );
   const [isEditInfoModalOpen, setIsEditInfoModalOpen] = useState(false);
+
   const { user } = useAuth();
   const userData = user?.user;
+
   const { mutate: updateUserMe } = useUpdateUserMe();
   const { mutate: updateProfilePicture } = useUpdateProfilePictureMe();
+
   const handleEditInfo = () => {
     setIsEditInfoModalOpen(true);
   };
@@ -64,7 +67,9 @@ function ProfileIndex() {
               const file = e.target.files?.[0];
               if (file) {
                 // Handle file upload logic here
+                console.log("file", file);
                 updateProfilePicture(file);
+                console.log("userData", userData);
               }
             }}
           />

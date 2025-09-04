@@ -1,6 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
+import { useAuth } from "@/context/auth/useAuth";
 
 export const useUpdateProfilePictureMe = () => {
+  const { updateUser } = useAuth();
+
   const { mutate, isPending, error } = useMutation({
     mutationFn: async (file: File) => {
       const formData = new FormData();
@@ -23,7 +26,16 @@ export const useUpdateProfilePictureMe = () => {
       }
 
       // The backend returns an empty response on success
-      return response;
+      return response.json();
+    },
+    onSuccess: (data) => {
+      // Update the user's avatar with the new data
+      if (data?.user?.avatar) {
+        updateUser({ avatar: data.user.avatar });
+      }
+    },
+    onError: (error) => {
+      console.error("Profile picture update failed:", error);
     },
   });
 

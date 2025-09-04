@@ -10,9 +10,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const processUserData = (userData: any) => {
     if (userData?.user?.avatar) {
       try {
-        const blob = new Blob([userData.user.avatar], {
-          type: "image/png",
-        });
+        // Convert base64 string to blob
+        const byteCharacters = atob(userData.user.avatar);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: "image/png" });
         const avatarUrl = URL.createObjectURL(blob);
 
         return {
@@ -108,7 +113,23 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const updateUser = (userData: Partial<User["user"]>) => {
     if (user) {
-      setUser({ user: { ...user.user, ...userData } });
+      // Convert avatar buffer to URL if it's a buffer
+      const processedUserData = { ...userData };
+      if (userData.avatar) {
+        // Convert base64 string to blob
+        const byteCharacters = atob(userData.avatar as string);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: "image/png" });
+        const avatarUrl = URL.createObjectURL(blob);
+
+        processedUserData.avatar = avatarUrl;
+      }
+
+      setUser({ user: { ...user.user, ...processedUserData } });
     }
   };
 
