@@ -189,7 +189,7 @@ function ProfileIndex() {
           ))
         ) : (
           <div className="h-[30px] text-[#383535] bg-[#f4f4f4] px-[10px] py-[4px] rounded-[100px] text-[14px] font-[400] leading-[22px] tracking-[-0.25px] flex justify-center items-center mobile:text-[16px] mobile:leading-[24px]">
-            Enter interests
+            No Interests :/
           </div>
         )}
         {/* <div className="h-[30px] text-[#383535] bg-[#f4f4f4] px-[10px] py-[4px] rounded-[100px] text-[14px] font-[500] leading-[22px] tracking-[-0.25px] flex justify-center items-center mobile:text-[16px] mobile:leading-[24px] cursor-pointer shrink-0 whitespace-nowrap">

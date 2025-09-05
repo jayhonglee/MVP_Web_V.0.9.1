@@ -39,6 +39,7 @@ export default function EditInfoModal({
     try {
       await onSave(updatedUser);
       onClose();
+      window.location.reload();
     } catch (error) {
       console.error("Failed to update profile:", error);
     } finally {
