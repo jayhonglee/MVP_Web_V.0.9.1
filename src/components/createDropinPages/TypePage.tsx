@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { DropinData } from "@/routes/createDropin";
 
 const types = [
   {
@@ -40,18 +40,20 @@ const types = [
 ];
 
 export default function TypePage({
+  dropinData,
+  setDropinData,
   currentPage,
   setCurrentPage,
   progress,
   setProgress,
 }: {
+  dropinData: DropinData;
+  setDropinData: (dropinData: DropinData) => void;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   progress: number;
   setProgress: (progress: number) => void;
 }) {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
-
   return (
     <>
       <div className="w-full h-[26px] bg-transparent" />
@@ -73,11 +75,11 @@ export default function TypePage({
           <div
             key={type.id}
             className={`w-full h-[80px] rounded-[12px] border-[1px] ${
-              selectedType === type.id
+              dropinData.type === type.name
                 ? "border-[#F43630] border-[2px]"
                 : "border-[#b9b6b6]"
             } flex items-center justify-start gap-[14px] cursor-pointer`}
-            onClick={() => setSelectedType(type.id)}
+            onClick={() => setDropinData({ ...dropinData, type: type.name })}
           >
             <span className="ml-[28px]">{type.emoji}</span>
             <div className="flex flex-col gap-[2px]">
@@ -98,11 +100,11 @@ export default function TypePage({
         {/* Next Button */}
         <button
           className={`w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] ${
-            selectedType
+            dropinData.type
               ? "bg-[#F43630] text-white cursor-pointer"
               : "bg-[#DBDBDB] text-[#A2A2A2] cursor-default"
           }`}
-          disabled={!selectedType}
+          disabled={!dropinData.type}
           onClick={() => {
             setCurrentPage(currentPage + 1);
             setProgress(progress + 15);

@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { DropinData } from "@/routes/createDropin";
 
 export default function NamePage({
+  dropinData,
+  setDropinData,
   currentPage,
   setCurrentPage,
   progress,
   setProgress,
 }: {
+  dropinData: DropinData;
+  setDropinData: (dropinData: DropinData) => void;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   progress: number;
   setProgress: (progress: number) => void;
 }) {
-  const [name, setName] = useState("");
   return (
     <>
       <div className="w-full h-[26px] bg-transparent" />
@@ -31,8 +34,10 @@ export default function NamePage({
       <div className="w-full">
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={dropinData.title}
+          onChange={(e) =>
+            setDropinData({ ...dropinData, title: e.target.value })
+          }
           className="w-full h-[56px] m-0 px-[14px] py-[16.5px] border-[1px] rounded-[8px] border-[#c4c4c4] cursor-text focus-within:border-[#362526] focus-within:outline-none focus-within:border-[2px] focus:placeholder-transparent"
           placeholder="e.g. Beginner Pickup 3-on-3 Basketball Game"
         />
@@ -44,11 +49,11 @@ export default function NamePage({
         {/* Next Button */}
         <button
           className={`w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] ${
-            name
+            dropinData.title
               ? "bg-[#F43630] text-white cursor-pointer"
               : "bg-[#DBDBDB] text-[#A2A2A2] cursor-default"
           }`}
-          disabled={!name}
+          disabled={!dropinData.title}
           onClick={() => {
             setCurrentPage(currentPage + 1);
             setProgress(progress + 15);

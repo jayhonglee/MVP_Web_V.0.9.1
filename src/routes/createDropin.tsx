@@ -10,16 +10,38 @@ import AddressPage from "@/components/createDropinPages/AddressPage";
 import NavigationPage from "@/components/createDropinPages/NavigationPage";
 import ProtectedRoute from "../context/auth/ProtectedRoute";
 
+export interface DropinData {
+  type: string;
+  title: string;
+  date: Date | null;
+  location: string;
+  address: string;
+}
+
 function RouteComponent() {
   const [currentPage, setCurrentPage] = useState(1);
   const [showPostBtn, setShowPostBtn] = useState(false);
   const [progress, setProgress] = useState(15);
+  const [streetAddress, setStreetAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [country, setCountry] = useState("");
+  const [dropinData, setDropinData] = useState<DropinData>({
+    type: "",
+    title: "",
+    date: null,
+    location: "",
+    address: "",
+  });
 
   const renderPage = () => {
     switch (currentPage) {
       case 1:
         return (
           <TypePage
+            dropinData={dropinData}
+            setDropinData={setDropinData}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}
@@ -30,6 +52,8 @@ function RouteComponent() {
       case 2:
         return (
           <NamePage
+            dropinData={dropinData}
+            setDropinData={setDropinData}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}
@@ -40,6 +64,8 @@ function RouteComponent() {
       case 3:
         return (
           <DatePage
+            dropinData={dropinData}
+            setDropinData={setDropinData}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}
@@ -50,6 +76,18 @@ function RouteComponent() {
       case 4:
         return (
           <AddressPage
+            streetAddress={streetAddress}
+            setStreetAddress={setStreetAddress}
+            city={city}
+            setCity={setCity}
+            province={province}
+            setProvince={setProvince}
+            postalCode={postalCode}
+            setPostalCode={setPostalCode}
+            country={country}
+            setCountry={setCountry}
+            dropinData={dropinData}
+            setDropinData={setDropinData}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}

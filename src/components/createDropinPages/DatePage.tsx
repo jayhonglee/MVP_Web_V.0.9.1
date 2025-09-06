@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { DropinData } from "@/routes/createDropin";
 
 export default function DatePage({
+  dropinData,
+  setDropinData,
   currentPage,
   setCurrentPage,
   progress,
   setProgress,
 }: {
+  dropinData: DropinData;
+  setDropinData: (dropinData: DropinData) => void;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   progress: number;
   setProgress: (progress: number) => void;
 }) {
-  const [date, setDate] = useState<Date | null>(null);
-
   return (
     <>
       <div className="w-full h-[26px] bg-transparent" />
@@ -33,8 +35,8 @@ export default function DatePage({
         <input
           type="datetime-local"
           value={
-            date
-              ? date
+            dropinData.date
+              ? dropinData.date
                   .toLocaleString("en-US", {
                     timeZone: "America/Vancouver",
                     year: "numeric",
@@ -53,7 +55,7 @@ export default function DatePage({
           onChange={(e) => {
             const newDate = new Date(e.target.value);
             if (!isNaN(newDate.getTime())) {
-              setDate(newDate);
+              setDropinData({ ...dropinData, date: newDate });
             }
           }}
           className="w-full h-[56px] m-0 px-[14px] py-[16.5px] border-[1px] rounded-[8px] border-[#c4c4c4] cursor-text focus-within:border-[#362526] focus-within:outline-none focus-within:border-[2px] focus:placeholder-transparent"
@@ -67,11 +69,11 @@ export default function DatePage({
         {/* Next Button */}
         <button
           className={`w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] ${
-            date
+            dropinData.date
               ? "bg-[#F43630] text-white cursor-pointer"
               : "bg-[#DBDBDB] text-[#A2A2A2] cursor-default"
           }`}
-          disabled={!date}
+          disabled={!dropinData.date}
           onClick={() => {
             setCurrentPage(currentPage + 1);
             setProgress(progress + 15);
