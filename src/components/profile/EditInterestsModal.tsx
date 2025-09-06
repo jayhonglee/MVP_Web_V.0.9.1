@@ -1,0 +1,85 @@
+import { User } from "@/context/auth/auth.types";
+import { useEffect, useState } from "react";
+import InterestsForm from "./InterestsForm";
+
+interface EditInterestsModalProps {
+  user: User["user"];
+  isOpen: boolean;
+  onClose: () => void;
+  onSave: (updatedUser: Partial<User["user"]>) => Promise<void>;
+}
+
+export default function EditInterestsModal({
+  user,
+  isOpen,
+  onClose,
+  onSave,
+}: EditInterestsModalProps) {
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.width = "0";
+    } else {
+      document.body.style.overflow = "unset";
+      document.body.style.width = "100%";
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+      document.body.style.width = "100%";
+    };
+  }, [isOpen]);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSave = async (updatedUser: Partial<User["user"]>) => {
+    setIsLoading(true);
+    try {
+      await onSave(updatedUser);
+      onClose();
+      window.location.reload();
+    } catch (error) {
+      console.error("Failed to update profile:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-[#f4f4f4] w-[100vw] flex flex-col z-50">
+      <div className="w-full bg-[#fff] max-w-[900px] h-[100vh] mx-auto relative flex flex-col">
+        {/* Back Button */}
+        <div className="px-[16px] h-[44px] flex justify-center items-center border-b-[1px] border-[rgb(219,219,219)] flex-shrink-0">
+          <span
+            className="cursor-pointer flex items-center z-[51]"
+            onClick={onClose}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+              className="w-[24px] h-[24px]"
+            >
+              <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
+            </svg>
+          </span>
+
+          <h1 className="flex-1 text-center text-[16px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)] -ml-[24px]">
+            Edit Interests
+          </h1>
+        </div>
+
+        {/* Form */}
+        <div className="flex-1 px-[12px] py-[16px] overflow-y-auto min-h-0">
+          <InterestsForm
+            user={user}
+            onSubmit={handleSave}
+            isLoading={isLoading}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

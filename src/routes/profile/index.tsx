@@ -7,12 +7,15 @@ import { useUpdateProfilePictureMe } from "@/hooks/users/useUpdateProfileMe";
 import mockHostedDropins from "../../mock/hostedDropins.json";
 import mockJoinedDropins from "../../mock/joinedDropins.json";
 import EditInfoModal from "@/components/profile/EditInfoModal";
+import EditInterestsModal from "@/components/profile/EditInterestsModal";
 
 function ProfileIndex() {
   const [selectedTab, setSelectedTab] = useState<"created" | "joined">(
     "created"
   );
   const [isEditInfoModalOpen, setIsEditInfoModalOpen] = useState(false);
+  const [isEditInterestsModalOpen, setIsEditInterestsModalOpen] =
+    useState(false);
 
   const { user } = useAuth();
   const userData = user?.user;
@@ -22,6 +25,10 @@ function ProfileIndex() {
 
   const handleEditInfo = () => {
     setIsEditInfoModalOpen(true);
+  };
+
+  const handleEditInterests = () => {
+    setIsEditInterestsModalOpen(true);
   };
 
   const handleSave = async (updatedUser: Partial<User["user"]>) => {
@@ -42,6 +49,13 @@ function ProfileIndex() {
         user={userData || ({} as User["user"])}
         isOpen={isEditInfoModalOpen}
         onClose={() => setIsEditInfoModalOpen(false)}
+        onSave={handleSave}
+      />
+
+      <EditInterestsModal
+        user={userData || ({} as User["user"])}
+        isOpen={isEditInterestsModalOpen}
+        onClose={() => setIsEditInterestsModalOpen(false)}
         onSave={handleSave}
       />
 
@@ -209,7 +223,10 @@ function ProfileIndex() {
             Edit Info
           </p>
         </div>
-        <div className="flex-1 flex justify-center items-center p-[8px] mobile:p-[16px] rounded-[8px] border-[#dbdbdb] border-[1px] h-[38px] mobile:h-[60px] cursor-pointer">
+        <div
+          className="flex-1 flex justify-center items-center p-[8px] mobile:p-[16px] rounded-[8px] border-[#dbdbdb] border-[1px] h-[38px] mobile:h-[60px] cursor-pointer"
+          onClick={handleEditInterests}
+        >
           <p className="text-[12px] mobile:text-[18px] font-[500] leading-[20px] mobile:leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)]">
             Edit Interests
           </p>
