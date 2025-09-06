@@ -16,6 +16,7 @@ export interface DropinData {
   date: Date | null;
   location: string;
   address: string;
+  navigation: string;
 }
 
 function RouteComponent() {
@@ -33,6 +34,7 @@ function RouteComponent() {
     date: null,
     location: "",
     address: "",
+    navigation: "",
   });
 
   const renderPage = () => {
@@ -98,6 +100,8 @@ function RouteComponent() {
       case 5:
         return (
           <NavigationPage
+            dropinData={dropinData}
+            setDropinData={setDropinData}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}

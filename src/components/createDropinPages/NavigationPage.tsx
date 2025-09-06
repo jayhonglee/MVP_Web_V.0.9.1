@@ -1,18 +1,20 @@
-import { useState } from "react";
+import { DropinData } from "@/routes/createDropin";
 
 export default function NavigationPage({
+  dropinData,
+  setDropinData,
   currentPage,
   setCurrentPage,
   progress,
   setProgress,
 }: {
+  dropinData: DropinData;
+  setDropinData: (dropinData: DropinData) => void;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   progress: number;
   setProgress: (progress: number) => void;
 }) {
-  const [navigationInstructions, setNavigationInstructions] = useState("");
-
   return (
     <>
       <div className="w-full h-[26px] bg-transparent" />
@@ -32,8 +34,10 @@ export default function NavigationPage({
 
       <div className="w-full">
         <textarea
-          value={navigationInstructions}
-          onChange={(e) => setNavigationInstructions(e.target.value)}
+          value={dropinData.navigation}
+          onChange={(e) =>
+            setDropinData({ ...dropinData, navigation: e.target.value })
+          }
           className="w-full h-[120px] m-0 px-[14px] py-[16.5px] border-[1px] rounded-[8px] border-[#c4c4c4] cursor-text focus-within:border-[#362526] focus-within:outline-none focus-within:border-[2px] focus:placeholder-transparent resize-none"
           placeholder="e.g. Enter through the main entrance, take the elevator to the 3rd floor, and look for the sign that says 'Community Room'."
         />
@@ -45,7 +49,7 @@ export default function NavigationPage({
         {/* Next Button */}
         <button
           className={`w-full p-[12px] min-[600px]:p-[16px] h-[50px] min-[600px]:h-[58px] rounded-[999px] text-[16px] font-[500] leading-[24px] tracking-[-0.25px] mobile:text-[20px] mobile:leading-[28px] bg-[#F43630] text-white cursor-pointer`}
-          // disabled={!navigationInstructions}
+          // disabled={!dropinData.navigation}
           onClick={() => {
             setCurrentPage(currentPage + 1);
             setProgress(progress + 15);
