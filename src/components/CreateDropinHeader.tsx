@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { DropinData } from "@/routes/createDropin";
+import { useCreateHangout } from "@/hooks/hangout/useCreateHangout";
 
 interface HeaderWithBackBtnProps {
   dropinData: DropinData;
@@ -13,6 +14,30 @@ const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
   progress = 0,
   showPostBtn = false,
 }) => {
+  const navigate = useNavigate();
+  const { mutate: createHangout, isPending } = useCreateHangout();
+
+  const handlePost = () => {
+    // Check if description is not empty (not just default content)
+    if (dropinData.description && dropinData.description.trim() !== "") {
+      createHangout(dropinData, {
+        onSuccess: () => {
+          // Navigate to home page on success
+          navigate({ to: "/" });
+        },
+        onError: (error) => {
+          console.error("Failed to create hangout:", error);
+          // You can add error handling here (show toast, etc.)
+        },
+      });
+    }
+  };
+
+  const isPostDisabled =
+    !dropinData.description ||
+    dropinData.description.trim() === "" ||
+    isPending;
+
   return (
     <div className="relative w-full">
       {/* Progress bar */}
@@ -42,10 +67,14 @@ const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
         <div
           className={`flex items-center ${showPostBtn ? "block" : "hidden"}`}
         >
-          <Link
-            to="/"
-            className={`rounded-full px-[20px] py-[5px] ms-[32px] uppercase ${dropinData.description === "" ? "bg-[#A2A2A2]" : "bg-[#F43630]"}`}
-            disabled={dropinData.description === ""}
+          <button
+            onClick={handlePost}
+            disabled={isPostDisabled}
+            className={`rounded-full px-[20px] py-[5px] ms-[32px] uppercase transition-colors ${
+              isPostDisabled
+                ? "bg-[#A2A2A2] cursor-not-allowed"
+                : "bg-[#F43630] cursor-pointer hover:bg-[#E02E28]"
+            }`}
           >
             <p className="text-sm text-white font-medium flex items-center">
               <svg
@@ -56,9 +85,9 @@ const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
               >
                 <path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L331.8 202.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8 17.7 316.6C7.1 311.3 .3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z" />
               </svg>
-              Post
+              {isPending ? "Posting..." : "Post"}
             </p>
-          </Link>
+          </button>
         </div>
       </div>
     </div>

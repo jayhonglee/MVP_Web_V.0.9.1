@@ -1,91 +1,51 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import supabase from "@/lib/supabase";
-import type { CreateHangoutDto } from "./types";
-import { convertAddressToPostGIS } from "@/hooks/map/_helper";
+import { useMutation } from "@tanstack/react-query";
+import { DropinData } from "@/routes/createDropin";
 
-export default function useCreateHangout() {
-  const queryClient = useQueryClient();
+export const useCreateHangout = () => {
+  const { mutate, isPending, error } = useMutation({
+    mutationFn: async (dropinData: DropinData) => {
+      const formData = new FormData();
 
-  const createHangout = async (data: CreateHangoutDto) => {
-    const {
-      data: { user },
-      error: authError,
-    } = await supabase.auth.getUser();
-    if (authError || !user) {
-      throw new Error("User must be logged in to create a hangout");
-    }
+      // Append all the form fields
+      formData.append("type", dropinData.type);
+      formData.append("title", dropinData.title);
 
-    // Upload cover image if provided
-    let coverImageUrl = "";
-    if (data.coverImage) {
-      const { publicUrl } = await data.coverImage.upload("hangout-covers", {
-        fileName: `${user.id}-${Date.now()}`,
-      });
-      coverImageUrl = publicUrl;
-    }
-
-    // Create address record
-    const { data: addressData, error: addressError } = await supabase
-      .from("addresses")
-      .insert(convertAddressToPostGIS(data.address))
-      .select()
-      .single();
-
-    if (addressError || !addressData) {
-      throw new Error("Failed to create address");
-    }
-
-    // Create hangout
-    const { data: hangout, error: hangoutError } = await supabase
-      .from("hangouts")
-      .insert({
-        host_id: user.id,
-        type: data.type,
-        title: data.title,
-        description: data.description,
-        cover_image_url: coverImageUrl || null,
-        scheduled_when: data.scheduled_when.toISOString(),
-        location_id: addressData.id,
-        navigation_instruction: data.navigationInstruction || null,
-        group_size: data.groupSize,
-      })
-      .select(
-        `
-        *,
-        addresses!hangouts_location_id_fkey(*)
-      `,
-      )
-      .single();
-
-    if (hangoutError) {
-      throw new Error(hangoutError.message);
-    }
-
-    // Transform the data to match our Hangout type
-    const transformedHangout = {
-      ...hangout,
-      scheduled_when: new Date(hangout.scheduled_when),
-      address: hangout.addresses,
-      created_at: new Date(hangout.created_at),
-      updated_at: new Date(hangout.updated_at),
-    };
-    delete transformedHangout.addresses;
-    delete transformedHangout.location_id;
-
-    return transformedHangout;
-  };
-
-  return useMutation({
-    mutationFn: createHangout,
-    onSuccess: async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser();
-      // Invalidate relevant queries
-      queryClient.invalidateQueries({ queryKey: ["hangouts"] });
-      if (user) {
-        queryClient.invalidateQueries({ queryKey: ["user-hangouts", user.id] });
+      // Handle date - convert to ISO string
+      if (dropinData.date) {
+        formData.append("date", dropinData.date.toISOString());
       }
+
+      formData.append("location", dropinData.location);
+      formData.append("address", dropinData.address);
+      formData.append("navigation", dropinData.navigation);
+      formData.append("description", dropinData.description);
+
+      // Handle image file
+      if (dropinData.dropInImage) {
+        formData.append("dropInImage", dropinData.dropInImage);
+      }
+
+      const response = await fetch(
+        `${import.meta.env.VITE_MONGODB_URL}/dropins/create`,
+        {
+          method: "POST",
+          credentials: "include",
+          body: formData,
+        }
+      );
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || data.message || "Create hangout failed");
+      }
+
+      return response.json();
+    },
+
+    onError: (error) => {
+      console.error("Create hangout failed:", error);
     },
   });
-}
+
+  return { mutate, isPending, error };
+};

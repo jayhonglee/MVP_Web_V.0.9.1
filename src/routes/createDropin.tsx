@@ -41,6 +41,8 @@ function RouteComponent() {
     description: "",
   });
 
+  console.log("dropinData: ", dropinData);
+
   const renderPage = () => {
     switch (currentPage) {
       case 1:
@@ -169,12 +171,3 @@ export const Route = createFileRoute("/createDropin")({
   component: RouteComponent,
   validateSearch: () => ({}),
 });
-
-// type : InterestId ("food-drinks" | "sports" | "books-study" | "travel-outdoor" | "art-crafting" | "local-chat")
-// title : string
-// description : string
-// coverImage : FileHolder
-// scheduled_when : Date
-// address : Address
-// navigationInstruction : string
-// groupSize : number
