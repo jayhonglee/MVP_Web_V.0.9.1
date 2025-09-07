@@ -18,6 +18,7 @@ export interface DropinData {
   address: string;
   navigation: string;
   dropInImage: File | null;
+  description: string;
 }
 
 function RouteComponent() {
@@ -37,6 +38,7 @@ function RouteComponent() {
     address: "",
     navigation: "",
     dropInImage: null,
+    description: "",
   });
 
   const renderPage = () => {
@@ -127,6 +129,8 @@ function RouteComponent() {
       case 7:
         return (
           <DescriptionEditorPage
+            dropinData={dropinData}
+            setDropinData={setDropinData}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}
@@ -142,7 +146,11 @@ function RouteComponent() {
       <div className="bg-[#f4f4f4] w-[100vw]">
         <div className="bg-[#fff] max-w-[900px] min-h-[100vh] mx-auto relative">
           {/* Header */}
-          <CreateDropinHeader showPostBtn={showPostBtn} progress={progress} />
+          <CreateDropinHeader
+            dropinData={dropinData}
+            showPostBtn={showPostBtn}
+            progress={progress}
+          />
 
           {/* Divider */}
           <hr />

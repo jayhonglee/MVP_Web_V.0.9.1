@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "@tanstack/react-router";
+import { DropinData } from "@/routes/createDropin";
 
 interface HeaderWithBackBtnProps {
+  dropinData: DropinData;
   progress?: number;
   showPostBtn?: boolean;
 }
 
 const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
+  dropinData,
   progress = 0,
   showPostBtn = false,
 }) => {
@@ -41,7 +44,8 @@ const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
         >
           <Link
             to="/"
-            className="bg-[#F43630] rounded-full px-[20px] py-[5px] ms-[32px] uppercase"
+            className={`rounded-full px-[20px] py-[5px] ms-[32px] uppercase ${dropinData.description === "" ? "bg-[#A2A2A2]" : "bg-[#F43630]"}`}
+            disabled={dropinData.description === ""}
           >
             <p className="text-sm text-white font-medium flex items-center">
               <svg

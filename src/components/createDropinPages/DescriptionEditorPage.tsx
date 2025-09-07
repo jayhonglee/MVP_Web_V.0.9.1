@@ -1,12 +1,17 @@
 import { SimpleEditor } from "@/components/tiptap-templates/simple/simple-editor";
+import { DropinData } from "@/routes/createDropin";
 
 export default function DescriptionEditorPage({
+  dropinData,
+  setDropinData,
   currentPage,
   setCurrentPage,
   progress,
   setProgress,
   setShowPostBtn,
 }: {
+  dropinData: DropinData;
+  setDropinData: (dropinData: DropinData) => void;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   progress: number;
@@ -15,7 +20,7 @@ export default function DescriptionEditorPage({
 }) {
   return (
     <>
-      <SimpleEditor />
+      <SimpleEditor dropinData={dropinData} setDropinData={setDropinData} />
 
       <div className="w-full h-[30px] bg-transparent" />
 

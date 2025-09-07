@@ -4,7 +4,7 @@
     {
       "type": "heading",
       "attrs": { "textAlign": "center", "level": 1 },
-      "content": [{ "type": "text", "text": "🎉 Create Your Drop-In!" }]
+      "content": [{ "type": "text", "text": "Last Step 🎉 - Edit Me!" }]
     },
     {
       "type": "image",
@@ -17,7 +17,7 @@
     {
       "type": "paragraph",
       "content": [
-        { "type": "text", "text": "🎯 " },
+        { "type": "text", "text": "🚀 " },
         {
           "type": "text",
           "marks": [{ "type": "bold" }],
@@ -30,146 +30,7 @@
       "content": [
         {
           "type": "text",
-          "text": "Describe your idea in a way that excites people! Whether it's a picnic, a cozy study jam, a hike, or a chill hang at a café — let people know what they'll experience and why it’s worth joining. Be real, be friendly!"
-        }
-      ]
-    },
-    {
-      "type": "image",
-      "attrs": {
-        "src": "/placeholder-group.avif",
-        "alt": "fun-activity",
-        "title": "activity"
-      }
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        { "type": "text", "text": "💬 " },
-        {
-          "type": "text",
-          "marks": [{ "type": "bold" }],
-          "text": "Why should someone join?"
-        }
-      ]
-    },
-    {
-      "type": "bulletList",
-      "content": [
-        {
-          "type": "listItem",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "✨ What makes your drop-in different or exciting?"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "🎉 What kind of atmosphere or vibe can they expect?"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "type": "text",
-                  "text": "📸 Share visuals! Add a few fun images or a mood board."
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "image",
-      "attrs": {
-        "src": "/placeholder-people.jpg",
-        "alt": "vibe-photo",
-        "title": "the vibe"
-      }
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        { "type": "text", "text": "🧑‍🤝‍🧑 " },
-        {
-          "type": "text",
-          "marks": [{ "type": "bold" }],
-          "text": "Who is it for?"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "text": "Let people know what kind of crowd you're hoping to connect with. Is it open to everyone? Are you hoping to meet fellow creatives, hikers, gamers, readers, or just chill souls?"
-        }
-      ]
-    },
-    {
-      "type": "image",
-      "attrs": {
-        "src": "/placeholder-story.jpeg",
-        "alt": "people",
-        "title": "open to all"
-      }
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        { "type": "text", "text": "📝 " },
-        {
-          "type": "text",
-          "marks": [{ "type": "italic" }],
-          "text": "Use this space to tell your story and invite others in."
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "text": "Write from the heart, keep it simple, and let your personality shine. Tell people what you're planning, what they'll get from it, and how they can feel comfortable joining. The app will take care of the time and place — you just focus on the vibe ✨."
-        }
-      ]
-    },
-    {
-      "type": "horizontalRule"
-    },
-    {
-      "type": "paragraph",
-      "content": [
-        {
-          "type": "text",
-          "marks": [{ "type": "italic" }],
-          "text": "💡 Need ideas?"
-        },
-        {
-          "type": "text",
-          "text": " You could organize a journaling meetup, sunset run, art jam, language chat, film club, or introvert-friendly silent hangout. Whatever you’re into — there’s probably someone else who’d love it too."
+          "text": "Tell people what your hangout is like with text or images. Show the vibe whether it's chill, fun, or anything in between. Let people know what they'll get from it and why it's worth joining. No need to be fancy, just be real and friendly!"
         }
       ]
     }

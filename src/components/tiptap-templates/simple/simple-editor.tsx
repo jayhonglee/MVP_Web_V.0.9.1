@@ -72,6 +72,7 @@ import { handleImageUpload, MAX_FILE_SIZE } from "@/lib/tiptap-utils";
 import "@/components/tiptap-templates/simple/simple-editor.scss";
 
 import content from "@/components/tiptap-templates/simple/data/content.json";
+import { DropinData } from "@/routes/createDropin";
 
 const MainToolbarContent = ({
   onHighlighterClick,
@@ -172,7 +173,13 @@ const MobileToolbarContent = ({
   </>
 );
 
-export function SimpleEditor() {
+export function SimpleEditor({
+  dropinData,
+  setDropinData,
+}: {
+  dropinData: DropinData;
+  setDropinData: (dropinData: DropinData) => void;
+}) {
   const isMobile = useMobile();
   const windowSize = useWindowSize();
   const [mobileView, setMobileView] = React.useState<
@@ -208,6 +215,13 @@ export function SimpleEditor() {
 
   const editor = useEditor({
     immediatelyRender: false,
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      setDropinData({
+        ...dropinData,
+        description: html,
+      });
+    },
     editorProps: {
       attributes: {
         autocomplete: "off",
@@ -239,7 +253,7 @@ export function SimpleEditor() {
       TrailingNode,
       Link.configure({ openOnClick: false }),
     ],
-    content: content,
+    content: dropinData.description || content,
   });
 
   React.useEffect(() => {

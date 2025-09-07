@@ -17,7 +17,6 @@ export default function CoverImagePage({
   setProgress: (progress: number) => void;
   setShowPostBtn: (showPostBtn: boolean) => void;
 }) {
-  console.log(dropinData);
   const handleFileSelect = () => {
     const input = document.createElement("input");
     input.type = "file";
