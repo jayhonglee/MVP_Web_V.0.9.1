@@ -17,6 +17,7 @@ export interface DropinData {
   location: string;
   address: string;
   navigation: string;
+  dropInImage: File | null;
 }
 
 function RouteComponent() {
@@ -35,6 +36,7 @@ function RouteComponent() {
     location: "",
     address: "",
     navigation: "",
+    dropInImage: null,
   });
 
   const renderPage = () => {
@@ -112,6 +114,8 @@ function RouteComponent() {
       case 6:
         return (
           <CoverImagePage
+            dropinData={dropinData}
+            setDropinData={setDropinData}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             progress={progress}

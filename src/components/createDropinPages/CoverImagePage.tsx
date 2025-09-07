@@ -1,16 +1,42 @@
+import { DropinData } from "@/routes/createDropin";
+
 export default function CoverImagePage({
+  dropinData,
+  setDropinData,
   currentPage,
   setCurrentPage,
   progress,
   setProgress,
   setShowPostBtn,
 }: {
+  dropinData: DropinData;
+  setDropinData: (dropinData: DropinData) => void;
   currentPage: number;
   setCurrentPage: (currentPage: number) => void;
   progress: number;
   setProgress: (progress: number) => void;
   setShowPostBtn: (showPostBtn: boolean) => void;
 }) {
+  console.log(dropinData);
+  const handleFileSelect = () => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = "image/png, image/jpeg, image/jpg";
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (file) {
+        setDropinData({
+          ...dropinData,
+          dropInImage: file,
+        });
+      }
+    };
+    input.click();
+  };
+
+  const defaultDropInImage =
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='98' height='98' viewBox='0 0 98 98'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='100%25' style='stop-color:%23FF8E53'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='98' height='98' fill='url(%23grad)'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'%3EHANGOUT%3C/text%3E%3C/svg%3E";
+
   return (
     <>
       <div className="w-full h-[26px] bg-transparent" />
@@ -29,14 +55,17 @@ export default function CoverImagePage({
       <div className="w-full h-[30px] min-[600px]:h-[60px] bg-transparent" />
 
       <div className="w-full h-[129px] mobile:h-[300px] flex justify-center items-center">
-        <div className="relative">
+        <div className="relative cursor-pointer" onClick={handleFileSelect}>
           <img
-            src="/image-url-here.png"
+            src={
+              dropinData.dropInImage
+                ? URL.createObjectURL(dropinData.dropInImage)
+                : defaultDropInImage
+            }
             alt="cover image"
             className="w-[84px] h-[84px] mobile:w-[142px] mobile:h-[142px] object-cover rounded-full border-[1px] mobile:border-[2px] border-[#999696]"
             onError={(e) => {
-              e.currentTarget.src =
-                "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='98' height='98' viewBox='0 0 98 98'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='100%25' style='stop-color:%23FF8E53'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='98' height='98' fill='url(%23grad)'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'%3EHANGOUT%3C/text%3E%3C/svg%3E";
+              e.currentTarget.src = defaultDropInImage;
             }}
           />
           <div className="absolute bottom-0 right-0">
