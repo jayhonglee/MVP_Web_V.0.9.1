@@ -41,7 +41,9 @@ function RouteComponent() {
                     } else router.navigate({ to: `/profile/${tab.path}` });
                   }}
                 >
-                  <p className="text-[16px] font-[500] leading-[24px] tracking-[-0.25px]">
+                  <p
+                    className={`text-[16px] font-[500] leading-[24px] tracking-[-0.25px] ${tab.path === "logout" ? "text-[#F43630]" : "text-[rgb(56,53,53)]"}`}
+                  >
                     {tab.name}
                   </p>
                 </div>
@@ -61,7 +63,9 @@ function RouteComponent() {
                     } else router.navigate({ to: `/profile/${tab.path}` });
                   }}
                 >
-                  <p className="text-[20px] font-[500] leading-[77px] tracking-[-0.25px] text-[rgb(56,53,53)]">
+                  <p
+                    className={`text-[20px] font-[500] leading-[77px] tracking-[-0.25px] ${tab.path === "logout" ? "text-[#F43630]" : "text-[rgb(56,53,53)]"}`}
+                  >
                     {tab.name}
                   </p>
                   <div className="w-full max-w-[640px] min-w-[1px] h-[1px] bg-[#F4F4F4]" />
