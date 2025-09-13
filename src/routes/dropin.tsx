@@ -1,14 +1,52 @@
 import { createFileRoute } from "@tanstack/react-router";
 import HeaderWithBackBtn from "../components/HeaderWithBackBtn";
-import dropInData from "../mock/dropIn.json";
+// import mockDropinData from "../mock/dropIn.json";
 import { formatDate, formatTime } from "../utils/dateUtils";
 import { getDetailsIcon } from "../utils/getDetailsIcon";
-// import { useAuth } from "../context/auth/useAuth";
+import { useGetHangout } from "../hooks/hangout/useGetHangout";
+import { useState, useEffect } from "react";
+
+// Import TipTap styles to match editor styling
+import "@/components/tiptap-node/paragraph-node/paragraph-node.scss";
+import "@/components/tiptap-node/image-node/image-node.scss";
+import "@/components/tiptap-node/list-node/list-node.scss";
+import "@/components/tiptap-node/code-block-node/code-block-node.scss";
 
 function RouteComponent() {
-  const { id } = Route.useSearch();
-  //   const auth = useAuth();
-  //   console.log(auth);
+  // const { id } = Route.useSearch();
+  const { hangout, isLoading, error } = useGetHangout(
+    "68bd3a46048d43c6f5cbee66"
+  );
+  const dropinData = hangout?.dropin;
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  // Convert Buffer to data URL
+  useEffect(() => {
+    if (dropinData?.dropInImage?.data) {
+      try {
+        // Convert Buffer array to Uint8Array
+        const uint8Array = new Uint8Array(dropinData.dropInImage.data);
+
+        // Create blob from the binary data
+        const blob = new Blob([uint8Array], { type: "image/jpeg" });
+
+        // Create object URL
+        const url = URL.createObjectURL(blob);
+        setImageUrl(url);
+
+        // Cleanup function to revoke the URL when component unmounts
+        return () => URL.revokeObjectURL(url);
+      } catch (error) {
+        console.error("Error converting image buffer:", error);
+        setImageUrl(null);
+      }
+    }
+  }, [dropinData?.dropInImage]);
+
+  console.log(dropinData);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className="bg-[#f4f4f4] w-[100vw]">
@@ -19,7 +57,7 @@ function RouteComponent() {
         <div>
           <img
             className="w-full h-[281px] object-cover"
-            src={dropInData.dropInImage}
+            src={imageUrl || "/placeholder-hangout.jpg"}
             alt="Drop-in image"
             onError={(e) => {
               e.currentTarget.src =
@@ -31,7 +69,7 @@ function RouteComponent() {
         {/* Info */}
         <div className="h-[191px] px-[14px] min-[600px]:px-[28px] py-[24px] flex flex-col justify-between">
           <div className="max-h-[26.5px] overflow-hidden">
-            {dropInData.interestTags.map((tag, index) => (
+            {dropinData.interestTags.map((tag: string, index: number) => (
               <span
                 key={index}
                 className="bg-[#f4f4f4] text-[#666060] inline-flex justify-center items-center font-semibold text-[10px] text-center px-2 py-1 rounded-[10px] uppercase overflow-hidden text-ellipsis whitespace-nowrap mr-[8px] h-[24px]"
@@ -43,23 +81,23 @@ function RouteComponent() {
           <div>
             <div className="line-clamp-1 max-h-[28px] mb-[2px]">
               <p className="m-0 text-[20px] font-[600] leading-[28px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-                {dropInData.title}
+                {dropinData.title}
               </p>
             </div>
             <div className="m-0 text-[12px] font-[450] leading-[20px] tracking-[-0.25px] text-[rgb(102,96,96)] max-h-[20px]">
               <div className="truncate">
-                {dropInData.category}
+                {dropinData.type}
                 {" · "}
                 <img
                   src="/info_place_14px.svg"
                   alt="location"
                   className="w-[12px] h-[12px] inline-block mx-[-2px]"
                 />{" "}
-                {dropInData.location}
+                {dropinData.location}
                 {" · "}
-                {formatDate(dropInData.date)}
+                {formatDate(dropinData.date)}
                 {" · "}
-                {formatTime(dropInData.time)}
+                {formatTime(dropinData.date)}
               </div>
             </div>
           </div>
@@ -70,7 +108,7 @@ function RouteComponent() {
             </p>
 
             <p className="m-0 text-[18px] font-[500] leading-[26px] tracking-[-0.25px] text-[rgb(56,53,53)]">
-              ${dropInData.entryFee}
+              {dropinData.entryFee ? `$${dropinData.entryFee}` : "Free"}
             </p>
           </div>
         </div>
@@ -80,7 +118,18 @@ function RouteComponent() {
 
         {/* Description */}
         <div className="px-[14px] min-[600px]:px-[28px] py-[24px]">
-          Drop-in ID: {id}
+          <div
+            className="tiptap ProseMirror max-w-[640px] mx-auto"
+            style={{
+              fontFamily: '"DM Sans", sans-serif',
+              fontSize: "1rem",
+              lineHeight: "1.6",
+              color: "inherit",
+              whiteSpace: "pre-wrap",
+              outline: "none",
+            }}
+            dangerouslySetInnerHTML={{ __html: dropinData.description }}
+          />
         </div>
 
         {/* Details */}
@@ -95,38 +144,38 @@ function RouteComponent() {
             <div className="flex justify-between items-center gap-[8px] h-[24px]">
               {getDetailsIcon("category")}
               <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-1 flex-1">
-                {dropInData.category}
+                {dropinData.type}
               </p>
             </div>
             <div className="flex justify-between items-center gap-[8px] h-[24px]">
               {getDetailsIcon("type")}
               <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-1 flex-1">
-                {dropInData.type}
+                {/* {dropinData.type} */}
+                Hangout
               </p>
             </div>
             <div className="flex justify-between items-center gap-[8px] h-[24px]">
               {getDetailsIcon("maxAttendees")}
               <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-1 flex-1">
-                Max {dropInData.maxAttendees} people
+                {dropinData.attendeesCount} joined
               </p>
             </div>
             <div className="flex justify-between items-center gap-[8px] h-[24px]">
               {getDetailsIcon("entryFee")}
               <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-1 flex-1">
-                ${dropInData.entryFee}
+                {dropinData.entryFee ? `$${dropinData.entryFee}` : "Free"}
               </p>
             </div>
             <div className="flex justify-between items-center gap-[8px] h-[24px]">
               {getDetailsIcon("date")}
               <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-1 flex-1">
-                Event date {" · "} {formatDate(dropInData.date)}{" "}
-                {formatTime(dropInData.time)}
+                {formatDate(dropinData.date)} {formatTime(dropinData.date)}
               </p>
             </div>
             <div className="flex justify-between items-center gap-[8px] h-[24px]">
               {getDetailsIcon("location")}
               <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-1 flex-1">
-                {dropInData.location} ({dropInData.address})
+                {dropinData.location} ({dropinData.address})
               </p>
             </div>
           </div>

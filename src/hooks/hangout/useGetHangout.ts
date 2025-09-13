@@ -1,45 +1,31 @@
-import {
-  useQuery,
-  UseQueryOptions,
-  UseQueryResult,
-} from "@tanstack/react-query";
-import supabase from "@/lib/supabase";
-import { Hangout } from "./types";
-import { transformHangoutData, getHangoutSelectQuery } from "./_helper";
+import { useQuery } from "@tanstack/react-query";
 
-export type HangoutError = {
-  message: string;
-  code?: string;
-};
-
-export const fetchHangout = async (
-  hangoutId: string,
-): Promise<Hangout | null> => {
-  const { data, error } = await supabase
-    .from("hangouts")
-    .select(getHangoutSelectQuery())
-    .eq("id", hangoutId)
-    .single();
-
-  if (!data || error) {
-    throw new Error("Failed to fetch hangout");
-  }
-
-  // Transform the data to match our Hangout type
-  const hangout: Hangout = transformHangoutData(data);
-
-  return hangout;
-};
-
-export default function useGetHangout(
-  hangoutId: string,
-  queryOptions?: Partial<UseQueryOptions<Hangout | null, HangoutError>>,
-): UseQueryResult<Hangout | null, HangoutError> {
-  return useQuery<Hangout | null, HangoutError>({
+export const useGetHangout = (hangoutId: string) => {
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["hangout", hangoutId],
-    queryFn: () => fetchHangout(hangoutId),
-    staleTime: 1000 * 60 * 5, // 5 minutes
-    gcTime: 1000 * 60 * 5, // 5 minutes
-    ...queryOptions,
+    queryFn: async () => {
+      const response = await fetch(
+        `${import.meta.env.VITE_MONGODB_URL}/dropins/${hangoutId}`,
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      );
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || data.message || "Get hangout failed");
+      }
+
+      return response.json();
+    },
+    enabled: !!hangoutId, // Only run query if hangoutId is provided
   });
-}
+
+  return {
+    hangout: data,
+    isLoading,
+    error,
+    refetch,
+  };
+};
