@@ -172,9 +172,9 @@ function RouteComponent() {
                 {formatDate(dropinData.date)} {formatTime(dropinData.date)}
               </p>
             </div>
-            <div className="flex justify-between items-center gap-[8px] h-[24px]">
+            <div className="flex justify-between items-start gap-[8px] h-[24px] mt-[4px]">
               {getDetailsIcon("location")}
-              <p className="m-0 text-[14px] font-[400] leading-[22px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-1 flex-1">
+              <p className="m-0 text-[14px] font-[400] leading-[18px] tracking-[-0.25px] text-[rgb(56,53,53)] line-clamp-3 flex-1">
                 {dropinData.location} ({dropinData.address})
               </p>
             </div>
@@ -182,7 +182,7 @@ function RouteComponent() {
         </div>
 
         {/* Bottom Margin */}
-        <div className="w-full h-[86px]"></div>
+        <div className="w-full h-[43px]"></div>
 
         {/* Join Button */}
         <div className="flex justify-center items-center h-[86px] w-full bg-[#fff] shadow-[0_0_7px_0_rgba(0,0,0,0.11)] p-[14px] sticky bottom-0">
