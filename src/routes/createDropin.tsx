@@ -41,8 +41,6 @@ function RouteComponent() {
     description: "",
   });
 
-  console.log("dropinData: ", dropinData);
-
   const renderPage = () => {
     switch (currentPage) {
       case 1:

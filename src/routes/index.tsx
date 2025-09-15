@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import NavBar from "../components/NavBar";
-import dropInsData from "../mock/dropIns.json";
+// import dropInsData from "../mock/dropIns.json";
 import { formatDate, formatTime } from "../utils/dateUtils";
+import { useGetHangoutsHome } from "../hooks/hangout/useGetHangoutsHome";
 
 // @ts-expect-error Missing type definitions for CSS import
 import "swiper/css";
@@ -36,6 +37,7 @@ interface DropInsData {
 }
 
 const Index: React.FC = () => {
+  const { hangouts: dropInsData, isLoading, error } = useGetHangoutsHome();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const swiperRef = useRef<{ swiper: SwiperType } | null>(null);
   const categoryListRef = useRef<HTMLUListElement | null>(null);
@@ -50,7 +52,10 @@ const Index: React.FC = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const categories = Object.keys(dropInsData as DropInsData);
+  // Safe categories extraction
+  const categories = dropInsData
+    ? Object.keys(dropInsData as DropInsData).sort()
+    : [];
 
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!categoryListRef.current) return;
@@ -104,6 +109,31 @@ const Index: React.FC = () => {
   useEffect(() => {
     scrollCategoryIntoView(selectedCategory);
   }, [selectedCategory]);
+
+  // Loading and error states
+  if (isLoading) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#F43630]" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-full h-screen flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-red-500 mb-4">Error: {error.message}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-[#F43630] text-white rounded"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -175,7 +205,7 @@ const Index: React.FC = () => {
                       : "none",
                 }}
               >
-                {(dropInsData as DropInsData)[category].map((dropIn) => (
+                {(dropInsData as DropInsData)?.[category]?.map((dropIn) => (
                   <Link
                     to="/dropin"
                     key={dropIn.id}
@@ -184,7 +214,11 @@ const Index: React.FC = () => {
                   >
                     <div className="flex items-center">
                       <img
-                        src={`${dropIn.dropInImage}?auto=compress&q=60&w=196&fit=crop`}
+                        src={
+                          dropIn.dropInImage?.startsWith("data:")
+                            ? dropIn.dropInImage
+                            : `${dropIn.dropInImage}?auto=compress&q=60&w=196&fit=crop`
+                        }
                         alt={dropIn.title}
                         className="object-cover rounded-[10px] mobile:rounded-[16px] mr-[10px] mobile:mr-[16px] relative w-[98px] h-[98px] mobile:w-[160px] mobile:h-[160px] flex-shrink-0"
                         loading="lazy"
@@ -238,7 +272,11 @@ const Index: React.FC = () => {
                             .map((person, index) => (
                               <img
                                 key={index}
-                                src={`${person.avatar}?auto=compress&q=50&w=44&fit=crop`}
+                                src={
+                                  person.avatar?.startsWith("data:")
+                                    ? person.avatar
+                                    : `${person.avatar}?auto=compress&q=50&w=44&fit=crop`
+                                }
                                 alt={person.name}
                                 className="object-cover rounded-full relative flex-shrink-0 w-[24px] h-[24px] mobile:w-[44px] mobile:h-[44px] -ml-1.5 first:ml-0 border mobile:border-4 border-[#fefefe]"
                                 style={{ zIndex: index }}
