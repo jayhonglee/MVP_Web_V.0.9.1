@@ -13,10 +13,8 @@ import "@/components/tiptap-node/list-node/list-node.scss";
 import "@/components/tiptap-node/code-block-node/code-block-node.scss";
 
 function RouteComponent() {
-  // const { id } = Route.useSearch();
-  const { hangout, isLoading, error } = useGetHangout(
-    "68bd3a46048d43c6f5cbee66"
-  );
+  const { id } = Route.useSearch();
+  const { hangout, isLoading, error } = useGetHangout(id);
   const dropinData = hangout?.dropin;
   const [imageUrl, setImageUrl] = useState<string | null>(null);
 

@@ -2,40 +2,58 @@ import { DropinData } from "@/routes/createDropin";
 
 const types = [
   {
-    id: "food-drinks",
-    name: "Food & Drinks",
-    description: "All things food and beverage related",
-    emoji: "🍽️",
-  },
-  {
-    id: "sports",
-    name: "Sports",
-    description: "Any sports and athletic activities",
-    emoji: "⚽",
-  },
-  {
-    id: "books-study",
-    name: "Books & Study",
-    description: "Learning and intellectual discussions",
-    emoji: "📚",
-  },
-  {
-    id: "travel-outdoor",
-    name: "Travel & Outdoor",
-    description: "Adventures and outdoor experiences",
-    emoji: "🏕️",
-  },
-  {
     id: "art-crafting",
     name: "Art & Crafting",
     description: "Creative expression and making",
     emoji: "🎨",
   },
   {
+    id: "books-study",
+    name: "Books & Study",
+    description: "Study and share knowledge with people",
+    emoji: "📚",
+  },
+  {
+    id: "club-activities",
+    name: "Club Activities",
+    description: "Join and enjoy club activities with people",
+    emoji: "🎤",
+  },
+  {
+    id: "food-drinks",
+    name: "Food & Drinks",
+    description: "Enjoy food and drinks with people",
+    emoji: "🍽️",
+  },
+  {
+    id: "gaming",
+    name: "Gaming",
+    description: "Play games and have fun with people",
+    emoji: "🎮",
+  },
+  {
     id: "local-chat",
     name: "Local Chat",
     description: "Community and local discussions",
     emoji: "💬",
+  },
+  {
+    id: "party",
+    name: "Party",
+    description: "Go crazy and have a good time",
+    emoji: "🎉",
+  },
+  {
+    id: "sports",
+    name: "Sports",
+    description: "Do sports and athletic activities",
+    emoji: "⚽",
+  },
+  {
+    id: "travel-outdoor",
+    name: "Travel & Outdoor",
+    description: "Adventures and outdoor experiences",
+    emoji: "🏕️",
   },
 ];
 

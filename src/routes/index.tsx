@@ -148,16 +148,16 @@ const Index: React.FC = () => {
             alt="Drop-In Icon"
             className="w-[13.5px] h-[13.5px] mr-[7px] mobile:w-[24px] mobile:h-[24px] mobile:mr-[7px]"
           />
-          Drop-In
+          SFU
         </h1>
         <h1 className="text-[28px] leading-[42px] font-[700] text-center uppercase mb-[32px] tracking-tighter mobile:text-[44px] mobile:leading-[60px]">
-          one-day gathering
+          <span className="line-through">Boring campus</span>
           <br />
-          to brighten your day
+          exciting campus
         </h1>
         <p className="text-[16px] leading-[24px] font-[400] text-center tracking-tighter mobile:text-[22px] mobile:leading-[32px]">
-          A one-day gathering anyone can host and join, <br />
-          drop in for a fun and casual meetup!
+          Make friends doing what you love, <br />
+          easily host or join a fun casual hangout!
         </p>
       </div>
 
@@ -251,8 +251,6 @@ const Index: React.FC = () => {
                           </div>
                           <div className="font-normal text-[12px] mobile:text-[20px] leading-[14px] tracking-[-0.2px] text-[rgb(153,150,150)] flex min-w-0 mb-[8px] mobile:mb-[12px] w-full max-w-[216px] mobile:max-w-[363px] mobile:leading-[24px] ">
                             <div className="truncate overflow-hidden text-ellipsis whitespace-nowrap w-full tracking-[-1px]">
-                              {dropIn.category}
-                              {" · "}
                               <img
                                 src="/info_place_14px.svg"
                                 alt="location"
@@ -301,7 +299,7 @@ const Index: React.FC = () => {
                               alt="people"
                               className="w-[10px] h-[10px] mobile:w-[16px] mobile:h-[16px] mr-[2px]"
                             />{" "}
-                            {dropIn.attendees}/{dropIn.maxAttendees}
+                            {dropIn.attendees}
                           </span>
                         </div>
                       </div>
