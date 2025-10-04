@@ -1,9 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import HeaderWithBackBtn from "../components/HeaderWithBackBtn";
 // import mockDropinData from "../mock/dropIn.json";
 import { formatDate, formatTime } from "../utils/dateUtils";
 import { getDetailsIcon } from "../utils/getDetailsIcon";
 import { useGetHangout } from "../hooks/hangout/useGetHangout";
+import { useAuth } from "@/context/auth/useAuth";
 import { useState, useEffect } from "react";
 
 // Import TipTap styles to match editor styling
@@ -11,12 +12,16 @@ import "@/components/tiptap-node/paragraph-node/paragraph-node.scss";
 import "@/components/tiptap-node/image-node/image-node.scss";
 import "@/components/tiptap-node/list-node/list-node.scss";
 import "@/components/tiptap-node/code-block-node/code-block-node.scss";
+import { useJoinHangout } from "@/hooks/hangout/useJoinHangout";
 
 function RouteComponent() {
   const { id } = Route.useSearch();
   const { hangout, isLoading, error } = useGetHangout(id);
   const dropinData = hangout?.dropin;
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const { mutate: joinHangout } = useJoinHangout();
 
   // Convert Buffer to data URL
   useEffect(() => {
@@ -40,8 +45,6 @@ function RouteComponent() {
       }
     }
   }, [dropinData?.dropInImage]);
-
-  console.log(dropinData);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -184,7 +187,16 @@ function RouteComponent() {
 
         {/* Join Button */}
         <div className="flex justify-center items-center h-[86px] w-full bg-[#fff] shadow-[0_0_7px_0_rgba(0,0,0,0.11)] p-[14px] sticky bottom-0">
-          <div className="flex justify-center items-center bg-[rgb(244,54,48)] hover:cursor-pointer vertical-center-text font-[500] text-[16px] leading-[24px] tracking-[-0.25px] uppercase w-full text-white rounded-[999px] p-[12px] h-[50px] min-[600px]:h-[58px]">
+          <div
+            className="flex justify-center items-center bg-[rgb(244,54,48)] hover:cursor-pointer vertical-center-text font-[500] text-[16px] leading-[24px] tracking-[-0.25px] uppercase w-full text-white rounded-[999px] p-[12px] h-[50px] min-[600px]:h-[58px]"
+            onClick={() => {
+              if (!isAuthenticated) {
+                navigate({ to: "/login", replace: true });
+              } else {
+                joinHangout(id);
+              }
+            }}
+          >
             <p>Join</p>
           </div>
         </div>
