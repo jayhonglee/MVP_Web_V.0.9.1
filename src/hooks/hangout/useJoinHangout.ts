@@ -27,7 +27,7 @@ export const useJoinHangout = () => {
 
       return response.json();
     },
-    onSuccess: (data, hangoutId) => {
+    onSuccess: (_, hangoutId) => {
       // Invalidate and refetch the specific hangout
       queryClient.invalidateQueries({
         queryKey: ["hangout", hangoutId],
