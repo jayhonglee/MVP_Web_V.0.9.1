@@ -322,11 +322,10 @@ const Index: React.FC = () => {
                 ) : (
                   <div className="flex-col justify-center items-center h-full  rounded-[12px] px-[10px] py-[12px] mobile:px-[16px] mobile:py-[20px] min-w-[344px] max-w-[400px] mobile:max-w-none mobile:w-[571px] mobile:h-[200px] w-full mx-auto hover:cursor-pointer">
                     <span className="text-[80px] flex justify-center align-center">
-                      🌟
+                      🫠
                     </span>
-                    <p className="text-[16px] font-bold text-[#666060] text-center">
-                      Be the first! Start a hangout here and make new friends
-                      today!
+                    <p className="text-[16px] font-[400] text-[#666060] text-center">
+                      No drop-ins found
                     </p>
                   </div>
                 )}
