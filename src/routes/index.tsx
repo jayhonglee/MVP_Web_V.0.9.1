@@ -320,7 +320,7 @@ const Index: React.FC = () => {
                     </Link>
                   ))
                 ) : (
-                  <div className="flex-col justify-center items-center h-full  rounded-[12px] px-[10px] py-[12px] mobile:px-[16px] mobile:py-[20px] min-w-[344px] max-w-[400px] mobile:max-w-none mobile:w-[571px] mobile:h-[200px] w-full mx-auto hover:cursor-pointer">
+                  <div className="flex-col justify-center items-center h-full  rounded-[12px] px-[10px] py-[12px] col-span-2 mobile:px-[16px] mobile:py-[20px] min-w-[344px] max-w-[400px] mobile:max-w-none mobile:w-[571px] mobile:h-[200px] w-full mx-auto hover:cursor-pointer">
                     <span className="text-[80px] flex justify-center align-center">
                       🫠
                     </span>
