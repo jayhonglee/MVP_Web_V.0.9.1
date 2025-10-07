@@ -156,10 +156,15 @@ const Index: React.FC = () => {
       <div className="w-full h-[325px] flex flex-col items-center justify-center mobile:h-[496px]">
         <h1 className="text-[18px] font-bold flex items-center mb-[20px] text-[#f43630] tracking-tight leading-[28px] mobile:font-[700] mobile:text-[24px] mobile:leading-[30px]">
           <img
+            src="/Simon_Fraser_University_coat_of_arms.png"
+            alt="SFU Coat of Arms"
+            className="w-[20px] h-auto mr-[8px] mobile:w-[32px] mobile:h-auto mobile:mr-[10px] object-contain"
+          />
+          {/* <img
             src="/drop-in.svg"
             alt="Drop-In Icon"
             className="w-[13.5px] h-[13.5px] mr-[7px] mobile:w-[24px] mobile:h-[24px] mobile:mr-[7px]"
-          />
+          /> */}
           SFU
         </h1>
         <h1 className="text-[28px] leading-[42px] font-[700] text-center uppercase mb-[32px] tracking-tighter mobile:text-[44px] mobile:leading-[60px]">
