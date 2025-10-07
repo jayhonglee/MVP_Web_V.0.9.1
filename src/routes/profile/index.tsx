@@ -7,7 +7,7 @@ import { useUpdateProfilePictureMe } from "@/hooks/users/useUpdateProfileMe";
 import { useCreatedDropins } from "@/hooks/users/useCreatedDropins";
 import { useJoinedDropins } from "@/hooks/users/useJoinedDropins";
 // import mockHostedDropins from "../../mock/hostedDropins.json";
-import mockJoinedDropins from "../../mock/joinedDropins.json";
+// import mockJoinedDropins from "../../mock/joinedDropins.json";
 import EditInfoModal from "@/components/profile/EditInfoModal";
 import EditInterestsModal from "@/components/profile/EditInterestsModal";
 
