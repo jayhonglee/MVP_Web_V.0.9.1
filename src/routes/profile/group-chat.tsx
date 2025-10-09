@@ -79,7 +79,7 @@ function GroupChat() {
                 {chat.dropin.title}
               </h1>
               <p className="text-[14px] leading-[18px] font-[400] text-[#737373] line-clamp-1">
-                {chat.dropin.description} · {timeAgo(chat.dropin.createdAt)}
+                {"latest message"} · {timeAgo(chat.createdAt)}
               </p>
             </div>
           </div>
