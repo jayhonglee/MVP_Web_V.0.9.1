@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { DropinData } from "@/routes/createDropin";
 import { useCreateHangout } from "@/hooks/hangout/useCreateHangout";
+import { useCreateGroupChat } from "@/hooks/groupChat/useCreateGroupchat";
 
 interface HeaderWithBackBtnProps {
   dropinData: DropinData;
@@ -16,14 +17,34 @@ const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
 }) => {
   const navigate = useNavigate();
   const { mutate: createHangout, isPending } = useCreateHangout();
+  const { mutate: createGroupChat, isPending: isGroupChatPending } =
+    useCreateGroupChat();
 
   const handlePost = () => {
     // Check if description is not empty (not just default content)
     if (dropinData.description && dropinData.description.trim() !== "") {
       createHangout(dropinData, {
-        onSuccess: () => {
-          // Navigate to home page on success
-          navigate({ to: "/" });
+        onSuccess: (createdDropin) => {
+          // After hangout is created successfully, create group chat with the returned dropin ID
+          createGroupChat(
+            { dropinId: createdDropin.dropin._id },
+            {
+              onSuccess: () => {
+                navigate({ to: "/profile/group-chat" });
+              },
+              onError: (error) => {
+                // If group chat already exists, that's okay - just navigate to group chat page
+                if (error.message.includes("already exists")) {
+                  console.log(
+                    "Group chat already exists, navigating to group chat page"
+                  );
+                  navigate({ to: "/profile/group-chat" });
+                } else {
+                  console.error("Failed to create group chat:", error);
+                }
+              },
+            }
+          );
         },
         onError: (error) => {
           console.error("Failed to create hangout:", error);
@@ -36,7 +57,8 @@ const HeaderWithBackBtn: React.FC<HeaderWithBackBtnProps> = ({
   const isPostDisabled =
     !dropinData.description ||
     dropinData.description.trim() === "" ||
-    isPending;
+    isPending ||
+    isGroupChatPending;
 
   return (
     <div className="relative w-full">
