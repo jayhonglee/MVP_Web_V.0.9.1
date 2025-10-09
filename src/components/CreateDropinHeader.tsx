@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { DropinData } from "@/routes/createDropin";
 import { useCreateHangout } from "@/hooks/hangout/useCreateHangout";
-import { useCreateGroupChat } from "@/hooks/groupChat/useCreateGroupchat";
+import { useCreateGroupChat } from "@/hooks/groupChat/useCreateGroupChat";
 
 interface HeaderWithBackBtnProps {
   dropinData: DropinData;

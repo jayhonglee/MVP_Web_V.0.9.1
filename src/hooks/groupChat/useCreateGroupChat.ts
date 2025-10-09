@@ -15,7 +15,9 @@ export const useCreateGroupChat = () => {
             "Content-Type": "application/json",
           },
           credentials: "include",
-          body: JSON.stringify({ dropinId: groupChatData.dropinId }),
+          body: JSON.stringify({
+            dropinId: groupChatData.dropinId,
+          }),
         }
       );
 

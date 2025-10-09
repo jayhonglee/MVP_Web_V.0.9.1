@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 
-export const useGetGroupChats = (userId: string) => {
+export const useGetGroupChats = () => {
   const {
     data: groupChats,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["users", "groupChats", userId],
+    queryKey: ["users", "groupChats"],
     queryFn: async () => {
       const response = await fetch(
         `${import.meta.env.VITE_MONGODB_URL}/groupChats/me`,
@@ -22,9 +22,10 @@ export const useGetGroupChats = (userId: string) => {
       const data = await response.json();
       return data;
     },
-    enabled: !!userId,
-    staleTime: 5 * 60 * 1000, // 5 minutes
-    gcTime: 10 * 60 * 1000, // 10 minutes (formerly cacheTime)
+    enabled: true,
+    staleTime: 0, // Always consider data stale to force refetch
+    gcTime: 0, // Don't cache data
+    refetchOnMount: true, // Always refetch when component mounts
   });
 
   return { groupChats, isLoading, error };

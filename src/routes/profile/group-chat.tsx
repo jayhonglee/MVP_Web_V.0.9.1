@@ -1,5 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import mockChatList from "../../mock/chatList.json";
+// import mockChatList from "../../mock/chatList.json";
+import { useGetGroupChats } from "@/hooks/groupChat/useGetGroupChats";
+import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
 
 function timeAgo(dateString: string) {
   const now = new Date();
@@ -15,11 +17,30 @@ function timeAgo(dateString: string) {
 
 function GroupChat() {
   const navigate = useNavigate();
+  const { groupChats, isLoading, error } = useGetGroupChats();
+
+  console.log(groupChats);
+
+  if (isLoading) {
+    return (
+      <div className="w-full flex justify-center items-center pt-[30vh]">
+        <div>Loading group chats...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-full flex justify-center items-center pt-[30vh]">
+        <div>Error loading group chats: {error.message}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full">
       <div className="w-full h-[10px] bg-transparent" />
-      {mockChatList.length === 0 && (
+      {(!groupChats || groupChats.length === 0) && (
         <div className="w-full flex flex-col justify-center items-center pt-[30vh]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +57,7 @@ function GroupChat() {
           </p>
         </div>
       )}
-      {mockChatList.map((chat) => {
+      {groupChats?.map((chat: any) => {
         return (
           <div
             key={chat.id}
@@ -46,18 +67,19 @@ function GroupChat() {
             }}
           >
             <img
-              src={chat.chatImage}
-              alt={chat.name}
-              width={56}
-              height={56}
-              className="rounded-full object-cover"
+              src={chat.dropin.dropInImage || fallbackHangoutBackground}
+              alt={chat.dropin.title}
+              className="rounded-full object-cover w-[56px] h-[56px]"
+              onError={(e) => {
+                e.currentTarget.src = fallbackHangoutBackground;
+              }}
             />
             <div className="flex flex-col justify-start items-start gap-[4px]">
               <h1 className="text-[14px] leading-[18px] font-[400] text-black line-clamp-1">
-                {chat.name}
+                {chat.dropin.title}
               </h1>
               <p className="text-[14px] leading-[18px] font-[400] text-[#737373] line-clamp-1">
-                {chat.latestMessage} · {timeAgo(chat.latestMessageTime)}
+                {chat.dropin.description} · {timeAgo(chat.dropin.createdAt)}
               </p>
             </div>
           </div>
