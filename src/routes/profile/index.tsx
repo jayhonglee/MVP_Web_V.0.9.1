@@ -27,7 +27,6 @@ function ProfileIndex() {
   const { mutate: updateProfilePicture } = useUpdateProfilePictureMe();
   const { createdDropins } = useCreatedDropins(userData?._id || "");
   const { joinedDropins } = useJoinedDropins(userData?._id || "");
-  console.log("createdDropins", createdDropins);
 
   const handleEditInfo = () => {
     setIsEditInfoModalOpen(true);
