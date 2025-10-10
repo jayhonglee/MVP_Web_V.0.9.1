@@ -1,5 +1,4 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-// import mockChatList from "../../mock/chatList.json";
 import { useGetGroupChats } from "@/hooks/groupChat/useGetGroupChats";
 import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
 
@@ -65,7 +64,7 @@ function GroupChat() {
             onClick={() => {
               navigate({
                 to: "/profile/chat-room",
-                search: { groupChatId: chat._id },
+                search: { hangoutId: chat.dropin._id },
               });
             }}
           >

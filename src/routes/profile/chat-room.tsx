@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, useSearch } from "@tanstack/react-router";
-import chatRoom from "../../mock/chatRoom.json";
 import { useNavigate } from "@tanstack/react-router";
+import { useGetHangout } from "@/hooks/hangout/useGetHangout";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
+import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
 
 function ChatRoom() {
   const navigate = useNavigate();
-  const { groupChatId } = useSearch({ from: "/profile/chat-room" });
+  const { hangoutId } = useSearch({ from: "/profile/chat-room" });
+  const { hangout, isLoading, error } = useGetHangout(hangoutId);
   const [message, setMessage] = useState("");
   const [isMessageEmpty, setIsMessageEmpty] = useState(true);
-
-  console.log("Chat room for group chat ID:", groupChatId);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -21,6 +21,13 @@ function ChatRoom() {
       document.body.style.width = "100%";
     };
   }, []);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  // console.log("Chat room for group chat ID:", hangoutId);
+  // console.log("Hangout:", hangout);
+  // console.log("image: ", hangout?.dropInImage);
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden z-[60] bg-white flex flex-col">
@@ -39,18 +46,29 @@ function ChatRoom() {
             {getChatRoomIcon("back")}
           </span>
           <img
-            src={chatRoom.chatImage}
-            alt={chatRoom.name}
-            width={44}
-            height={44}
-            className="rounded-full object-cover"
+            src={
+              hangout?.dropin?.dropInImage
+                ? URL.createObjectURL(
+                    new Blob(
+                      [new Uint8Array(hangout?.dropin?.dropInImage.data)],
+                      { type: "image/jpeg" }
+                    )
+                  )
+                : fallbackHangoutBackground
+            }
+            alt={hangout?.dropin?.title}
+            className="rounded-full object-cover w-[44px] h-[44px]"
+            onError={(e) => {
+              e.currentTarget.src = fallbackHangoutBackground;
+            }}
           />
           <div className="flex flex-col justify-start items-start">
             <div className="text-[16px] font-[600] break-words leading-[13px]">
-              {chatRoom.name}
+              {hangout?.dropin?.title}
             </div>
             <div className="text-[12px] text-gray-500 no-wrap text-ellipsis leading-[11px] break-words color-[rgb(115,115,115)] mt-[8px]">
-              {chatRoom.type.charAt(0).toUpperCase() + chatRoom.type.slice(1)}
+              {hangout?.dropin?.type.charAt(0).toUpperCase() +
+                hangout?.dropin?.type.slice(1)}
             </div>
           </div>
         </div>
@@ -99,7 +117,7 @@ export const Route = createFileRoute("/profile/chat-room")({
   component: ChatRoom,
   validateSearch: (search: Record<string, unknown>) => {
     return {
-      groupChatId: (search.groupChatId as string) || undefined,
+      hangoutId: (search.hangoutId as string) || undefined,
     };
   },
 });
