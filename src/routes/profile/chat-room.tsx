@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useSearch } from "@tanstack/react-router";
 import chatRoom from "../../mock/chatRoom.json";
 import { useNavigate } from "@tanstack/react-router";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
 
 function ChatRoom() {
   const navigate = useNavigate();
+  const { groupChatId } = useSearch({ from: "/profile/chat-room" });
   const [message, setMessage] = useState("");
   const [isMessageEmpty, setIsMessageEmpty] = useState(true);
+
+  console.log("Chat room for group chat ID:", groupChatId);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -94,4 +97,9 @@ function ChatRoom() {
 
 export const Route = createFileRoute("/profile/chat-room")({
   component: ChatRoom,
+  validateSearch: (search: Record<string, unknown>) => {
+    return {
+      groupChatId: (search.groupChatId as string) || undefined,
+    };
+  },
 });

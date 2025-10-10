@@ -63,7 +63,10 @@ function GroupChat() {
             key={chat.id}
             className="w-full flex justify-start items-center px-[8px] py-[8px] gap-[12px] hover:bg-[#F5F5F5] cursor-pointer"
             onClick={() => {
-              navigate({ to: "/profile/chat-room" });
+              navigate({
+                to: "/profile/chat-room",
+                search: { groupChatId: chat._id },
+              });
             }}
           >
             <img
