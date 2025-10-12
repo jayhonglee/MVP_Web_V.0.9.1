@@ -95,7 +95,12 @@ function ChatRoom() {
     };
   }, []);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading || isMessagesLoading)
+    return (
+      <div className="w-[100vw] h-[100vh] absolute top-0 left-0 flex justify-center items-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#F43630]" />
+      </div>
+    );
   if (error || createMessageError || isMessagesError)
     return <div>Error: {error?.message || createMessageError?.message}</div>;
 
