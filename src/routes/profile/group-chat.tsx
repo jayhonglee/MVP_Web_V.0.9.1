@@ -18,8 +18,6 @@ function GroupChat() {
   const navigate = useNavigate();
   const { groupChats, isLoading, error } = useGetGroupChats();
 
-  console.log(groupChats);
-
   if (isLoading) {
     return (
       <div className="w-full flex justify-center items-center pt-[30vh]">
@@ -64,7 +62,7 @@ function GroupChat() {
             onClick={() => {
               navigate({
                 to: "/profile/chat-room",
-                search: { hangoutId: chat.dropin._id },
+                search: { hangoutId: chat.dropin._id, groupChatId: chat._id },
               });
             }}
           >

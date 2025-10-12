@@ -2,16 +2,42 @@ import { useEffect, useState } from "react";
 import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useNavigate } from "@tanstack/react-router";
 import { useGetHangout } from "@/hooks/hangout/useGetHangout";
+import { useCreateMessage } from "@/hooks/messages/useCreateMessage";
 import Message from "@/components/message/Message";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
 import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
 
 function ChatRoom() {
   const navigate = useNavigate();
-  const { hangoutId } = useSearch({ from: "/profile/chat-room" });
+  const { hangoutId, groupChatId } = useSearch({ from: "/profile/chat-room" });
   const { hangout, isLoading, error } = useGetHangout(hangoutId);
   const [message, setMessage] = useState("");
   const [isMessageEmpty, setIsMessageEmpty] = useState(true);
+  const {
+    mutate: createMessage,
+    isPending: isCreateMessagePending,
+    error: createMessageError,
+  } = useCreateMessage();
+
+  const handleSendMessage = () => {
+    if (message.trim() && !isCreateMessagePending) {
+      createMessage(
+        {
+          groupChat: groupChatId,
+          text: message.trim(),
+        },
+        {
+          onSuccess: () => {
+            setMessage("");
+            setIsMessageEmpty(true);
+          },
+          onError: () => {
+            console.error("Failed to send message:", createMessageError);
+          },
+        }
+      );
+    }
+  };
 
   // Mock messages for testing
   const mockMessages = [
@@ -62,11 +88,8 @@ function ChatRoom() {
   }, []);
 
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  // console.log("Chat room for group chat ID:", hangoutId);
-  // console.log("Hangout:", hangout);
-  // console.log("image: ", hangout?.dropInImage);
+  if (error || createMessageError)
+    return <div>Error: {error?.message || createMessageError?.message}</div>;
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden z-[60] bg-white flex flex-col">
@@ -141,13 +164,19 @@ function ChatRoom() {
               setMessage(e.target.value);
               setIsMessageEmpty(e.target.value.length === 0);
             }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+              }
+            }}
           />
-          <span className="w-[24px] h-[24px]">
+          <span className="w-[24px] h-[24px]" onClick={handleSendMessage}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
               className={`w-full h-full ${
-                isMessageEmpty
+                isMessageEmpty || isCreateMessagePending
                   ? "fill-gray-400 cursor-default"
                   : "fill-[rgb(244,54,48)] cursor-pointer"
               }`}
@@ -166,6 +195,7 @@ export const Route = createFileRoute("/profile/chat-room")({
   validateSearch: (search: Record<string, unknown>) => {
     return {
       hangoutId: (search.hangoutId as string) || undefined,
+      groupChatId: (search.groupChatId as string) || undefined,
     };
   },
 });

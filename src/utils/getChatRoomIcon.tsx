@@ -17,17 +17,17 @@ export default function getChatRoomIcon(name: string) {
             fill="none"
             r="10.5"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
           ></circle>
           <circle cx="11.819" cy="7.709" r="1.25"></circle>
           <line
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             x1="10.569"
             x2="13.432"
             y1="16.777"
@@ -37,9 +37,9 @@ export default function getChatRoomIcon(name: string) {
             fill="none"
             points="10.569 11.05 12 11.05 12 16.777"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
           ></polyline>
         </svg>
       );

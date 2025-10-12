@@ -51,12 +51,14 @@ export default function Message({
         )}
         <p className="messageText relative">
           {message.text}
-          <span className={`absolute bottom-0 ${own ? "left-0" : "right-0"}`}>
-            <div
-              className={`messageBottom ${own ? "translate-x-[calc(-100%-6px)]" : "translate-x-[calc(100%+6px)]"}`}
+          <span
+            className={`absolute bottom-0 ${own ? "left-0" : "right-0"} inline-block`}
+          >
+            <span
+              className={`messageBottom ${own ? "translate-x-[calc(-100%-6px)]" : "translate-x-[calc(100%+6px)]"} inline-block`}
             >
               {formatTime(message.createdAt)}
-            </div>
+            </span>
           </span>
         </p>
       </div>
