@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useNavigate } from "@tanstack/react-router";
 import { useGetHangout } from "@/hooks/hangout/useGetHangout";
+import Message from "@/components/message/Message";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
 import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
 
@@ -11,6 +12,44 @@ function ChatRoom() {
   const { hangout, isLoading, error } = useGetHangout(hangoutId);
   const [message, setMessage] = useState("");
   const [isMessageEmpty, setIsMessageEmpty] = useState(true);
+
+  // Mock messages for testing
+  const mockMessages = [
+    {
+      sender: "user1",
+      text: "Hey everyone! How's it going?",
+      createdAt: Date.now() - 1000 * 60 * 5, // 5 minutes ago
+      _id: "msg1",
+    },
+    {
+      sender: "user2",
+      text: "Great! Just finished my workout. Anyone up for coffee later?",
+      createdAt: Date.now() - 1000 * 60 * 3, // 3 minutes ago
+      _id: "msg2",
+    },
+    {
+      sender: "currentUser", // This will be "own" message
+      text: "I'm down! What time works for everyone?",
+      createdAt: Date.now() - 1000 * 60 * 1, // 1 minute ago
+      _id: "msg3",
+    },
+    {
+      sender: "user1",
+      text: "How about 3 PM at the campus coffee shop?",
+      createdAt: Date.now() - 1000 * 30, // 30 seconds ago
+      _id: "msg4",
+    },
+  ];
+
+  // Mock avatar URLs
+  const mockAvatarURLs = {
+    user1:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    user2:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    currentUser:
+      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+  };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -79,7 +118,16 @@ function ChatRoom() {
       </div>
 
       {/* Chat room messages */}
-      <div className="w-full flex-1">Chat room messages</div>
+      <div className="w-full flex-1 overflow-y-auto p-4">
+        {mockMessages.map((message) => (
+          <Message
+            key={message._id}
+            message={message}
+            own={message.sender === "currentUser"}
+            allMembersAvatarURLs={mockAvatarURLs}
+          />
+        ))}
+      </div>
 
       {/* Chat room input */}
       <div className="w-full h-[78px] flex flex-col justify-center items-center p-[16px]">
