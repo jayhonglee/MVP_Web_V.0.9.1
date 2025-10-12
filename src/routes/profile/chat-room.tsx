@@ -4,6 +4,7 @@ import { useNavigate } from "@tanstack/react-router";
 import { useGetHangout } from "@/hooks/hangout/useGetHangout";
 import { useCreateMessage } from "@/hooks/messages/useCreateMessage";
 import { useGetMessages } from "@/hooks/messages/useGetMessages";
+import { useAuth } from "@/context/auth/useAuth";
 import Message from "@/components/message/Message";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
 import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
@@ -17,7 +18,6 @@ function ChatRoom() {
     isLoading: isMessagesLoading,
     error: isMessagesError,
   } = useGetMessages(groupChatId);
-  console.log(messages);
   const [message, setMessage] = useState("");
   const [isMessageEmpty, setIsMessageEmpty] = useState(true);
   const {
@@ -25,6 +25,7 @@ function ChatRoom() {
     isPending: isCreateMessagePending,
     error: createMessageError,
   } = useCreateMessage();
+  const { user } = useAuth();
 
   const handleSendMessage = () => {
     if (message.trim() && !isCreateMessagePending) {
@@ -153,7 +154,7 @@ function ChatRoom() {
           <Message
             key={message._id}
             message={message}
-            own={message.sender === "currentUser"}
+            own={message.sender === user?.user?._id}
             allMembersAvatarURLs={hangout?.dropin?.members?.map(
               (member: any) => member.avatarURL
             )}
