@@ -1,31 +1,48 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useNavigate } from "@tanstack/react-router";
 import { useGetHangout } from "@/hooks/hangout/useGetHangout";
 import { useCreateMessage } from "@/hooks/messages/useCreateMessage";
 import { useGetMessages } from "@/hooks/messages/useGetMessages";
 import { useAuth } from "@/context/auth/useAuth";
+import { io, Socket } from "socket.io-client";
 import Message from "@/components/message/Message";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
 import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
 
 function ChatRoom() {
+  const [message, setMessage] = useState("");
+  const [isMessageEmpty, setIsMessageEmpty] = useState(true);
+  const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
+  const socket = useRef<Socket | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const contentEditableRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
   const { hangoutId, groupChatId } = useSearch({ from: "/profile/chat-room" });
   const { hangout, isLoading, error } = useGetHangout(hangoutId);
+  const { user } = useAuth();
   const {
     messages,
     isLoading: isMessagesLoading,
     error: isMessagesError,
   } = useGetMessages(groupChatId);
-  const [message, setMessage] = useState("");
-  const [isMessageEmpty, setIsMessageEmpty] = useState(true);
   const {
     mutate: createMessage,
     isPending: isCreateMessagePending,
     error: createMessageError,
   } = useCreateMessage();
-  const { user } = useAuth();
+  const [newMessages, setNewMessages] = useState<
+    {
+      sender: string;
+      text: string;
+      createdAt: number;
+    }[]
+  >([]);
+  const [arrivalMessage, setArrivalMessage] = useState<{
+    sender: string;
+    text: string;
+    createdAt: number;
+  } | null>(null);
 
   const handleSendMessage = () => {
     if (message.trim() && !isCreateMessagePending) {
@@ -38,6 +55,27 @@ function ChatRoom() {
           onSuccess: () => {
             setMessage("");
             setIsMessageEmpty(true);
+
+            // Emit socket event for real-time
+            socket.current?.emit("sendMessage", {
+              senderId: user?.user?._id,
+              receiverId: groupChatId,
+              text: message,
+            });
+
+            setNewMessages((prev) => [
+              ...prev,
+              {
+                sender: user?.user?._id || "", // Provide empty string fallback
+                text: message.trim(),
+                createdAt: Date.now(),
+              },
+            ]);
+
+            // Clear input
+            if (contentEditableRef.current) {
+              contentEditableRef.current.innerText = "";
+            }
           },
           onError: () => {
             console.error("Failed to send message:", createMessageError);
@@ -66,6 +104,51 @@ function ChatRoom() {
       document.body.style.width = "100%";
     };
   }, []);
+
+  useEffect(() => {
+    socket.current = io(import.meta.env.VITE_SOCKET_ADDRESS);
+    socket.current.on(
+      "getMessage",
+      (data: { senderId: string; text: string }) => {
+        console.log("getMessage", data);
+        setArrivalMessage({
+          sender: data.senderId,
+          text: data.text,
+          createdAt: Date.now(),
+        });
+      }
+    );
+
+    return () => {
+      // Disconnect the socket
+      socket.current?.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    setNewMessages(messages);
+  }, [messages]);
+
+  useEffect(() => {
+    if (
+      arrivalMessage &&
+      hangout?.dropin?.members?.includes(arrivalMessage.sender)
+    )
+      setNewMessages((prev) => [...prev, arrivalMessage]);
+  }, [arrivalMessage, hangout?.dropin?.members]);
+
+  useEffect(() => {
+    if (!user?.user?._id) return;
+
+    socket.current?.emit("addUser", user?.user?._id);
+    socket.current?.on("getUsers", (users) => {
+      setOnlineUsers(users);
+    });
+  }, [user]);
+
+  useEffect(() => {
+    scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
+  }, [newMessages]);
 
   if (isLoading || isMessagesLoading)
     return (
@@ -127,15 +210,17 @@ function ChatRoom() {
 
       {/* Chat room messages */}
       <div className="w-full flex-1 overflow-y-auto p-4">
-        {messages?.map((message: any) => (
-          <Message
-            key={message._id}
-            message={message}
-            own={message.sender === user?.user?._id}
-            allMembersAvatarURLs={hangout?.dropin?.members?.map(
-              (member: any) => member.avatarURL
-            )}
-          />
+        {newMessages?.map((message: any) => (
+          <div ref={scrollRef}>
+            <Message
+              key={message._id}
+              message={message}
+              own={message.sender === user?.user?._id}
+              allMembersAvatarURLs={hangout?.dropin?.members?.map(
+                (member: any) => member.avatarURL
+              )}
+            />
+          </div>
         ))}
       </div>
 
@@ -143,6 +228,8 @@ function ChatRoom() {
       <div className="w-full h-[78px] flex flex-col justify-center items-center p-[16px]">
         <div className="w-full h-[46px] border-[1px] border-gray-200 rounded-[23px] flex justify-center items-center px-[20px]">
           <input
+            contentEditable
+            ref={contentEditableRef}
             type="text"
             className="w-full h-[20px] outline-none text-[15px] font-[400] leading-[18px] break-words flex items-center"
             placeholder="Message..."
