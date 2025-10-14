@@ -47,34 +47,6 @@ function ChatRoom() {
     }
   };
 
-  // Mock messages for testing
-  // const mockMessages = [
-  //   {
-  //     sender: "user1",
-  //     text: "Hey everyone! How's it going?",
-  //     createdAt: Date.now() - 1000 * 60 * 5, // 5 minutes ago
-  //     _id: "msg1",
-  //   },
-  //   {
-  //     sender: "user2",
-  //     text: "Great! Just finished my workout. Anyone up for coffee later?",
-  //     createdAt: Date.now() - 1000 * 60 * 3, // 3 minutes ago
-  //     _id: "msg2",
-  //   },
-  //   {
-  //     sender: "currentUser", // This will be "own" message
-  //     text: "I'm down! What time works for everyone?",
-  //     createdAt: Date.now() - 1000 * 60 * 1, // 1 minute ago
-  //     _id: "msg3",
-  //   },
-  //   {
-  //     sender: "user1",
-  //     text: "How about 3 PM at the campus coffee shop?",
-  //     createdAt: Date.now() - 1000 * 30, // 30 seconds ago
-  //     _id: "msg4",
-  //   },
-  // ];
-
   // Mock avatar URLs
   // const mockAvatarURLs = {
   //   user1:
