@@ -110,7 +110,6 @@ function ChatRoom() {
     socket.current.on(
       "getMessage",
       (data: { senderId: string; text: string }) => {
-        console.log("getMessage", data);
         setArrivalMessage({
           sender: data.senderId,
           text: data.text,
