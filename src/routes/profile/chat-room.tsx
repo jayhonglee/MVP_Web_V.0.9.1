@@ -13,7 +13,6 @@ import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
 function ChatRoom() {
   const [message, setMessage] = useState("");
   const [isMessageEmpty, setIsMessageEmpty] = useState(true);
-  const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
   const socket = useRef<Socket | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const contentEditableRef = useRef<HTMLInputElement>(null);
@@ -59,8 +58,8 @@ function ChatRoom() {
             // Emit socket event for real-time
             socket.current?.emit("sendMessage", {
               senderId: user?.user?._id,
-              receiverId: groupChatId,
-              text: message,
+              groupChatId: groupChatId,
+              text: message.trim(),
             });
 
             setNewMessages((prev) => [
@@ -109,12 +108,15 @@ function ChatRoom() {
     socket.current = io(import.meta.env.VITE_SOCKET_ADDRESS);
     socket.current.on(
       "getMessage",
-      (data: { senderId: string; text: string }) => {
-        setArrivalMessage({
-          sender: data.senderId,
-          text: data.text,
-          createdAt: Date.now(),
-        });
+      (data: { senderId: string; groupChatId: string; text: string }) => {
+        // Only process messages for the current group chat
+        if (data.groupChatId === groupChatId) {
+          setArrivalMessage({
+            sender: data.senderId,
+            text: data.text,
+            createdAt: Date.now(),
+          });
+        }
       }
     );
 
@@ -122,7 +124,7 @@ function ChatRoom() {
       // Disconnect the socket
       socket.current?.disconnect();
     };
-  }, []);
+  }, [groupChatId]);
 
   useEffect(() => {
     setNewMessages(messages);
@@ -131,19 +133,25 @@ function ChatRoom() {
   useEffect(() => {
     if (
       arrivalMessage &&
-      hangout?.dropin?.members?.includes(arrivalMessage.sender)
-    )
+      arrivalMessage.sender !== user?.user?._id // Don't add our own messages
+    ) {
       setNewMessages((prev) => [...prev, arrivalMessage]);
-  }, [arrivalMessage, hangout?.dropin?.members]);
+    }
+  }, [arrivalMessage, user?.user?._id]);
 
   useEffect(() => {
-    if (!user?.user?._id) return;
+    if (!user?.user?._id || !groupChatId) return;
 
-    socket.current?.emit("addUser", user?.user?._id);
-    socket.current?.on("getUsers", (users) => {
-      setOnlineUsers(users);
+    // Join the specific group chat room
+    socket.current?.emit("addUser", {
+      userId: user.user._id,
+      groupChatId: groupChatId,
     });
-  }, [user]);
+
+    socket.current?.on("getUsers", (users) => {
+      console.log("Users in room:", users);
+    });
+  }, [user, groupChatId]);
 
   useEffect(() => {
     scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
@@ -209,10 +217,9 @@ function ChatRoom() {
 
       {/* Chat room messages */}
       <div className="w-full flex-1 overflow-y-auto p-4">
-        {newMessages?.map((message: any) => (
-          <div ref={scrollRef}>
+        {newMessages?.map((message: any, index: number) => (
+          <div key={message._id || `temp-${index}`} ref={scrollRef}>
             <Message
-              key={message._id}
               message={message}
               own={message.sender === user?.user?._id}
               allMembersAvatarURLs={hangout?.dropin?.members?.map(
