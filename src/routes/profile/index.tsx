@@ -6,8 +6,6 @@ import { useUpdateUserMe } from "@/hooks/users/useUpdateUserMe";
 import { useUpdateProfilePictureMe } from "@/hooks/users/useUpdateProfileMe";
 import { useCreatedDropins } from "@/hooks/users/useCreatedDropins";
 import { useJoinedDropins } from "@/hooks/users/useJoinedDropins";
-// import mockHostedDropins from "../../mock/hostedDropins.json";
-// import mockJoinedDropins from "../../mock/joinedDropins.json";
 import EditInfoModal from "@/components/profile/EditInfoModal";
 import EditInterestsModal from "@/components/profile/EditInterestsModal";
 
@@ -67,11 +65,11 @@ function ProfileIndex() {
       {/* Profile */}
       <div className="w-full h-[129px] mobile:h-[300px] flex justify-between items-end">
         <img
-          src={userData?.avatar}
+          src={userData?.avatar || "/avatar-default.svg"}
           alt="profile cover"
           className="w-[84px] h-[84px] mobile:w-[142px] mobile:h-[142px] mb-[14px] object-cover rounded-full"
           onError={(e) => {
-            e.currentTarget.src = "/default-profile-image.png";
+            e.currentTarget.src = "/avatar-default.svg";
           }}
         />
 
@@ -292,8 +290,9 @@ function ProfileIndex() {
 
       {/* Created / Joined List */}
       <div className="w-full grid grid-cols-3 gap-[3px]">
-        {selectedTab === "created"
-          ? createdDropins?.map((dropin: any) => (
+        {selectedTab === "created" ? (
+          createdDropins && createdDropins.length > 0 ? (
+            createdDropins?.map((dropin: any) => (
               <div className="relative w-full h-[120px] mobile:h-[211px] cursor-pointer group">
                 <img
                   src={
@@ -333,46 +332,61 @@ function ProfileIndex() {
                 </div>
               </div>
             ))
-          : joinedDropins?.map((dropin) => (
-              <div className="relative w-full h-[120px] mobile:h-[211px] cursor-pointer group">
-                <img
-                  src={
-                    dropin.dropInImage
-                      ? dropin.dropInImage
-                      : "/default-dropin-image.png"
-                  }
-                  alt="dropin"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='98' height='98' viewBox='0 0 98 98'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='100%25' style='stop-color:%23FF8E53'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='98' height='98' fill='url(%23grad)'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'%3EHANGOUT%3C/text%3E%3C/svg%3E";
-                  }}
-                />
-                {/* Overlay */}
-                <div
-                  className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100"
-                  onClick={() => {
-                    navigate({
-                      to: `/dropin?id=${dropin._id}`,
-                    });
-                  }}
-                >
-                  <div className="flex items-center space-x-4 text-white text-lg font-semibold gap-[4px]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 640 512"
-                      className="text-white mobile:w-[24px] mobile:h-[24px]"
-                      fill="currentColor"
-                      width="16"
-                      height="16"
-                    >
-                      <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z" />
-                    </svg>{" "}
-                    {dropin.attendeesCount}
-                  </div>
+          ) : (
+            <div className="w-full h-[120px] mobile:h-[211px] flex justify-center items-center col-span-3">
+              <p className="text-[14px] mobile:text-[18px] font-[500] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] text-[#b9b6b6]">
+                No created dropins
+              </p>
+            </div>
+          )
+        ) : joinedDropins && joinedDropins.length > 0 ? (
+          joinedDropins?.map((dropin) => (
+            <div className="relative w-full h-[120px] mobile:h-[211px] cursor-pointer group">
+              <img
+                src={
+                  dropin.dropInImage
+                    ? dropin.dropInImage
+                    : "/default-dropin-image.png"
+                }
+                alt="dropin"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='98' height='98' viewBox='0 0 98 98'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FF6B6B'/%3E%3Cstop offset='100%25' style='stop-color:%23FF8E53'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='98' height='98' fill='url(%23grad)'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='16' font-weight='bold' fill='white'%3EHANGOUT%3C/text%3E%3C/svg%3E";
+                }}
+              />
+              {/* Overlay */}
+              <div
+                className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100"
+                onClick={() => {
+                  navigate({
+                    to: `/dropin?id=${dropin._id}`,
+                  });
+                }}
+              >
+                <div className="flex items-center space-x-4 text-white text-lg font-semibold gap-[4px]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 640 512"
+                    className="text-white mobile:w-[24px] mobile:h-[24px]"
+                    fill="currentColor"
+                    width="16"
+                    height="16"
+                  >
+                    <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192l42.7 0c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0L21.3 320C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.3 28.7-9.7 44.6-9.7l42.7 0C592.2 192 640 239.8 640 298.7c0 11.8-9.6 21.3-21.3 21.3l-213.3 0zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352l117.3 0C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7l-330.7 0c-14.7 0-26.7-11.9-26.7-26.7z" />
+                  </svg>{" "}
+                  {dropin.attendeesCount}
                 </div>
               </div>
-            ))}
+            </div>
+          ))
+        ) : (
+          <div className="w-full h-[120px] mobile:h-[211px] flex justify-center items-center col-span-3">
+            <p className="text-[14px] mobile:text-[18px] font-[500] leading-[22px] mobile:leading-[26px] tracking-[-0.25px] text-[#b9b6b6]">
+              No joined dropins
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="w-full h-[24px] mobile:h-[60px] bg-transparent" />
