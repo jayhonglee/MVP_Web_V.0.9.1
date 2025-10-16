@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "@tanstack/react-router";
 
 interface JoinHangoutResponse {
   message: string;
@@ -7,6 +8,7 @@ interface JoinHangoutResponse {
 
 export const useJoinHangout = () => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
   return useMutation({
     mutationFn: async (hangoutId: string): Promise<JoinHangoutResponse> => {
@@ -47,6 +49,8 @@ export const useJoinHangout = () => {
       queryClient.invalidateQueries({
         queryKey: ["users", "createdDropins"],
       });
+
+      navigate({ to: "/profile/group-chat", replace: true });
     },
   });
 };
