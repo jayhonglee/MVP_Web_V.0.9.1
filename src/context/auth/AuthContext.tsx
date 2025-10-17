@@ -115,7 +115,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     if (user) {
       // Convert avatar buffer to URL if it's a buffer
       const processedUserData = { ...userData };
-      if (userData.avatar) {
+      if (userData?.avatar) {
         // Convert base64 string to blob
         const byteCharacters = atob(userData.avatar as string);
         const byteNumbers = new Array(byteCharacters.length);
