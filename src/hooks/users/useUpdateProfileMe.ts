@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "@/context/auth/useAuth";
+import { toast } from "react-hot-toast";
 
 export const useUpdateProfilePictureMe = () => {
   const { updateUser } = useAuth();
@@ -32,10 +33,12 @@ export const useUpdateProfilePictureMe = () => {
       // Update the user's avatar with the new data
       if (data?.user?.avatar) {
         updateUser({ avatar: data.user.avatar });
+        toast.success("Profile picture updated successfully");
       }
     },
     onError: (error) => {
       console.error("Profile picture update failed:", error);
+      toast.error(error.message || "Failed to update profile picture");
     },
   });
 

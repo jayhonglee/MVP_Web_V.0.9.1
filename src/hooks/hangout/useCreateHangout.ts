@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { DropinData } from "@/routes/createDropin";
+import { toast } from "react-hot-toast";
 
 export const useCreateHangout = () => {
   const { mutate, isPending, error } = useMutation({
@@ -42,7 +43,11 @@ export const useCreateHangout = () => {
       return response.json();
     },
 
+    onSuccess: () => {
+      toast.success("Hangout created successfully");
+    },
     onError: (error) => {
+      toast.error("Failed to create hangout");
       console.error("Create hangout failed:", error);
     },
   });

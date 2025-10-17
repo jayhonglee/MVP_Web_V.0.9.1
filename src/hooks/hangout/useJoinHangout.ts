@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
+import { toast } from "react-hot-toast";
 
 interface JoinHangoutResponse {
   message: string;
@@ -51,6 +52,11 @@ export const useJoinHangout = () => {
       });
 
       navigate({ to: "/profile/group-chat", replace: true });
+      toast.success("Joined hangout successfully");
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to join hangout");
+      console.error("Join hangout failed:", error);
     },
   });
 };

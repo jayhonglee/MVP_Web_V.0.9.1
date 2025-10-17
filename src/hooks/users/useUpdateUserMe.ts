@@ -1,6 +1,7 @@
 import { User } from "@/context/auth/auth.types";
 import { useAuth } from "@/context/auth/useAuth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 export const useUpdateUserMe = () => {
   const queryClient = useQueryClient();
@@ -33,6 +34,13 @@ export const useUpdateUserMe = () => {
 
       // Also invalidate queries for consistency
       queryClient.invalidateQueries({ queryKey: ["auth", "verify"] });
+
+      console.log("updatedUserData", updatedUserData);
+      toast.success("Profile updated successfully");
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to update profile");
+      console.error("Update profile failed:", error);
     },
   });
 
