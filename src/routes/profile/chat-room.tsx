@@ -6,6 +6,7 @@ import { useCreateMessage } from "@/hooks/messages/useCreateMessage";
 import { useGetMessages } from "@/hooks/messages/useGetMessages";
 import { useAuth } from "@/context/auth/useAuth";
 import { io, Socket } from "socket.io-client";
+import { useGetGroupChatUsersData } from "@/hooks/groupChat/useGetGroupChatUsersData";
 import Message from "@/components/message/Message";
 import getChatRoomIcon from "../../utils/getChatRoomIcon";
 import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
@@ -25,6 +26,11 @@ function ChatRoom() {
     isLoading: isMessagesLoading,
     error: isMessagesError,
   } = useGetMessages(groupChatId);
+  const {
+    users: groupChatUsers,
+    isLoading: isUsersLoading,
+    error: usersError,
+  } = useGetGroupChatUsersData(groupChatId);
   const {
     mutate: createMessage,
     isPending: isCreateMessagePending,
@@ -83,16 +89,6 @@ function ChatRoom() {
       );
     }
   };
-
-  // Mock avatar URLs
-  // const mockAvatarURLs = {
-  //   user1:
-  //     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-  //   user2:
-  //     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-  //   currentUser:
-  //     "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-  // };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -157,14 +153,19 @@ function ChatRoom() {
     scrollRef?.current?.scrollIntoView({ behavior: "smooth" });
   }, [newMessages]);
 
-  if (isLoading || isMessagesLoading)
+  if (isLoading || isMessagesLoading || isUsersLoading)
     return (
       <div className="w-[100vw] h-[100vh] absolute top-0 left-0 flex justify-center items-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#F43630]" />
       </div>
     );
-  if (error || createMessageError || isMessagesError)
-    return <div>Error: {error?.message || createMessageError?.message}</div>;
+  if (error || createMessageError || isMessagesError || usersError)
+    return (
+      <div>
+        Error:{" "}
+        {error?.message || createMessageError?.message || usersError?.message}
+      </div>
+    );
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden z-[60] bg-white flex flex-col">
@@ -222,9 +223,7 @@ function ChatRoom() {
             <Message
               message={message}
               own={message.sender === user?.user?._id}
-              allMembersAvatarURLs={hangout?.dropin?.members?.map(
-                (member: any) => member.avatarURL
-              )}
+              allMembersData={groupChatUsers || []}
             />
           </div>
         ))}

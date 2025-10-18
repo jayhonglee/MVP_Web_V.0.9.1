@@ -1,6 +1,5 @@
 import "./Message.css";
-import { useEffect, useState } from "react";
-import fallbackHangoutBackground from "@/assets/fallback-hangout-background";
+import { GroupChatUser } from "@/hooks/groupChat/useGetGroupChatUsersData";
 
 interface MessageData {
   sender: string;
@@ -12,20 +11,14 @@ interface MessageData {
 interface MessageProps {
   message: MessageData;
   own: boolean;
-  allMembersAvatarURLs: Record<string, string | null>;
+  allMembersData: GroupChatUser[];
 }
 
 export default function Message({
   message,
   own,
-  allMembersAvatarURLs,
+  allMembersData,
 }: MessageProps) {
-  const [avatarURL, setAvatarURL] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    setAvatarURL(allMembersAvatarURLs?.[message.sender] || undefined);
-  }, [message, allMembersAvatarURLs, own]);
-
   // Format time as HH:MM
   const formatTime = (timestamp: number | string): string => {
     const date = new Date(timestamp);
@@ -42,9 +35,12 @@ export default function Message({
         {!own && (
           <img
             className="messageImg"
-            src={avatarURL ? `${avatarURL}` : fallbackHangoutBackground}
+            src={
+              allMembersData.find((user) => user._id === message.sender)
+                ?.avatar || "/avatar-default.svg"
+            }
             onError={(e) => {
-              e.currentTarget.src = fallbackHangoutBackground;
+              e.currentTarget.src = "/avatar-default.svg";
             }}
             alt=""
           />
