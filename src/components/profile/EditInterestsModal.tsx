@@ -39,7 +39,9 @@ export default function EditInterestsModal({
     try {
       await onSave(updatedUser);
       onClose();
-      // window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     } catch (error) {
       console.error("Failed to update profile:", error);
     } finally {
