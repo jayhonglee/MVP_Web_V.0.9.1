@@ -3,7 +3,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/context/auth/useAuth";
 import { useMutation } from "@tanstack/react-query";
 import NavBar from "@/components/NavBar";
-// import ErrorModal from "@/components/errorModal/ErrorModal";
+import ErrorModal from "@/components/errorModal/ErrorModal";
 import getLoginErrorMessage from "@/utils/getLoginErrorMessage";
 
 function RouteComponent() {
@@ -39,11 +39,11 @@ function RouteComponent() {
           <NavBar currentPage="all" />
         </div>
 
-        {/* {loginMutation.isError && (
+        {loginMutation.isError && (
           <ErrorModal
             errorMessage={getLoginErrorMessage(loginMutation.error.message)}
           />
-        )} */}
+        )}
 
         {/* Title */}
         <h1 className="text-3xl font-medium tracking-wider mb-[60px] text-center h-[22px]">
