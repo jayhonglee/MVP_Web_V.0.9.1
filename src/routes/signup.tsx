@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar";
 import getSignupErrorMessage from "@/utils/getSignupErrorMessage";
-import ErrorModal from "@/components/errorModal/ErrorModal";
+// import ErrorModal from "@/components/errorModal/ErrorModal";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { EmailInput } from "@/components/signupCarouselPages/EmailInput";
@@ -67,13 +67,13 @@ function RouteComponent() {
         <NavBar noPlaceholder currentPage="all" />
       </div>
 
-      {signupMutation.isError && (
+      {/* {signupMutation.isError && (
         <div className="w-full max-w-[615px] flex justify-center items-center">
           <ErrorModal
             errorMessage={getSignupErrorMessage(signupMutation.error.message)}
           />
         </div>
-      )}
+      )} */}
 
       <div className="w-full h-full py-[24px] flex justify-start items-start mobile:py-[40px] relative carousel-track transition-transform duration-300">
         <EmailInput
