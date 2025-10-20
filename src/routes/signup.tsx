@@ -1,6 +1,6 @@
 import NavBar from "@/components/NavBar";
 import getSignupErrorMessage from "@/utils/getSignupErrorMessage";
-import ErrorModal from "../components/errorModal/ErrorModal.tsx";
+import ErrorModal from "@/components/errorModal/ErrorModal.tsx";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { EmailInput } from "@/components/signupCarouselPages/EmailInput";
