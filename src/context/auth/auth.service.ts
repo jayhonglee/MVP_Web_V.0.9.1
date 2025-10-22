@@ -33,6 +33,7 @@ export const authService = {
   },
 
   verify: async () => {
+    console.log(document.cookie);
     const authToken = document.cookie
       .split("; ")
       .find((row) => row.startsWith("auth_token="))
