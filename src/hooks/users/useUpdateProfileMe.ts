@@ -1,9 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "@/context/auth/useAuth";
 import { toast } from "react-hot-toast";
+import useCookie from "../useCookie";
 
 export const useUpdateProfilePictureMe = () => {
   const { updateUser } = useAuth();
+  const authToken = useCookie("auth_token");
 
   const { mutate, isPending, error } = useMutation({
     mutationFn: async (file: File) => {
@@ -16,6 +18,9 @@ export const useUpdateProfilePictureMe = () => {
           method: "POST",
           credentials: "include",
           body: formData,
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 

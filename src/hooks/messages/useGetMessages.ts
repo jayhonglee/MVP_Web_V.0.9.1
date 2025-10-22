@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
+import useCookie from "../useCookie";
 
 export const useGetMessages = (groupChatId: string) => {
+  const authToken = useCookie("auth_token");
+
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["messages", groupChatId],
     queryFn: async () => {
@@ -9,6 +12,9 @@ export const useGetMessages = (groupChatId: string) => {
         {
           method: "GET",
           credentials: "include",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 

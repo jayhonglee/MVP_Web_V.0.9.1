@@ -1,10 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
+import useCookie from "../useCookie";
 
 interface GroupChatData {
   dropinId: string;
 }
 
 export const useCreateGroupChat = () => {
+  const authToken = useCookie("auth_token");
+
   const { mutate, isPending, error } = useMutation({
     mutationFn: async (groupChatData: GroupChatData) => {
       const response = await fetch(
@@ -13,6 +16,7 @@ export const useCreateGroupChat = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
           },
           credentials: "include",
           body: JSON.stringify({

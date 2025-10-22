@@ -33,10 +33,18 @@ export const authService = {
   },
 
   verify: async () => {
+    const authToken = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("auth_token="))
+      ?.split("=")[1];
+
     const response = await fetch(
       `${import.meta.env.VITE_MONGODB_URL}/users/verify`,
       {
         credentials: "include",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
       }
     );
     const data = await response.json();
@@ -70,10 +78,18 @@ export const authService = {
   },
 
   logout: async () => {
+    const authToken = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("auth_token="))
+      ?.split("=")[1];
+
     const response = await fetch(
       `${import.meta.env.VITE_MONGODB_URL}/users/logout`,
       {
         method: "POST",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
         credentials: "include",
       }
     );

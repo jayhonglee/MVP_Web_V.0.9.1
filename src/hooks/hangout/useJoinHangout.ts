@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "react-hot-toast";
+import useCookie from "../useCookie";
 
 interface JoinHangoutResponse {
   message: string;
@@ -10,6 +11,7 @@ interface JoinHangoutResponse {
 export const useJoinHangout = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const authToken = useCookie("auth_token");
 
   return useMutation({
     mutationFn: async (hangoutId: string): Promise<JoinHangoutResponse> => {
@@ -18,6 +20,9 @@ export const useJoinHangout = () => {
         {
           method: "POST",
           credentials: "include",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 

@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import useCookie from "../useCookie";
 
 export interface GroupChatUser {
   _id: string;
@@ -8,6 +9,8 @@ export interface GroupChatUser {
 }
 
 export const useGetGroupChatUsersData = (groupChatId: string) => {
+  const authToken = useCookie("auth_token");
+
   const {
     data: users,
     isLoading,
@@ -19,6 +22,9 @@ export const useGetGroupChatUsersData = (groupChatId: string) => {
         `${import.meta.env.VITE_MONGODB_URL}/groupChats/${groupChatId}/users`,
         {
           credentials: "include",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 

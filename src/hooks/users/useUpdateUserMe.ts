@@ -2,9 +2,11 @@ import { User } from "@/context/auth/auth.types";
 import { useAuth } from "@/context/auth/useAuth";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import useCookie from "../useCookie";
 
 export const useUpdateUserMe = () => {
   const queryClient = useQueryClient();
+  const authToken = useCookie("auth_token");
   const { updateUser } = useAuth();
 
   const { mutate, isPending, error } = useMutation({
@@ -15,6 +17,7 @@ export const useUpdateUserMe = () => {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
           },
           credentials: "include",
           body: JSON.stringify(userData),

@@ -1,4 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
+import useCookie from "../useCookie";
 
 interface MessageData {
   groupChat: string;
@@ -6,6 +7,8 @@ interface MessageData {
 }
 
 export const useCreateMessage = () => {
+  const authToken = useCookie("auth_token");
+
   const { mutate, isPending, error } = useMutation({
     mutationFn: async (messageData: MessageData) => {
       const response = await fetch(
@@ -14,6 +17,7 @@ export const useCreateMessage = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${authToken}`,
           },
           credentials: "include",
           body: JSON.stringify({

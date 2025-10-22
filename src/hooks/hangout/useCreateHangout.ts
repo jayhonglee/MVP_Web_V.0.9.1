@@ -1,8 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { DropinData } from "@/routes/createDropin";
 import { toast } from "react-hot-toast";
+import useCookie from "../useCookie";
 
 export const useCreateHangout = () => {
+  const authToken = useCookie("auth_token");
+
   const { mutate, isPending, error } = useMutation({
     mutationFn: async (dropinData: DropinData) => {
       const formData = new FormData();
@@ -31,6 +34,9 @@ export const useCreateHangout = () => {
         {
           method: "POST",
           credentials: "include",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
           body: formData,
         }
       );

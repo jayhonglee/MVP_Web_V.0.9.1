@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
+import useCookie from "../useCookie";
 
 export const useJoinedDropins = (userId: string) => {
+  const authToken = useCookie("auth_token");
+
   const {
     data: joinedDropins,
     isLoading,
@@ -12,6 +15,9 @@ export const useJoinedDropins = (userId: string) => {
         `${import.meta.env.VITE_MONGODB_URL}/users/me/joinedDropins`,
         {
           credentials: "include",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 

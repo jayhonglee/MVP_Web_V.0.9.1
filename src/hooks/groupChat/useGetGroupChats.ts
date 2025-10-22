@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
+import useCookie from "../useCookie";
 
 export const useGetGroupChats = () => {
+  const authToken = useCookie("auth_token");
+
   const {
     data: groupChats,
     isLoading,
@@ -12,6 +15,9 @@ export const useGetGroupChats = () => {
         `${import.meta.env.VITE_MONGODB_URL}/groupChats/me`,
         {
           credentials: "include",
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
         }
       );
 
