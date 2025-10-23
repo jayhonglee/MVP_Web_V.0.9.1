@@ -6,6 +6,7 @@ import { useUpdateUserMe } from "@/hooks/users/useUpdateUserMe";
 import { useUpdateProfilePictureMe } from "@/hooks/users/useUpdateProfileMe";
 import { useCreatedDropins } from "@/hooks/users/useCreatedDropins";
 import { useJoinedDropins } from "@/hooks/users/useJoinedDropins";
+import { toast } from "react-hot-toast";
 import EditInfoModal from "@/components/profile/EditInfoModal";
 import EditInterestsModal from "@/components/profile/EditInterestsModal";
 
@@ -83,7 +84,27 @@ function ProfileIndex() {
             onChange={(e) => {
               const file = e.target.files?.[0];
               if (file) {
-                // Handle file upload logic here
+                // Check file size (5MB = 5 * 1024 * 1024 bytes)
+                const maxSize = 5 * 1024 * 1024; // 5MB
+                const fileSizeMB = file.size / (1024 * 1024);
+
+                if (file.size > maxSize) {
+                  toast.error(
+                    `File size is ${fileSizeMB.toFixed(2)}MB. Maximum allowed size is 5MB.`
+                  );
+                  // Clear the input so user can select another file
+                  e.target.value = "";
+                  return;
+                }
+
+                // Check file type
+                const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+                if (!allowedTypes.includes(file.type)) {
+                  toast.error("Only JPEG and PNG images are allowed.");
+                  e.target.value = "";
+                  return;
+                }
+
                 console.log("file", file);
                 updateProfilePicture(file);
                 console.log("userData", userData);
