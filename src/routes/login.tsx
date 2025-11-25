@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/context/auth/useAuth";
 import { useMutation } from "@tanstack/react-query";
@@ -14,6 +14,30 @@ function RouteComponent() {
   const isValidEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
+  useEffect(() => {
+    const checkGapi = setInterval(() => {
+      if (window.gapi && window.gapi.signin2) {
+        window.gapi.signin2.render("my-signin2", {
+          scope: "profile email",
+          width: 240,
+          height: 50,
+          longtitle: true,
+          theme: "dark",
+          onsuccess: onSignIn,
+        });
+        clearInterval(checkGapi);
+      }
+    }, 500);
+
+    function onSignIn(googleUser) {
+      const profile = googleUser.getBasicProfile();
+      console.log("ID:", profile.getId());
+      console.log("Name:", profile.getName());
+      console.log("Email:", profile.getEmail());
+    }
+
+    return () => clearInterval(checkGapi);
+  }, []);
 
   const loginMutation = useMutation({
     mutationFn: async (userData: { email: string; password: string }) => {
@@ -104,6 +128,7 @@ function RouteComponent() {
         >
           Sign up
         </button>
+        <div id="my-signin2"></div>
 
         <p className="text-center text-[12px] mobile:text-[16px] font-[400] leading-[20px] mobile:leading-[24px] tracking-[-0.25px] text-[rgb(102,96,96)]">
           Your data is secure and will not be shared with third parties.
